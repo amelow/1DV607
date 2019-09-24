@@ -5,4 +5,4 @@
  * @author amelielowe
  *
  */
-package theYahtClub;
+package theYachtClub;

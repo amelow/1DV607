@@ -1,4 +1,4 @@
-package theYahtClub;
+package theYachtClub;
 
 public class Member {
 
