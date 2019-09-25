@@ -2,13 +2,13 @@ package theYachtClub;
 
 public class Boat {
 	private int length;
-	private String type;
+	private Enum type;
 
 	public Boat() {
 
 	}
 
-	public Boat(String Type, int Length) {
+	public Boat(Enum Type, int Length) {
 		this.type = Type;
 		this.length = Length;
 	}
@@ -20,6 +20,6 @@ public class Boat {
 	public int getLength() {
 		return this.length;
 	}
-	
+	//public void 
 
 }
