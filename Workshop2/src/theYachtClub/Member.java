@@ -4,7 +4,7 @@ public class Member {
 	private String name;
 	private String personNum;
 	private int amountOfBoats;
-	private int ID;
+	private int memberId;
 
 	/*
 	 * Constructors
@@ -12,7 +12,6 @@ public class Member {
 	public Member() {
 	}
 	public Member(String Name, String num){		
-		//this.ID = ID;
 		this.name = Name;
 		this.personNum = num;
 	}
@@ -46,11 +45,11 @@ public class Member {
 
 	// Getter and Setter for Id number
 	public void setID(int id) {
-		this.ID = id;
+		this.memberId = id;
 	}
 
 	public int getID() {
-		return ID;
+		return memberId;
 	}
 
 }
