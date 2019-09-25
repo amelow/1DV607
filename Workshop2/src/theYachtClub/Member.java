@@ -11,7 +11,11 @@ public class Member {
 	 */
 	public Member() {
 	}
-
+	public Member(String Name, String num){		
+		//this.ID = ID;
+		this.name = Name;
+		this.personNum = num;
+	}
 	// Getter and Setter for Name
 	public void setName(String Name) {
 		this.name = Name;
