@@ -2,13 +2,13 @@ package theYachtClub;
 
 public class Boat {
 	private int length;
-	private Enum type;
+	private BoatTypes type;
 
 	public Boat() {
 
 	}
 
-	public Boat(Enum Type, int Length) {
+	public Boat(BoatTypes Type, int Length) {
 		this.type = Type;
 		this.length = Length;
 	}
@@ -20,6 +20,12 @@ public class Boat {
 	public int getLength() {
 		return this.length;
 	}
-	//public void 
+	public void setType(BoatTypes Type) {
+		this.type = Type;
+		
+	}
+	public BoatTypes getType() {
+		return this.type;
+	}
 
 }
