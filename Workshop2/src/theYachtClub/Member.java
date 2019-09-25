@@ -1,10 +1,12 @@
 package theYachtClub;
 
 public class Member {
+	private String name;
+	private String personNum;
+	private int amountOfBoats;
+	private int id;
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("test");
+	public Member() {
 
 	}
 
