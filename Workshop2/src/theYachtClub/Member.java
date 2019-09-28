@@ -64,7 +64,8 @@ public class Member {
 		amountOfBoats++;
 	}
 
-	public void deleteBoat() {
+	public void deleteBoat(int removeBoat) {
+		boatList.remove(removeBoat);
 		amountOfBoats--;
 	}
 
