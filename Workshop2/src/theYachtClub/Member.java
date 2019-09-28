@@ -8,7 +8,7 @@ public class Member {
 	private int amountOfBoats;
 	private int memberId;
 
-	ArrayList<Boat> boats = new ArrayList<Boat>();
+	ArrayList<Boat> boatList = new ArrayList<Boat>();
 
 	/*
 	 * Constructors
@@ -58,9 +58,10 @@ public class Member {
 		return memberId;
 	}
 
-	public void addBoat() {
+	public void addBoat(BoatTypes t, int l) {
+		Boat boat = new Boat(t, l);
+		boatList.add(boat);
 		amountOfBoats++;
-
 	}
 
 	public void deleteBoat() {
