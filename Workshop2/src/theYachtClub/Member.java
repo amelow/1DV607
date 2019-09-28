@@ -58,6 +58,9 @@ public class Member {
 		return memberId;
 	}
 
+	/*
+	 * TODO add form of checker (if(id==memID)) then delete/add
+	 */
 	public void addBoat(BoatTypes t, int l) {
 		Boat boat = new Boat(t, l);
 		boatList.add(boat);
