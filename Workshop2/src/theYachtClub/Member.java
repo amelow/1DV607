@@ -67,5 +67,9 @@ public class Member {
 	public void deleteBoat() {
 		amountOfBoats--;
 	}
+	
+	public ArrayList<Boat> getBoatList() {
+		return new ArrayList<Boat>(boatList);
+	}
 
 }

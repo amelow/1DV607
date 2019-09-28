@@ -12,12 +12,12 @@ public class Controller {
 	 * The menu for the user
 	 */
 	
-	public static void welcomeM() {
+	public void welcomeM() {
 		v.welcome();
 		startM();
 	}
 	
-	public static void startM() {
+	public void startM() {
 		v.mainMenu();
 		userIn = scan.next();
 		
@@ -40,9 +40,12 @@ public class Controller {
 			}
 			default {
 				v.invalid();
+				startM();
 				break;
 			}
 		}
 	}
+	
+	
 
 }

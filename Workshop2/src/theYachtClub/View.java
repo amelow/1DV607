@@ -40,5 +40,19 @@ public class View {
 		}
 	}
 	
+	public void verboseList() {
+		if () {
+			/*
+			 * @TODO - memberslist empty
+			 */
+		}
+		
+		else {
+			for (Member member : m) {
+				System.out.println(member.getName() + "," + "," + member.getPersonNum() + "," + member.getID() + ",Boats:");
+			}
+		}
+	}
+	
 	
 }
