@@ -8,7 +8,7 @@ public class Member {
 	private int amountOfBoats;
 	private int memberId;
 
-	ArrayList<Boat> boatList = new ArrayList<Boat>();
+	private ArrayList<Boat> boatList = new ArrayList<Boat>();
 
 	/*
 	 * Constructors
@@ -70,6 +70,10 @@ public class Member {
 	public void deleteBoat(int removeBoat) {
 		boatList.remove(removeBoat);
 		amountOfBoats--;
+	}
+	
+	public ArrayList<Boat> getBoatList() {
+		return new ArrayList<Boat>(boatList);
 	}
 
 }
