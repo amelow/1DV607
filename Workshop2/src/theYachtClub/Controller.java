@@ -12,9 +12,37 @@ public class Controller {
 	 * The menu for the user
 	 */
 	
-	public static void startM() {
-		String selection = v.mainMenu();
+	public static void welcomeM() {
+		v.welcome();
+		startM();
 	}
 	
-	
+	public static void startM() {
+		v.mainMenu();
+		userIn = scan.next();
+		
+		switch(userIn) {
+			case("1") {
+				v.compactList();
+				break;
+			}
+			case("2") {
+				v.verboseList();
+				break;
+			}
+			case("3") {
+				v.addMember();
+				break;
+			}
+			case("Q") {
+				v.saveQuit();
+				break;
+			}
+			default {
+				v.invalid();
+				break;
+			}
+		}
+	}
+
 }

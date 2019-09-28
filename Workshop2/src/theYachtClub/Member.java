@@ -8,7 +8,7 @@ public class Member {
 	private int amountOfBoats;
 	private int memberId;
 
-	ArrayList<Boat> boatList = new ArrayList<Boat>();
+	private ArrayList<Boat> boatList = new ArrayList<Boat>();
 
 	/*
 	 * Constructors
