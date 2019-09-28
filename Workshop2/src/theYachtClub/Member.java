@@ -1,10 +1,14 @@
 package theYachtClub;
 
+import java.util.ArrayList;
+
 public class Member {
 	private String name;
 	private String personNum;
 	private int amountOfBoats;
 	private int memberId;
+
+	ArrayList<Boat> boats = new ArrayList<Boat>();
 
 	/*
 	 * Constructors
@@ -52,6 +56,15 @@ public class Member {
 
 	public int getID() {
 		return memberId;
+	}
+
+	public void addBoat() {
+		amountOfBoats++;
+
+	}
+
+	public void deleteBoat() {
+		amountOfBoats--;
 	}
 
 }
