@@ -11,8 +11,9 @@ public class Member implements MemberInterface {
 
 	private ArrayList<Boat> boatList = new ArrayList<Boat>();
 
-	public Member() {
-	}
+	/*
+	 * public Member() { }
+	 */
 
 	public Member(String Name, String num) {
 		this.name = Name;

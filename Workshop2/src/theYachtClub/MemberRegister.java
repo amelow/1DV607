@@ -7,6 +7,10 @@ public class MemberRegister {
 	private int amountOfMembers;
 	private ArrayList<Member> memList = new ArrayList<Member>();
 
+	public void CreateMember(String name, String num) {
+		Member member = new Member(name, num);
+	}
+
 	public void AddMember(Member member) {
 		memList.add(member);
 		amountOfMembers++;
@@ -14,8 +18,8 @@ public class MemberRegister {
 
 	}
 
-	public void DeleteMember(Member member) {
-		memList.remove(member);
+	public void DeleteMember(int number) {
+		memList.remove(number);
 
 	}
 
@@ -24,6 +28,14 @@ public class MemberRegister {
 	}
 
 	public void SaveMember() {
+
+	}
+
+	public void UpdateName() {
+
+	}
+
+	public void UpdatePersonNum() {
 
 	}
 }
