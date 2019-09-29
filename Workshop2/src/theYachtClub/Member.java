@@ -27,7 +27,6 @@ public class Member implements MemberInterface {
 
 	@Override
 	public String getName() {
-
 		return this.name;
 	}
 
@@ -63,6 +62,7 @@ public class Member implements MemberInterface {
 	public int getAmountOfBoats() {
 		return amountOfBoats;
 	}
+
 	public void addBoat(BoatTypes t, int l) {
 		Boat boat = new Boat(t, l);
 		boatList.add(boat);
