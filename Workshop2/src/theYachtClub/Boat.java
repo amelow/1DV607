@@ -5,7 +5,8 @@ public class Boat implements BoatInterface {
 	private BoatTypes type;
 
 	public Boat() {
-
+		this.setType(BoatTypes.Other);
+		this.setLength(7);
 	}
 
 	public Boat(BoatTypes Type, double Length) {
@@ -29,7 +30,6 @@ public class Boat implements BoatInterface {
 
 	@Override
 	public void setType(BoatTypes Type) {
-
 		this.type = Type;
 	}
 
