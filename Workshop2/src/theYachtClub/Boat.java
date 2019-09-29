@@ -1,6 +1,6 @@
 package theYachtClub;
 
-public class Boat {
+public class Boat implements BoatInterface {
 	private double length;
 	private BoatTypes type;
 
@@ -13,24 +13,28 @@ public class Boat {
 		this.length = Length;
 	}
 
+	@Override
 	public void setLength(double Length) {
 		if (Length > 0) {
 
 		}
 		this.length = Length;
+
 	}
 
+	@Override
 	public double getLength() {
 		return this.length;
 	}
 
+	@Override
 	public void setType(BoatTypes Type) {
-		this.type = Type;
 
+		this.type = Type;
 	}
 
+	@Override
 	public BoatTypes getType() {
 		return this.type;
 	}
-
 }
