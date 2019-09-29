@@ -1,12 +1,17 @@
 package theYachtClub;
 
 import java.util.Scanner;
-import Controller.java;
+
+import javax.swing.text.View;
+
+import View.java;
+import MemberRegister.java;
 
 public class Controller {
 	private String userIn;
 	private Scanner SC = new Scanner(System.in);
 	public static View v = new View();
+	public static MemberRegister MR = new MemberRegister();
 	
 	/**
 	 * The menu for the user
@@ -22,23 +27,37 @@ public class Controller {
 		userIn = scan.next();
 		
 		switch(userIn) {
-			case("1") {
-				v.compactList();
+			case("1"):
+				if(MR.getMemberList() == 0) {
+				v.error();
+				v.mainMenu();
+				}
+				else {
+					v.compactList();
+					v.mainMenu();
+				}
 				break;
-			}
-			case("2") {
-				v.verboseList();
+			
+			case("2"):
+				if(MR.getMemberList() == 0) {
+					v.error();
+					v.mainMenu();
+					}
+				else {
+					v.verboseList();
+					v.mainMenu;
+				}
 				break;
-			}
-			case("3") {
+			
+			case("3"):
 				v.addMember();
 				break;
-			}
-			case("Q") {
+			
+			case("Q") :
 				v.saveQuit();
 				break;
-			}
-			default {
+			
+			default:
 				v.invalid();
 				startM();
 				break;
