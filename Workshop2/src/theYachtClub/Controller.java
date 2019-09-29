@@ -11,7 +11,7 @@ public class Controller {
 	/**
 	 * The menu for the user
 	 */
-	
+/	
 	public void welcomeM() {
 		v.welcome();
 		startM();
@@ -47,5 +47,5 @@ public class Controller {
 	}
 	
 	
-
+*/
 }

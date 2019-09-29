@@ -14,8 +14,10 @@ public class Boat {
 	}
 
 	public void setLength(double Length) {
-		if (Length > 0)
-			this.length = Length;
+		if (Length > 0) {
+
+		}
+		this.length = Length;
 	}
 
 	public double getLength() {
