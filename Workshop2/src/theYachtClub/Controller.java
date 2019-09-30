@@ -22,13 +22,16 @@ public class Controller {
 		userIn = scan.next();
 		switch(userIn) {
 		case("1"):
-			System.out.println("compact");
+			System.out.println("add mem");
 		break;
 		case("2"):
-			System.out.println("Verbose");
+			System.out.println("Change mem");
 		break;
 		case("3"):
-			System.out.println("add mem");
+			System.out.println("compact");
+		break;
+		case("4"):
+			System.out.println("Verbose");
 		break;
 		case("Q"):
 			System.out.println("quit");
