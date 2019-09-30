@@ -62,6 +62,15 @@ public class Controller {
 				yesNo = scan.next();
 				checkYN = yesNo.charAt(0);
 				personNumberAsString = String.valueOf(userLong);
+				if(personNumberAsString.length() != 12) {
+					view.wrongFormat();
+				}
+				for(int i = 0; i < MR.getMemberList().size(); i++) {
+					if(personNumberAsString.equals(MR.getMemberList().get(i).getPersonNum())) {
+						view.userExist();
+						startM();
+					}
+				}
 				int legthOfPersonNum = personNumberAsString.length();
 				if (checkYN == 'y' && legthOfPersonNum == 12) {
 					view.added();

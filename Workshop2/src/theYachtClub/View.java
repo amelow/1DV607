@@ -123,4 +123,14 @@ public class View {
 		System.out.println(noUser);	
 	}
 
+	public void wrongFormat() {
+		System.out.println("Wrong format should be YYYYMMDDXXXX");
+		
+	}
+
+	public void userExist() {
+		System.out.println("Person number exist - returns to start menu");
+		
+	}
+
 }
