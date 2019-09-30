@@ -46,9 +46,16 @@ public class View {
 	}
 	
 	public void saveMember(String str, long id) {
-		String save = "Do you want to save the member with name" + str + "and personal number" + id + "?";
+		String save = "Do you want to save the member with name " + str + " and personal number " + id + "?";
 		
 		System.out.println(save);
+	}
+
+	public void added() {
+		String added = "member is now added";
+		
+		System.out.println(added);
+		
 	}
 
 }

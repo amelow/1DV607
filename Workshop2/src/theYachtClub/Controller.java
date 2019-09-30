@@ -7,6 +7,7 @@ public class Controller {
 	private String yesNo;
 	private long userLong;
 	private char checkYN;
+	private String personNumberAsString;
 	private Scanner scan = new Scanner(System.in);
 	public static View view = new View();
 	public static MemberRegister MR = new MemberRegister();
@@ -57,10 +58,13 @@ public class Controller {
 				view.correctPersonNum(userLong);
 				yesNo = scan.next();
 				checkYN = yesNo.charAt(0);
-				if(checkYN == 'y') {
-					System.out.print("Added");
+				personNumberAsString = String.valueOf(userLong);
+				int legthOfPersonNum = personNumberAsString.length();
+				if(checkYN == 'y' && legthOfPersonNum == 12) {
+					view.added();
 					number = true;
 				}
+			}
 			view.saveMember(userIn, userLong);
 			yesNo = scan.next();
 			checkYN = yesNo.charAt(0);
@@ -68,11 +72,9 @@ public class Controller {
 			//	MR.CreateMember(userIn, userLong);
 				System.out.print("Member saved ");
 				startM();
-				}
-			else {
-				startM();
-			}
-			}
+				} 
+			
+			
 			
 			
 
