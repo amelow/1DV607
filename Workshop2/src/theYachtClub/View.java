@@ -23,6 +23,15 @@ public class View {
 		System.out.println(alt4);
 		System.out.println(SQ);
 	}
+
+	public void AddName() {
+		System.out.println("Please enter your name: ");
+
+	}
+
+	public void AddPersonNum() {
+		System.out.println("Please enter your personal-number: YYYYMMDDXXXX");
+	}
 	/*
 	 * public void compactList() { for (Member member : m) {
 	 * System.out.println(member.getName() + "," + member.getID() + "," + "," +

@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Controller {
 	private String userIn;
+	private long userLong;
 	private Scanner scan = new Scanner(System.in);
 	public static View view = new View();
 	public static MemberRegister MR = new MemberRegister();
@@ -22,7 +23,12 @@ public class Controller {
 		userIn = scan.next();
 		switch (userIn) {
 		case ("1"):
-			System.out.println("add mem");
+			view.AddName();
+			userIn = scan.next();
+			System.out.println("Name:" + userIn);
+			view.AddPersonNum();
+			userLong = scan.nextLong();
+			System.out.println("Personal number:" + userLong);
 			break;
 		case ("2"):
 			System.out.println("Change mem");
