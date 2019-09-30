@@ -2,26 +2,21 @@ package theYachtClub;
 
 import java.util.Scanner;
 
-import javax.swing.text.View;
-
-import View.java;
-import MemberRegister.java;
-
 public class Controller {
 	private String userIn;
-	private Scanner SC = new Scanner(System.in);
+	private Scanner scan = new Scanner(System.in);
 	public static View v = new View();
 	public static MemberRegister MR = new MemberRegister();
-	
+
 	/**
 	 * The menu for the user
 	 */
-/	
+
 	public void welcomeM() {
 		v.welcome();
 		startM();
 	}
-	
+
 	public void startM() {
 		v.mainMenu();
 		userIn = scan.next();
@@ -63,8 +58,4 @@ public class Controller {
 				break;
 			}
 		}
-	}
-	
-	
-*/
 }
