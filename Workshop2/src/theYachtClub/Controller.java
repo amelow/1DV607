@@ -72,13 +72,7 @@ public class Controller {
 				MR.CreateMember(userIn, personNumberAsString);
 				view.memberSaved();
 				startM();
-				} 
-			
-			
-			
-			
-
-
+			} 
 		} else {
 			caseOne();
 		}
