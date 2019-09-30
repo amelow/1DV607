@@ -32,14 +32,23 @@ public class View {
 	public void AddPersonNum() {
 		System.out.println("Please enter your personal-number: YYYYMMDDXXXX");
 	}
-	/*
-	 * public void compactList() { for (Member member : m) {
-	 * System.out.println(member.getName() + "," + member.getID() + "," + "," +
-	 * member.getAmountOfBoats()); } }
-	 * 
-	 * public void verboseList() { for (Member member : m) {
-	 * System.out.println(member.getName() + "," + "," + member.getPersonNum() + ","
-	 * + member.getID() + ", Boats:"); } }
-	 */
+	
+	public void correctName(String str) {
+		String nameQ = "Is this correct? Your name is: " + str + " (y/n)";
+		
+		System.out.println(nameQ);
+	}
+	
+	public void correctPersonNum(long id) {
+		String idPer = "Is this correct? Your person number is: " + id + " (y/n)";
+		
+		System.out.println(idPer);
+	}
+	
+	public void saveMember(String str, long id) {
+		String save = "Do you want to save the member with name" + str + "and personal number" + id + "?";
+		
+		System.out.println(save);
+	}
 
 }

@@ -46,7 +46,7 @@ public class Controller {
 
 		view.AddName();
 		userIn = scan.next();
-		System.out.println("Is this correct? Your name is: " + userIn + " (y/n)");
+		view.CorrectName(userIn);
 		yesNo = scan.next();
 		checkYN = yesNo.charAt(0);
 		if (checkYN == 'y') {
@@ -54,14 +54,14 @@ public class Controller {
 			while(number == false){
 				view.AddPersonNum();
 				userLong = scan.nextLong();
-				System.out.println("Is this correct? Is your personal number following: " + userLong + " (y/n)");
+				view.CorrectPersonNum(userLong);
 				yesNo = scan.next();
 				checkYN = yesNo.charAt(0);
 				if(checkYN == 'y') {
 					System.out.print("Added");
 					number = true;
 				}
-			String save = "Do you want to save the member with name" + userIn + "and personal number" + userLong + "?";
+			view.saveMember(userIn, userLong);
 			yesNo = scan.next();
 			checkYN = yesNo.charAt(0);
 			if(checkYN == 'y') {
