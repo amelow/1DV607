@@ -87,11 +87,18 @@ public class Controller {
 		view.typeID();
 		userIn = scan.next();
 		for(int i = 0; i < MR.getMemberList().size() ; i++) {
-			if (userIn == MR.getMemberList().get(i).getName()) {
-				
+			if (userIn.contentEquals(MR.getMemberList().get(i).getName())) {
+				view.changeMem();
+				userIn = scan.next();
+				switch (userIn) {
+				case ("1"):
+				break;
+				case("2"):
+				break;
 			}
 		}
 		
 		
+	}
 	}
 }

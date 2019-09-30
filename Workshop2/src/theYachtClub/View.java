@@ -14,14 +14,14 @@ public class View {
 		String alt2 = "Change member info(2)";
 		String alt3 = "Show compactlist(3)";
 		String alt4 = "Show verboselist(4)";
-		String SQ = "Save and quit (Q)";
+		String quit = "quit (Q)";
 
 		System.out.println(choose + "\n");
 		System.out.println(alt1);
 		System.out.println(alt2);
 		System.out.println(alt3);
 		System.out.println(alt4);
-		System.out.println(SQ);
+		System.out.println(quit);
 	}
 
 	public void AddName() {
@@ -69,6 +69,21 @@ public class View {
 		String chooseID = "Select the member ID of the member that should be changed";
 		
 		System.out.println(chooseID);
+		
+	}
+
+	public void changeMem() {
+		String choose = "What do you want to do?";
+		String alt1 = "add boat(1)";
+		String alt2 = "delete boat(2)";
+		String alt3 = "Change Name(3)";
+		String quit = "quit (Q)";
+
+		System.out.println(choose + "\n");
+		System.out.println(alt1);
+		System.out.println(alt2);
+		System.out.println(alt3);
+		System.out.println(quit);
 		
 	}
 
