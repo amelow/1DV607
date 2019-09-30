@@ -3,7 +3,7 @@ package theYachtClub;
 public class View {
 
 	public void welcome() {
-		String hi = "Hi and Welcome!";
+		String hi = "Hi and Welcome!"+ "\n";
 		System.out.println(hi);
 
 	}
@@ -21,17 +21,14 @@ public class View {
 		System.out.println(alt3);
 		System.out.println(SQ);
 	}
-
-	public void compactList() {
-		for (Member member : m) {
-			System.out.println(member.getName() + "," + member.getID() + "," + "," + member.getAmountOfBoats());
-		}
-	}
-
-	public void verboseList() {
-		for (Member member : m) {
-			System.out.println(member.getName() + "," + "," + member.getPersonNum() + "," + member.getID() + ", Boats:");
-		}
-	}
+	/*
+	 * public void compactList() { for (Member member : m) {
+	 * System.out.println(member.getName() + "," + member.getID() + "," + "," +
+	 * member.getAmountOfBoats()); } }
+	 * 
+	 * public void verboseList() { for (Member member : m) {
+	 * System.out.println(member.getName() + "," + "," + member.getPersonNum() + ","
+	 * + member.getID() + ", Boats:"); } }
+	 */
 
 }

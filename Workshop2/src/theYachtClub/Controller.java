@@ -20,10 +20,25 @@ public class Controller {
 	public void startM() {
 		v.mainMenu();
 		userIn = scan.next();
-		
 		switch(userIn) {
+		case("1"):
+			System.out.println("compact");
+		break;
+		case("2"):
+			System.out.println("Verbose");
+		break;
+		case("3"):
+			System.out.println("add mem");
+		break;
+		case("Q"):
+			System.out.println("quit");
+		}
+		
+		
+		
+	/*	switch(userIn) {
 			case("1"):
-				if(MR.getMemberList() == 0) {
+			if(MR.getMemberList() == 0) {
 				v.error();
 				v.mainMenu();
 				}
@@ -56,6 +71,7 @@ public class Controller {
 				v.invalid();
 				startM();
 				break;
-			}
+			}*/
 		}
+
 }
