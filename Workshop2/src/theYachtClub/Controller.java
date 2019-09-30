@@ -46,7 +46,7 @@ public class Controller {
 
 		view.AddName();
 		userIn = scan.next();
-		view.CorrectName(userIn);
+		view.correctName(userIn);
 		yesNo = scan.next();
 		checkYN = yesNo.charAt(0);
 		if (checkYN == 'y') {
@@ -54,7 +54,7 @@ public class Controller {
 			while(number == false){
 				view.AddPersonNum();
 				userLong = scan.nextLong();
-				view.CorrectPersonNum(userLong);
+				view.correctPersonNum(userLong);
 				yesNo = scan.next();
 				checkYN = yesNo.charAt(0);
 				if(checkYN == 'y') {
@@ -65,10 +65,13 @@ public class Controller {
 			yesNo = scan.next();
 			checkYN = yesNo.charAt(0);
 			if(checkYN == 'y') {
-				MR.CreateMember(userIn, userLong);
+			//	MR.CreateMember(userIn, userLong);
 				System.out.print("Member saved ");
 				startM();
 				}
+			else {
+				startM();
+			}
 			}
 			
 			
