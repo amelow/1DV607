@@ -87,4 +87,9 @@ public class View {
 		
 	}
 
+	public void printMemList() {
+		System.out.print("Should print a list - TO BE DONE");
+		
+	}
+
 }

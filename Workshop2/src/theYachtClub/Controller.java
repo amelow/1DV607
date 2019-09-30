@@ -30,7 +30,6 @@ public class Controller {
 			caseOne();
 			break;
 		case ("2"):
-			System.out.println("Change mem");
 			caseTwo();
 			break;
 		case ("3"):
@@ -41,6 +40,8 @@ public class Controller {
 			break;
 		case ("Q"):
 			System.out.println("quit");
+		default:
+			startM();
 		}
 
 	}
@@ -83,7 +84,7 @@ public class Controller {
 	}
 	
 	private void caseTwo() {
-		//view.printMemList();
+		view.printMemList();
 		view.typeID();
 		userIn = scan.next();
 		for(int i = 0; i < MR.getMemberList().size() ; i++) {
@@ -95,6 +96,11 @@ public class Controller {
 				break;
 				case("2"):
 				break;
+				case("3"):
+					userIn = scan.next();
+					view.correctName(userIn);
+					MR.getMemberList().get(i).setName(userIn);
+					break;
 			}
 		}
 		
