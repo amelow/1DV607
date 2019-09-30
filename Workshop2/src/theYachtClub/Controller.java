@@ -33,7 +33,7 @@ public class Controller {
 			caseTwo();
 			break;
 		case ("3"):
-			System.out.println("compact");
+			caseThree();
 			break;
 		case ("4"):
 			System.out.println("Verbose");
@@ -55,7 +55,7 @@ public class Controller {
 		checkYN = yesNo.charAt(0);
 		if (checkYN == 'y') {
 			boolean number = false;
-			while(number == false){
+			while (number == false) {
 				view.AddPersonNum();
 				userLong = scan.nextLong();
 				view.correctPersonNum(userLong);
@@ -63,7 +63,7 @@ public class Controller {
 				checkYN = yesNo.charAt(0);
 				personNumberAsString = String.valueOf(userLong);
 				int legthOfPersonNum = personNumberAsString.length();
-				if(checkYN == 'y' && legthOfPersonNum == 12) {
+				if (checkYN == 'y' && legthOfPersonNum == 12) {
 					view.added();
 					number = true;
 				}
@@ -71,40 +71,53 @@ public class Controller {
 			view.saveMember(userIn, userLong);
 			yesNo = scan.next();
 			checkYN = yesNo.charAt(0);
-			if(checkYN == 'y') {
+			if (checkYN == 'y') {
 				MR.CreateMember(userIn, personNumberAsString);
 				view.memberSaved();
 				startM();
-			} 
-		} 
-		else {
+			}
+		} else {
 			caseOne();
 		}
 
 	}
-	
+
 	private void caseTwo() {
 		view.printMemList();
 		view.typeID();
 		userIn = scan.next();
-		for(int i = 0; i < MR.getMemberList().size() ; i++) {
+		for (int i = 0; i < MR.getMemberList().size(); i++) {
 			if (userIn.contentEquals(MR.getMemberList().get(i).getName())) {
 				view.changeMem();
 				userIn = scan.next();
 				switch (userIn) {
 				case ("1"):
-				break;
-				case("2"):
-				break;
-				case("3"):
+					break;
+				case ("2"):
+					break;
+				case ("3"):
 					userIn = scan.next();
 					view.correctName(userIn);
 					MR.getMemberList().get(i).setName(userIn);
 					break;
+				}
 			}
+
 		}
-		
-		
 	}
+
+	private void caseThree() {
+		view.printListMenu();
+		MR.CompactList();
+		userIn = scan.next();
+		switch (userIn) {
+		case ("1"):
+			System.out.print("VERBOSE");
+			break;
+		case ("2"):
+			startM();
+			break;
+		}
+
 	}
 }

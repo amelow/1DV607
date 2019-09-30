@@ -29,22 +29,45 @@ public class MemberRegister {
 
 	}
 
-	public void GetMember() {
+	/*
+	 * “Compact List”; name, member id and number of boats “Verbose List”; name,
+	 * personal number, member id and boats with boat information
+	 */
+	public void CompactList() {
+		for (int i = 0; i < memList.size(); i++) {
+			System.out.println("Name: " + memList.get(i).getName() + "ID: " + memList.get(i).getID() + "Boats: "
+					+ memList.get(i).getAmountOfBoats());
+
+		}
 
 	}
 
-	public void SaveMember() {
+	public void printVerbose() {
+		for (int i = 0; i < memList.size(); i++) {
+			System.out.println("Name: " + memList.get(i).getName() + "Personal-number: " + memList.get(i).getPersonNum()
+					+ "ID: " + memList.get(i).getID() + "Boats: " + memList.get(i).getAmountOfBoats());
+
+		}
 
 	}
 
-	public void UpdateName() {
-
-	}
-
-	public void UpdatePersonNum() {
-
-	}
-
+	/*
+	 * public void GetMember() {
+	 * 
+	 * }
+	 * 
+	 * public void SaveMember() {
+	 * 
+	 * }
+	 * 
+	 * public void UpdateName() {
+	 * 
+	 * }
+	 * 
+	 * public void UpdatePersonNum() {
+	 * 
+	 * }
+	 */
 	public ArrayList<Member> getMemberList() {
 		return memList;
 	}
