@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Controller {
 	private String userIn;
-	private int userInt;
+	// private int userInt;
 	private String yesNo;
 	private long userLong;
 	private char checkYN;
@@ -14,11 +14,8 @@ public class Controller {
 	public static MemberRegister MR = new MemberRegister();
 
 	/**
-	 * TODO/ Fix:
-	 * 1,member is saved before entering it in the switchcase
-	 * 2,no output to the user of wrong personnum
-	 * 3,Adding boat
-	 * 4, getting the ID number
+	 * TODO/ Fix: 1,member is saved before entering it in the switchcase 2,no output
+	 * to the user of wrong personnum 3,Adding boat 4, getting the ID number
 	 */
 
 	public void welcomeM() {
@@ -51,7 +48,6 @@ public class Controller {
 	}
 
 	public void caseOne() {
-
 		view.AddName();
 		userIn = scan.next();
 		view.correctName(userIn);
@@ -72,6 +68,8 @@ public class Controller {
 					number = true;
 				}
 			}
+//			MR.getID();
+//			view.printID();
 			view.saveMember(userIn, userLong);
 			yesNo = scan.next();
 			checkYN = yesNo.charAt(0);

@@ -3,8 +3,9 @@ package theYachtClub;
 import java.util.ArrayList;
 
 public class MemberRegister {
-	private long id = 1040;
+	private int id = 1040;
 	private int amountOfMembers;
+	private Member mem;
 	private ArrayList<Member> memList = new ArrayList<Member>();
 
 	public void CreateMember(String name, String num) {
@@ -13,6 +14,7 @@ public class MemberRegister {
 	}
 
 	public void AddMember(Member member) {
+		member.setID(id);
 		memList.add(member);
 		amountOfMembers++;
 		id++;
@@ -35,8 +37,8 @@ public class MemberRegister {
 	 */
 	public void CompactList() {
 		for (int i = 0; i < memList.size(); i++) {
-			System.out.println("Name: " + memList.get(i).getName() + "ID: " + memList.get(i).getID() + "Boats: "
-					+ memList.get(i).getAmountOfBoats());
+			System.out.println("Name: " + memList.get(i).getName() + " " + "ID: " + memList.get(i).getID() + " "
+					+ "Boats: " + memList.get(i).getAmountOfBoats());
 
 		}
 
@@ -45,9 +47,15 @@ public class MemberRegister {
 	public void printVerbose() {
 		for (int i = 0; i < memList.size(); i++) {
 			System.out.println("Name: " + memList.get(i).getName() + "Personal-number: " + memList.get(i).getPersonNum()
-					+ "ID: " + memList.get(i).getID() + "Boats: " + memList.get(i).getAmountOfBoats());
+					+ "ID: " + memList.get(i).getID() + "Boats: " + memList.get(i).getAmountOfBoats() + "Type: "
+					+ memList.get(i));
 
 		}
+
+	}
+
+	public long getID() {
+		return id;
 
 	}
 

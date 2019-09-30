@@ -87,11 +87,15 @@ public class View {
 		System.out.print("Should print a list - TO BE DONE");
 
 	}
-	
+
 	public void printListMenu() {
 		System.out.println("The Compact list:" + "\n");
 		System.out.println("To see the verboselist, enter(1)");
 		System.out.println("To go back to the main menu,enter(2)");
+	}
+
+	public void printID() {
+		System.out.print("MEMBER ID:");
 	}
 
 }
