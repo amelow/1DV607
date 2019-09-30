@@ -50,9 +50,22 @@ public class Controller {
 		yesNo = scan.next();
 		checkYN = yesNo.charAt(0);
 		if (checkYN == 'y') {
-			view.AddPersonNum();
-			userLong = scan.nextLong();
-			System.out.println("Personal number:" + userLong);
+			boolean number = false;
+			while(number == false){
+				view.AddPersonNum();
+				userLong = scan.nextLong();
+				System.out.println("Is this correct? Is your personal number following: " + userLong + " (y/n)");
+				yesNo = scan.next();
+				checkYN = yesNo.charAt(0);
+				if(checkYN == 'y') {
+					System.out.print("Added");
+					number = true;
+					startM();
+				}
+			}
+			
+			
+
 
 		} else {
 			caseOne();
