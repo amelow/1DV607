@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class Controller {
 	private String userIn;
+	private String yesNo;
 	private long userLong;
+	private char checkYN;
 	private Scanner scan = new Scanner(System.in);
 	public static View view = new View();
 	public static MemberRegister MR = new MemberRegister();
@@ -23,12 +25,7 @@ public class Controller {
 		userIn = scan.next();
 		switch (userIn) {
 		case ("1"):
-			view.AddName();
-			userIn = scan.next();
-			System.out.println("Name:" + userIn);
-			view.AddPersonNum();
-			userLong = scan.nextLong();
-			System.out.println("Personal number:" + userLong);
+			caseOne();
 			break;
 		case ("2"):
 			System.out.println("Change mem");
@@ -43,19 +40,23 @@ public class Controller {
 			System.out.println("quit");
 		}
 
-		/*
-		 * switch(userIn) { case("1"): if(MR.getMemberList() == 0) { v.error();
-		 * v.mainMenu(); } else { v.compactList(); v.mainMenu(); } break;
-		 * 
-		 * case("2"): if(MR.getMemberList() == 0) { v.error(); v.mainMenu(); } else {
-		 * v.verboseList(); v.mainMenu; } break;
-		 * 
-		 * case("3"): v.addMember(); break;
-		 * 
-		 * case("Q") : v.saveQuit(); break;
-		 * 
-		 * default: v.invalid(); startM(); break; }
-		 */
 	}
 
+	public void caseOne() {
+
+		view.AddName();
+		userIn = scan.next();
+		System.out.println("Is this correct? Your name is: " + userIn + " (y/n)");
+		yesNo = scan.next();
+		checkYN = yesNo.charAt(0);
+		if (checkYN == 'y') {
+			view.AddPersonNum();
+			userLong = scan.nextLong();
+			System.out.println("Personal number:" + userLong);
+
+		} else {
+			caseOne();
+		}
+
+	}
 }
