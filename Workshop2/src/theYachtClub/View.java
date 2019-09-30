@@ -58,4 +58,11 @@ public class View {
 		
 	}
 
+	public void memberSaved() {
+		String saved = "member is now saved";
+		
+		System.out.println(saved);
+		
+	}
+
 }
