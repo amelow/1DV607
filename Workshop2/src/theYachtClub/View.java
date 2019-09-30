@@ -65,4 +65,11 @@ public class View {
 		
 	}
 
+	public void typeID() {
+		String chooseID = "Select the member ID of the member that should be changed";
+		
+		System.out.println(chooseID);
+		
+	}
+
 }

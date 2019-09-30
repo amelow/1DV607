@@ -20,13 +20,10 @@ public class MemberRegister {
 		amountOfMembers++;
 		id++;
 		System.out.println("Size of memlist: " + memList.size());
-	/*	try {
-			saveFile();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} */
-
+		for (int i = 0; i < memList.size(); i++) {
+			System.out.println(memList.get(i).getName());
+		}
+	
 	}
 
 	public void DeleteMember(int number) {
@@ -50,10 +47,9 @@ public class MemberRegister {
 
 	}
 	
-	public void saveFile() throws IOException {
-	//	FileOutputStream fout= new FileOutputStream ("test.txt");
-	//	ObjectOutputStream oos = new ObjectOutputStream(fout);
-	//	oos.writeObject(memList);
-	//	fout.close();
+	public ArrayList<Member> getMemberList() {
+		return memList;
 	}
+	
+	
 }

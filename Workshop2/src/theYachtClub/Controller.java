@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Controller {
 	private String userIn;
+	private int userInt;
 	private String yesNo;
 	private long userLong;
 	private char checkYN;
@@ -30,6 +31,7 @@ public class Controller {
 			break;
 		case ("2"):
 			System.out.println("Change mem");
+			caseTwo();
 			break;
 		case ("3"):
 			System.out.println("compact");
@@ -73,9 +75,23 @@ public class Controller {
 				view.memberSaved();
 				startM();
 			} 
-		} else {
+		} 
+		else {
 			caseOne();
 		}
 
+	}
+	
+	private void caseTwo() {
+		//view.printMemList();
+		view.typeID();
+		userIn = scan.next();
+		for(int i = 0; i < MR.getMemberList().size() ; i++) {
+			if (userIn == MR.getMemberList().get(i).getName()) {
+				
+			}
+		}
+		
+		
 	}
 }
