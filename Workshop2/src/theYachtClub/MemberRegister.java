@@ -1,8 +1,5 @@
 package theYachtClub;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class MemberRegister {
@@ -23,11 +20,12 @@ public class MemberRegister {
 		for (int i = 0; i < memList.size(); i++) {
 			System.out.println(memList.get(i).getName());
 		}
-	
+
 	}
 
 	public void DeleteMember(int number) {
 		memList.remove(number);
+		amountOfMembers--;
 
 	}
 
@@ -46,10 +44,9 @@ public class MemberRegister {
 	public void UpdatePersonNum() {
 
 	}
-	
+
 	public ArrayList<Member> getMemberList() {
 		return memList;
 	}
-	
-	
+
 }

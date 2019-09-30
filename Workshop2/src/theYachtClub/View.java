@@ -32,44 +32,41 @@ public class View {
 	public void AddPersonNum() {
 		System.out.println("Please enter your personal-number: YYYYMMDDXXXX");
 	}
-	
+
 	public void correctName(String str) {
 		String nameQ = "Is this correct? Your name is: " + str + " (y/n)";
-		
+
 		System.out.println(nameQ);
 	}
-	
+
 	public void correctPersonNum(long id) {
 		String idPer = "Is this correct? Your person number is: " + id + " (y/n)";
-		
+
 		System.out.println(idPer);
 	}
-	
+
 	public void saveMember(String str, long id) {
-		String save = "Do you want to save the member with name " + str + " and personal number " + id + "?";
-		
+		String save = "Do you want to save the member with name " + str + " and personal number " + id + "?(y/n)";
 		System.out.println(save);
 	}
 
 	public void added() {
 		String added = "member is now added";
-		
 		System.out.println(added);
-		
+
 	}
 
 	public void memberSaved() {
 		String saved = "member is now saved";
-		
 		System.out.println(saved);
-		
+
 	}
 
 	public void typeID() {
 		String chooseID = "Select the member ID of the member that should be changed";
-		
+
 		System.out.println(chooseID);
-		
+
 	}
 
 	public void changeMem() {
@@ -84,12 +81,12 @@ public class View {
 		System.out.println(alt2);
 		System.out.println(alt3);
 		System.out.println(quit);
-		
+
 	}
 
 	public void printMemList() {
 		System.out.print("Should print a list - TO BE DONE");
-		
+
 	}
 
 }

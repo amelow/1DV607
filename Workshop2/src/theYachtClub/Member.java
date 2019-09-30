@@ -11,13 +11,12 @@ public class Member implements MemberInterface {
 
 	private ArrayList<Boat> boatList = new ArrayList<Boat>();
 
-	/*
-	 * public Member() { }
-	 */
-
 	public Member(String Name, String num) {
 		this.name = Name;
 		this.personNum = num;
+	}
+
+	public Member() {
 	}
 
 	@Override
