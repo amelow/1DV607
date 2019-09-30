@@ -3,7 +3,7 @@ package theYachtClub;
 import java.util.ArrayList;
 
 public class MemberRegister {
-	private long id = 1040;
+	private String id = 1040;
 	private int amountOfMembers;
 	private ArrayList<Member> memList = new ArrayList<Member>();
 
