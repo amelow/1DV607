@@ -60,7 +60,14 @@ public class Controller {
 				if(checkYN == 'y') {
 					System.out.print("Added");
 					number = true;
-					startM();
+				}
+			String save = "Do you want to save the member with name" + userIn + "and personal number" + userLong + "?";
+			yesNo = scan.next();
+			checkYN = yesNo.charAt(0);
+			if(checkYN == 'y') {
+				CreateMember(userIn, userLong);
+				System.out.print("Member saved ");
+				startM();
 				}
 			}
 			
