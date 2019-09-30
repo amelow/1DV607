@@ -7,7 +7,7 @@ public class MemberRegister {
 	private int amountOfMembers;
 	private ArrayList<Member> memList = new ArrayList<Member>();
 
-	public void CreateMember(String name, String num) {
+	public void CreateMember(String name, long num) {
 		Member member = new Member(name, num);
 	}
 

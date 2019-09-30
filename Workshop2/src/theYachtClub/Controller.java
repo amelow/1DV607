@@ -65,7 +65,7 @@ public class Controller {
 			yesNo = scan.next();
 			checkYN = yesNo.charAt(0);
 			if(checkYN == 'y') {
-				CreateMember(userIn, userLong);
+				MR.CreateMember(userIn, userLong);
 				System.out.print("Member saved ");
 				startM();
 				}
