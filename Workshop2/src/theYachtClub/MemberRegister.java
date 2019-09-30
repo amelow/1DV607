@@ -1,5 +1,8 @@
 package theYachtClub;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class MemberRegister {
@@ -9,12 +12,20 @@ public class MemberRegister {
 
 	public void CreateMember(String name, String num) {
 		Member member = new Member(name, num);
+		AddMember(member);
 	}
 
 	public void AddMember(Member member) {
 		memList.add(member);
 		amountOfMembers++;
 		id++;
+		System.out.println("Size of memlist: " + memList.size());
+	/*	try {
+			saveFile();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} */
 
 	}
 
@@ -37,5 +48,12 @@ public class MemberRegister {
 
 	public void UpdatePersonNum() {
 
+	}
+	
+	public void saveFile() throws IOException {
+	//	FileOutputStream fout= new FileOutputStream ("test.txt");
+	//	ObjectOutputStream oos = new ObjectOutputStream(fout);
+	//	oos.writeObject(memList);
+	//	fout.close();
 	}
 }
