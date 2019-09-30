@@ -14,7 +14,11 @@ public class Controller {
 	public static MemberRegister MR = new MemberRegister();
 
 	/**
-	 * The menu for the user
+	 * TODO/ Fix:
+	 * 1,member is saved before entering it in the switchcase
+	 * 2,no output to the user of wrong personnum
+	 * 3,Adding boat
+	 * 4, getting the ID number
 	 */
 
 	public void welcomeM() {
