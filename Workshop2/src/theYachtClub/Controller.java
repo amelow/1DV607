@@ -116,13 +116,17 @@ public class Controller {
 				deleteBoat(userID);
 				break;
 			case ("3"):
+				changeBoat(index);
+				break;
+			case ("4"):
 				changeName(index);
 				break;
 			}
-			view.noUser();
-			caseTwo();
 		}
+		view.noUser();
+		caseTwo();
 	}
+
 
 	private void caseThree() {
 		MR.CompactList();
@@ -142,7 +146,7 @@ public class Controller {
 			System.out.println("Okay! Hope we will see you again");
 			System.exit(0);
 		}
-		System.out.println("Okay! Back to the main Menu");
+		System.out.println("Okay! Back to the main menu.");
 		startM();
 	}
 
@@ -178,7 +182,15 @@ public class Controller {
 		}
 	}
 
-	private void deleteBoat(int userID) {
+	private void changeBoat(int userID) {
 
+	}
+
+	private void deleteBoat(int userID) {
+		System.out.println("Which boat do you want to delete?");
+		String typeOfBoat = userIn;
+		userIn = scan.next();
+		System.out.print(userIn);
+		MR.getMember(userID).deleteBoat(boats);
 	}
 }

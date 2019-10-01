@@ -35,7 +35,6 @@ public class View {
 		System.out.println("Please enter your personal-number: YYYYMMDDXXXX");
 	}
 
-
 	public void correctName(String str) {
 		String nameQ = "Is this correct? Your name is: " + str + " (y/n)";
 
@@ -55,13 +54,13 @@ public class View {
 
 	public void added() {
 		String added = "--The member is now added--";
-		System.out.println(added);
+		System.out.println(added + "\n");
 
 	}
 
 	public void memberSaved() {
 		String saved = "--The member is now saved--";
-		System.out.println(saved);
+		System.out.println(saved + "\n");
 
 	}
 
@@ -75,13 +74,15 @@ public class View {
 		String choose = "What do you want to do?";
 		String alt1 = "To add a boat, enter(1)";
 		String alt2 = "To delete a boat, enter(2)";
-		String alt3 = "To change your name, enter(3)";
+		String alt3 = "To change the boat info, enter(3)";
+		String alt4 = "To change your name, enter(4)";
 		String quit = "To quit the application, enter(Q)";
 
 		System.out.println(choose + "\n");
 		System.out.println(alt1);
 		System.out.println(alt2);
 		System.out.println(alt3);
+		System.out.println(alt4);
 		System.out.println(quit);
 
 	}
