@@ -221,13 +221,13 @@ public class Controller {
 		if(changesSel == 2 ||changesSel == 3) {
 			System.out.println("Set new type for the boat: ");
 			userIn = scan.next();
-			MR.getMemberList().get(userID).getBoatList().get(boatSelected).setLength(Integer.parseInt(userIn));
-			System.out.println("Length set to: " + userIn);
-			startM();
+			MR.getMemberList().get(userID).getBoatList().get(boatSelected).setType(BoatTypes.getBoatType(userIn));
+			System.out.println("Boat Type set to: " + userIn);
 		}
-		String typeOfBoat = "Kayak";
+		startM();
 		
-		MR.getMemberList().get(userID).getBoatList().get(0).setLength(500);
+		
+		
 	}
 
 	private void deleteBoat(int userID) {
