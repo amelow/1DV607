@@ -199,15 +199,34 @@ public class Controller {
 	}
 
 	private void changeBoat(int userID) {
-
+		
 	}
 
 	private void deleteBoat(int userID) {
-//		MR.getMemberList().get(userID).getBoatList();
-		System.out.println("Which boat do you want to delete?");
+	//	MR.getMemberList().get(userID).getBoatList();
+		int userIndex = 0;
+		for(int i = 0; i < MR.getMemberList().size(); i++) {
+			if(MR.getMemberList().get(i).getID() == userID) {
+				userIndex = i;
+			}
+		}
+		String p;
+		for(int i = 0; i < MR.getMemberList().get(userIndex).getBoatList().size(); i++) {
+		p =	i +" " + MR.getMemberList().get(userIndex).getBoatList().get(i).getType()+ MR.getMemberList().get(userIndex).getBoatList().get(i);
+		System.out.println(p);
+		}
+		System.out.println("Which boat do you want to delete? select the number infront of boat type");
 		String deleteBoat = userIn;
 		deleteBoat = scan.next();
+		int deleteBoatInt = Integer.parseInt(deleteBoat);
+		for(int i = 0; i <= MR.getMemberList().get(userIndex).getBoatList().size(); i++) {
+			String c =i +" "+ MR.getMemberList().get(userIndex).getBoatList().get(i);
+			String r =deleteBoatInt+" "+ MR.getMemberList().get(userIndex).getBoatList().get(i);
+			if(c.equals(r)) {
+				MR.getMember(userIndex).deleteBoat(i);
+			}
 		System.out.print(deleteBoat);
 //		MR.getMember(userID).deleteBoat(boats);
+		}
 	}
 }
