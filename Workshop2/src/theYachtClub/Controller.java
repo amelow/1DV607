@@ -134,7 +134,7 @@ public class Controller {
 		yesNo = scan.next();
 		checkYN = yesNo.charAt(0);
 		if(checkYN == 'Y') {
-			
+	//		boat.setLength(lengthOfBoat);
 		}
 		
 	} 
