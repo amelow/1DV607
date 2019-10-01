@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Controller {
 	private String userIn;
-	private int userInt;
 	private String yesNo;
 	private long userLong;
 	private char checkYN;
@@ -124,15 +123,21 @@ public class Controller {
 
 	
 
-	/*private void addBoat() {
+	private void addBoat() {
 		System.out.println("Type of boat?:");
 		userIn = scan.next();
+		String typeOfBoat = userIn;
 		System.out.println("length of boat?");
-		userInt = scan.nextInt();
-		System.out.println("Is " + userIn + " and length " + userInt + " correct?");
-		checkYN = scan.nextChar();
+		userIn = scan.next();
+		String lengthOfBoat = userIn;
+		System.out.println("Is " + typeOfBoat + " and length " + lengthOfBoat + " correct?");
+		yesNo = scan.next();
+		checkYN = yesNo.charAt(0);
+		if(checkYN == 'Y') {
+			
+		}
 		
-	} */
+	} 
 
 	private void caseThree() {
 		view.printListMenu();
