@@ -212,7 +212,7 @@ public class Controller {
 		}
 		String p;
 		for(int i = 0; i < MR.getMemberList().get(userIndex).getBoatList().size(); i++) {
-		p =	i +" " + MR.getMemberList().get(userIndex).getBoatList().get(i).getType()+ MR.getMemberList().get(userIndex).getBoatList().get(i);
+		p =	i +" " + MR.getMemberList().get(userIndex).getBoatList().get(i).getType()+" "+MR.getMemberList().get(userIndex).getBoatList().get(i).getLength();
 		System.out.println(p);
 		}
 		System.out.println("Which boat do you want to delete? select the number infront of boat type");
@@ -223,11 +223,9 @@ public class Controller {
 			String c =i +" "+ MR.getMemberList().get(userIndex).getBoatList().get(i);
 			String r =deleteBoatInt+" "+ MR.getMemberList().get(userIndex).getBoatList().get(i);
 			if(c.equals(r)) {
-				System.out.println("Se Om jag kommer till c.equals.r");
-				System.out.print(MR.getMember(userIndex)); //Prints Null
-			//	MR.getMember(userIndex).deleteBoat(i); 
+				MR.getMemberList().get(userIndex).deleteBoat(i); 
 			}
-		System.out.print(deleteBoat);
+			System.out.println("Boat is deleted");
 
 		}
 	}
