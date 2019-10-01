@@ -4,7 +4,11 @@ import java.util.Scanner;
 
 public class Controller {
 	private String userIn;
+<<<<<<< HEAD
+	private String yesNo;
+=======
 	private int boats = 0;
+>>>>>>> refs/heads/master
 	private long userLong;
 	private String yesNo;
 	private char checkYN;
@@ -12,6 +16,7 @@ public class Controller {
 	private Scanner scan = new Scanner(System.in);
 	public static View view = new View();
 	public static MemberRegister MR = new MemberRegister();
+	public static Boat boat = new Boat();
 
 	public void welcomeM() {
 		view.welcome();
@@ -57,6 +62,15 @@ public class Controller {
 				yesNo = scan.next();
 				checkYN = yesNo.charAt(0);
 				personNumberAsString = String.valueOf(userLong);
+				if(personNumberAsString.length() != 12) {
+					view.wrongFormat();
+				}
+				for(int i = 0; i < MR.getMemberList().size(); i++) {
+					if(personNumberAsString.equals(MR.getMemberList().get(i).getPersonNum())) {
+						view.userExist();
+						startM();
+					}
+				}
 				int legthOfPersonNum = personNumberAsString.length();
 				if (checkYN == 'y' && legthOfPersonNum == 12) {
 					view.added();
@@ -81,27 +95,49 @@ public class Controller {
 	}
 
 	private void caseTwo() {
-		view.printMemList();
+		view.printMemListForChange(MR.getMemberList());
+		;
 		view.typeID();
 		userIn = scan.next();
+		
 		for (int i = 0; i < MR.getMemberList().size(); i++) {
-			if (userIn.contentEquals(MR.getMemberList().get(i).getName())) {
+			String t = ""+MR.getMemberList().get(i).getID();
+			if (userIn.contentEquals(t)) {
 				view.changeMem();
 				userIn = scan.next();
 				switch (userIn) {
 				case ("1"):
+					addBoat();
 					break;
 				case ("2"):
 					break;
 				case ("3"):
-					userIn = scan.next();
-					view.correctName(userIn);
-					MR.getMemberList().get(i).setName(userIn);
+					changeName(i);
 					break;
 				}
 			}
 		}
+		view.noUser();
+		caseTwo();
 	}
+
+	
+
+	private void addBoat() {
+		System.out.println("Type of boat?:");
+		userIn = scan.next();
+		String typeOfBoat = userIn;
+		System.out.println("length of boat?");
+		userIn = scan.next();
+		String lengthOfBoat = userIn;
+		System.out.println("Is " + typeOfBoat + " and length " + lengthOfBoat + " correct?");
+		yesNo = scan.next();
+		checkYN = yesNo.charAt(0);
+		if(checkYN == 'Y') {
+	//		boat.setLength(lengthOfBoat);
+		}
+		
+	} 
 
 	private void caseThree() {
 		view.printListMenu();
@@ -117,6 +153,26 @@ public class Controller {
 		}
 
 	}
+<<<<<<< HEAD
+	
+	private void changeName(int i) {
+		view.AddName();
+		userIn = scan.next();
+		view.correctName(userIn);
+		yesNo = scan.next();
+		checkYN = yesNo.charAt(0);
+		if (checkYN == 'y') {
+		MR.getMemberList().get(i).setName(userIn);
+		view.changes();
+		startM();
+		}
+		else {
+			view.noChanges();
+			caseTwo();
+		}
+		
+	}
+=======
 
 	private void caseFour() {
 
@@ -126,4 +182,5 @@ public class Controller {
 
 	}
 
+>>>>>>> refs/heads/master
 }

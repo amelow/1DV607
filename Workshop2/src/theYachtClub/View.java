@@ -1,5 +1,7 @@
 package theYachtClub;
 
+import java.util.ArrayList;
+
 public class View {
 
 	public void welcome() {
@@ -87,8 +89,13 @@ public class View {
 
 	}
 
-	public void printMemList() {
-		System.out.print("Should print a list - TO BE DONE");
+	public void printMemListForChange(ArrayList<Member> arrayList) {
+		for (int i = 0; i < arrayList.size(); i++) {
+			String name = arrayList.get(i).getName();
+			int id = arrayList.get(i).getID();
+			String change = "name: " +name +  " Memberid: " + id;
+			System.out.println(change);
+		}
 
 	}
 
@@ -101,4 +108,36 @@ public class View {
 	public void printBoats() {
 		System.out.println("");
 	}
+<<<<<<< HEAD
+
+	public void noChanges() {
+		String no = "No changes made, prints the list of members again";
+		
+		System.out.println(no);
+	}
+
+	public void changes() {
+		String yes = "Changes made, will show the start menu";
+		
+		System.out.println(yes);
+	}
+
+	public void noUser() {
+		String noUser = "No user with that MemID, select again";
+		
+		System.out.println(noUser);	
+	}
+
+	public void wrongFormat() {
+		System.out.println("Wrong format should be YYYYMMDDXXXX");
+		
+	}
+
+	public void userExist() {
+		System.out.println("Person number exist - returns to start menu");
+		
+	}
+
+=======
+>>>>>>> refs/heads/master
 }
