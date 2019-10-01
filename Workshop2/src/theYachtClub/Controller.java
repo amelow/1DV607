@@ -4,11 +4,8 @@ import java.util.Scanner;
 
 public class Controller {
 	private String userIn;
-<<<<<<< HEAD
-	private String yesNo;
-=======
 	private int boats = 0;
->>>>>>> refs/heads/master
+
 	private long userLong;
 	private String yesNo;
 	private char checkYN;
@@ -62,11 +59,11 @@ public class Controller {
 				yesNo = scan.next();
 				checkYN = yesNo.charAt(0);
 				personNumberAsString = String.valueOf(userLong);
-				if(personNumberAsString.length() != 12) {
+				if (personNumberAsString.length() != 12) {
 					view.wrongFormat();
 				}
-				for(int i = 0; i < MR.getMemberList().size(); i++) {
-					if(personNumberAsString.equals(MR.getMemberList().get(i).getPersonNum())) {
+				for (int i = 0; i < MR.getMemberList().size(); i++) {
+					if (personNumberAsString.equals(MR.getMemberList().get(i).getPersonNum())) {
 						view.userExist();
 						startM();
 					}
@@ -77,9 +74,6 @@ public class Controller {
 					number = true;
 				}
 			}
-			view.addBoat();
-			boats = scan.nextInt();
-			MR.getBoats(boats);
 			view.saveMember(userIn, userLong);
 			yesNo = scan.next();
 			checkYN = yesNo.charAt(0);
@@ -99,31 +93,37 @@ public class Controller {
 		;
 		view.typeID();
 		userIn = scan.next();
-		
+		int userID = Integer.parseInt(userIn);
+		int index = -1;
+
 		for (int i = 0; i < MR.getMemberList().size(); i++) {
-			String t = ""+MR.getMemberList().get(i).getID();
-			if (userIn.contentEquals(t)) {
-				view.changeMem();
-				userIn = scan.next();
-				switch (userIn) {
-				case ("1"):
-					addBoat();
-					break;
-				case ("2"):
-					break;
-				case ("3"):
-					changeName(i);
-					break;
-				}
+			if (userID == MR.getMemberList().get(i).getID()) {
+				index = i;
 			}
 		}
-		view.noUser();
-		caseTwo();
+		if (index < 0) {
+			view.noUser();
+			startM();
+		} else {
+			view.changeMem();
+			userIn = scan.next();
+			switch (userIn) {
+			case ("1"):
+				addBoat(userID);
+				startM();
+				break;
+			case ("2"):
+				break;
+			case ("3"):
+				changeName(index);
+				break;
+			}
+			view.noUser();
+			caseTwo();
+		}
 	}
 
-	
-
-	private void addBoat() {
+	private void addBoat(int id) {
 		System.out.println("Type of boat?:");
 		userIn = scan.next();
 		String typeOfBoat = userIn;
@@ -133,11 +133,12 @@ public class Controller {
 		System.out.println("Is " + typeOfBoat + " and length " + lengthOfBoat + " correct?");
 		yesNo = scan.next();
 		checkYN = yesNo.charAt(0);
-		if(checkYN == 'Y') {
-	//		boat.setLength(lengthOfBoat);
+		if (checkYN == 'Y' || checkYN == 'y') {
+			BoatTypes type;
+			MR.getMember(id).addBoat(BoatTypes.getBoatType(typeOfBoat), Integer.parseInt(lengthOfBoat));
 		}
-		
-	} 
+
+	}
 
 	private void caseThree() {
 		view.printListMenu();
@@ -153,8 +154,7 @@ public class Controller {
 		}
 
 	}
-<<<<<<< HEAD
-	
+
 	private void changeName(int i) {
 		view.AddName();
 		userIn = scan.next();
@@ -162,25 +162,23 @@ public class Controller {
 		yesNo = scan.next();
 		checkYN = yesNo.charAt(0);
 		if (checkYN == 'y') {
-		MR.getMemberList().get(i).setName(userIn);
-		view.changes();
-		startM();
-		}
-		else {
+			MR.getMemberList().get(i).setName(userIn);
+			view.changes();
+			startM();
+		} else {
 			view.noChanges();
 			caseTwo();
 		}
-		
+
 	}
-=======
 
 	private void caseFour() {
-
+		MR.printVerbose();
+		startM();
 	}
 
 	private void caseFive() {
 
 	}
 
->>>>>>> refs/heads/master
 }

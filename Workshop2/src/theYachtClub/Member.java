@@ -6,7 +6,7 @@ public class Member implements MemberInterface {
 
 	private String name;
 	private String personNum;
-	private int amountOfBoats;
+	private int amountOfBoats =0;
 	private int memberId;
 
 	private ArrayList<Boat> boatList = new ArrayList<Boat>();
@@ -60,7 +60,7 @@ public class Member implements MemberInterface {
 
 	@Override
 	public int getAmountOfBoats() {
-		return amountOfBoats;
+		return boatList.size();
 	}
 
 	public void addBoat(BoatTypes t, int l) {
