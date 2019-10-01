@@ -225,7 +225,7 @@ public class Controller {
 			if(c.equals(r)) {
 				System.out.println("Se Om jag kommer till c.equals.r");
 				System.out.print(MR.getMember(userIndex)); //Prints Null
-			//	MR.getMember(userIndex).deleteBoat(i);
+			//	MR.getMember(userIndex).deleteBoat(i); 
 			}
 		System.out.print(deleteBoat);
 
