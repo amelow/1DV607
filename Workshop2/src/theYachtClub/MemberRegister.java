@@ -72,28 +72,6 @@ public class MemberRegister {
 		return id;
 
 	}
-
-	public void getBoats(int boats) {
-		//.addBoat(null, amountOfMembers);
-	}
-
-	/*
-	 * public void GetMember() {
-	 * 
-	 * }
-	 * 
-	 * public void SaveMember() {
-	 * 
-	 * }
-	 * 
-	 * public void UpdateName() {
-	 * 
-	 * }
-	 * 
-	 * public void UpdatePersonNum() {
-	 * 
-	 * }
-	 */
 	
 	public Member getMember(int id) {
 		int index = -1;

@@ -96,16 +96,6 @@ public class View {
 
 	}
 
-	public void printListMenu() {
-		System.out.println("The Compact list:" + "\n");
-		System.out.println("To see the verboselist, enter(1)");
-		System.out.println("To go back to the main menu,enter(2)");
-	}
-
-	public void printBoats() {
-		System.out.println("");
-	}
-
 	public void noChanges() {
 		String no = "No changes made, prints the list of members again";
 

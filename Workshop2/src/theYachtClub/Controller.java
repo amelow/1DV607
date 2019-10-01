@@ -50,7 +50,7 @@ public class Controller {
 		view.correctName(userIn);
 		yesNo = scan.next();
 		checkYN = yesNo.charAt(0);
-		if (checkYN == 'y') {
+		if (checkYN == 'Y' || checkYN == 'y') {
 			boolean number = false;
 			while (number == false) {
 				view.AddPersonNum();
@@ -77,7 +77,7 @@ public class Controller {
 			view.saveMember(userIn, userLong);
 			yesNo = scan.next();
 			checkYN = yesNo.charAt(0);
-			if (checkYN == 'y') {
+			if (checkYN == 'Y' || checkYN == 'y') {
 				MR.CreateMember(userIn, personNumberAsString);
 				view.memberSaved();
 				startM();
@@ -113,6 +113,7 @@ public class Controller {
 				startM();
 				break;
 			case ("2"):
+				deleteBoat(userID);
 				break;
 			case ("3"):
 				changeName(index);
@@ -123,36 +124,26 @@ public class Controller {
 		}
 	}
 
-	private void addBoat(int id) {
-		System.out.println("Type of boat?:");
-		userIn = scan.next();
-		String typeOfBoat = userIn;
-		System.out.println("length of boat?");
-		userIn = scan.next();
-		String lengthOfBoat = userIn;
-		System.out.println("Is " + typeOfBoat + " and length " + lengthOfBoat + " correct?");
+	private void caseThree() {
+		MR.CompactList();
+		startM();
+	}
+
+	private void caseFour() {
+		MR.printVerbose();
+		startM();
+	}
+
+	private void caseFive() {
+		System.out.println("Are you sure? Do you want to exit the application? (y/n)");
 		yesNo = scan.next();
 		checkYN = yesNo.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
-			BoatTypes type;
-			MR.getMember(id).addBoat(BoatTypes.getBoatType(typeOfBoat), Integer.parseInt(lengthOfBoat));
+			System.out.println("Okay! Hope we will see you again");
+			System.exit(0);
 		}
-
-	}
-
-	private void caseThree() {
-		view.printListMenu();
-		MR.CompactList();
-		userIn = scan.next();
-		switch (userIn) {
-		case ("1"):
-			caseFour();
-			break;
-		case ("2"):
-			startM();
-			break;
-		}
-
+		System.out.println("Okay! Back to the main Menu");
+		startM();
 	}
 
 	private void changeName(int i) {
@@ -169,16 +160,25 @@ public class Controller {
 			view.noChanges();
 			caseTwo();
 		}
-
 	}
 
-	private void caseFour() {
-		MR.printVerbose();
-		startM();
+	private void addBoat(int id) {
+		System.out.println("Type of boat?:");
+		userIn = scan.next();
+		String typeOfBoat = userIn;
+		System.out.println("length of boat?");
+		userIn = scan.next();
+		String lengthOfBoat = userIn;
+		System.out.println("Is " + typeOfBoat + " and length " + lengthOfBoat + " correct?(y/n)");
+		yesNo = scan.next();
+		checkYN = yesNo.charAt(0);
+		if (checkYN == 'Y' || checkYN == 'y') {
+			BoatTypes type;
+			MR.getMember(id).addBoat(BoatTypes.getBoatType(typeOfBoat), Integer.parseInt(lengthOfBoat));
+		}
 	}
 
-	private void caseFive() {
+	private void deleteBoat(int userID) {
 
 	}
-
 }
