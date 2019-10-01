@@ -199,11 +199,10 @@ public class Controller {
 	}
 
 	private void changeBoat(int userID) {
-		
+	//	MR.getMemberList().get(1040).changeBoat();
 	}
 
 	private void deleteBoat(int userID) {
-	//	MR.getMemberList().get(userID).getBoatList();
 		int userIndex = 0;
 		for(int i = 0; i < MR.getMemberList().size(); i++) {
 			if(MR.getMemberList().get(i).getID() == userID) {
@@ -224,8 +223,9 @@ public class Controller {
 			String r =deleteBoatInt+" "+ MR.getMemberList().get(userIndex).getBoatList().get(i);
 			if(c.equals(r)) {
 				MR.getMemberList().get(userIndex).deleteBoat(i); 
+				System.out.println("Boat is deleted and main menu will be showed");
 			}
-			System.out.println("Boat is deleted");
+			startM();
 
 		}
 	}
