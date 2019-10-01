@@ -126,7 +126,7 @@ public class Controller {
 				break;
 			}
 		}
-		view.noUser();
+		//view.noUser();
 		caseTwo();
 	}
 
@@ -199,7 +199,35 @@ public class Controller {
 	}
 
 	private void changeBoat(int userID) {
-	//	MR.getMemberList().get(1040).changeBoat();
+		System.out.println("Which boat should be changed? select the number infront of the boat type");
+		String p;
+		for(int i = 0; i < MR.getMemberList().get(userID).getBoatList().size(); i++) {
+		p =	i +" " + MR.getMemberList().get(userID).getBoatList().get(i).getType()+" "+MR.getMemberList().get(userID).getBoatList().get(i).getLength();
+		System.out.println(p);
+		}
+		userIn = scan.next();
+		int boatSelected = Integer.parseInt(userIn);
+		System.out.println("Do you want to change length(1), type (2), both (3)");
+		userIn = scan.next();
+		int changesSel = Integer.parseInt(userIn);
+		if(changesSel == 1 ||changesSel == 3) {
+			System.out.println("Set new length for the boat: ");
+			userIn = scan.next();
+			MR.getMemberList().get(userID).getBoatList().get(boatSelected).setLength(Integer.parseInt(userIn));
+			System.out.println("Length set to: " + userIn);
+			
+		//	startM();
+		}
+		if(changesSel == 2 ||changesSel == 3) {
+			System.out.println("Set new type for the boat: ");
+			userIn = scan.next();
+			MR.getMemberList().get(userID).getBoatList().get(boatSelected).setLength(Integer.parseInt(userIn));
+			System.out.println("Length set to: " + userIn);
+			startM();
+		}
+		String typeOfBoat = "Kayak";
+		
+		MR.getMemberList().get(userID).getBoatList().get(0).setLength(500);
 	}
 
 	private void deleteBoat(int userID) {
