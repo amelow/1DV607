@@ -32,8 +32,7 @@ public class MemberRegister {
 	}
 
 	/*
-	 * “Compact List”; name, member id and number of boats “Verbose List”; name,
-	 * personal number, member id and boats with boat information
+	 * “Compact List”; name, member id and number of boats
 	 */
 	public void CompactList() {
 		for (int i = 0; i < memList.size(); i++) {
@@ -44,6 +43,10 @@ public class MemberRegister {
 
 	}
 
+	/*
+	 * “Verbose List”; name, personal number, member id and boats with boat
+	 * information
+	 */
 	public void printVerbose() {
 		for (int i = 0; i < memList.size(); i++) {
 			System.out.println("Name: " + memList.get(i).getName() + "Personal-number: " + memList.get(i).getPersonNum()
@@ -57,6 +60,10 @@ public class MemberRegister {
 	public long getID() {
 		return id;
 
+	}
+
+	public void getBoats(int boats) {
+		//.addBoat(null, amountOfMembers);
 	}
 
 	/*

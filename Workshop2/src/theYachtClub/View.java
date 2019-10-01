@@ -33,6 +33,10 @@ public class View {
 		System.out.println("Please enter your personal-number: YYYYMMDDXXXX");
 	}
 
+	public void addBoat() {
+		System.out.println("Enter the amount of boats you want to register: ");
+	}
+
 	public void correctName(String str) {
 		String nameQ = "Is this correct? Your name is: " + str + " (y/n)";
 
@@ -94,8 +98,7 @@ public class View {
 		System.out.println("To go back to the main menu,enter(2)");
 	}
 
-	public void printID() {
-		System.out.print("MEMBER ID:");
+	public void printBoats() {
+		System.out.println("");
 	}
-
 }
