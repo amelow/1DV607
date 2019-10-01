@@ -4,19 +4,19 @@ import java.util.Scanner;
 
 public class Controller {
 	private String userIn;
+<<<<<<< HEAD
 	private String yesNo;
+=======
+	private int boats = 0;
+>>>>>>> refs/heads/master
 	private long userLong;
+	private String yesNo;
 	private char checkYN;
 	private String personNumberAsString;
 	private Scanner scan = new Scanner(System.in);
 	public static View view = new View();
 	public static MemberRegister MR = new MemberRegister();
 	public static Boat boat = new Boat();
-
-	/**
-	 * TODO/ Fix: 1,member is saved before entering it in the switchcase 2,no output
-	 * to the user of wrong personnum 3,Adding boat 4, getting the ID number
-	 */
 
 	public void welcomeM() {
 		view.welcome();
@@ -37,10 +37,10 @@ public class Controller {
 			caseThree();
 			break;
 		case ("4"):
-			System.out.println("Verbose");
+			caseFour();
 			break;
 		case ("Q"):
-			System.out.println("quit");
+			caseFive();
 		default:
 			startM();
 		}
@@ -77,8 +77,9 @@ public class Controller {
 					number = true;
 				}
 			}
-//			MR.getID();
-//			view.printID();
+			view.addBoat();
+			boats = scan.nextInt();
+			MR.getBoats(boats);
 			view.saveMember(userIn, userLong);
 			yesNo = scan.next();
 			checkYN = yesNo.charAt(0);
@@ -115,7 +116,6 @@ public class Controller {
 					break;
 				}
 			}
-
 		}
 		view.noUser();
 		caseTwo();
@@ -145,7 +145,7 @@ public class Controller {
 		userIn = scan.next();
 		switch (userIn) {
 		case ("1"):
-			System.out.print("VERBOSE");
+			caseFour();
 			break;
 		case ("2"):
 			startM();
@@ -153,6 +153,7 @@ public class Controller {
 		}
 
 	}
+<<<<<<< HEAD
 	
 	private void changeName(int i) {
 		view.AddName();
@@ -171,4 +172,15 @@ public class Controller {
 		}
 		
 	}
+=======
+
+	private void caseFour() {
+
+	}
+
+	private void caseFive() {
+
+	}
+
+>>>>>>> refs/heads/master
 }
