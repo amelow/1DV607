@@ -219,14 +219,16 @@ public class Controller {
 		String deleteBoat = userIn;
 		deleteBoat = scan.next();
 		int deleteBoatInt = Integer.parseInt(deleteBoat);
-		for(int i = 0; i <= MR.getMemberList().get(userIndex).getBoatList().size(); i++) {
+		for(int i = 0; i < MR.getMemberList().get(userIndex).getBoatList().size(); i++) {
 			String c =i +" "+ MR.getMemberList().get(userIndex).getBoatList().get(i);
 			String r =deleteBoatInt+" "+ MR.getMemberList().get(userIndex).getBoatList().get(i);
 			if(c.equals(r)) {
-				MR.getMember(userIndex).deleteBoat(i);
+				System.out.println("Se Om jag kommer till c.equals.r");
+				System.out.print(MR.getMember(userIndex)); //Prints Null
+			//	MR.getMember(userIndex).deleteBoat(i);
 			}
 		System.out.print(deleteBoat);
-//		MR.getMember(userID).deleteBoat(boats);
+
 		}
 	}
 }
