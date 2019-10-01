@@ -76,6 +76,7 @@ public class View {
 		String alt2 = "To delete a boat, enter(2)";
 		String alt3 = "To change the boat info, enter(3)";
 		String alt4 = "To change your name, enter(4)";
+		String alt5 = "To delete a member, enter(5)";
 		String quit = "To quit the application, enter(Q)";
 
 		System.out.println(choose + "\n");
@@ -83,6 +84,7 @@ public class View {
 		System.out.println(alt2);
 		System.out.println(alt3);
 		System.out.println(alt4);
+		System.out.println(alt5);
 		System.out.println(quit);
 
 	}

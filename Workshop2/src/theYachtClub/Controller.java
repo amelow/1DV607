@@ -121,12 +121,14 @@ public class Controller {
 			case ("4"):
 				changeName(index);
 				break;
+			case ("5"):
+				deleteMember(index);
+				break;
 			}
 		}
 		view.noUser();
 		caseTwo();
 	}
-
 
 	private void caseThree() {
 		MR.CompactList();
@@ -166,6 +168,20 @@ public class Controller {
 		}
 	}
 
+	private void deleteMember(int id) {
+		System.out.println("Are you sure? Do you want to delete the member?" + id + "(y/n)");
+		yesNo = scan.next();
+		checkYN = yesNo.charAt(0);
+		if (checkYN == 'Y' || checkYN == 'y') {
+			System.out.println("--The member gets deleted--");
+			MR.DeleteMember(id);
+		} else {
+			System.out.println("Okay back to the main menu");
+			startM();
+		}
+
+	}
+
 	private void addBoat(int id) {
 		System.out.println("Type of boat?:");
 		userIn = scan.next();
@@ -187,10 +203,11 @@ public class Controller {
 	}
 
 	private void deleteBoat(int userID) {
+//		MR.getMemberList().get(userID).getBoatList();
 		System.out.println("Which boat do you want to delete?");
-		String typeOfBoat = userIn;
-		userIn = scan.next();
-		System.out.print(userIn);
-		MR.getMember(userID).deleteBoat(boats);
+		String deleteBoat = userIn;
+		deleteBoat = scan.next();
+		System.out.print(deleteBoat);
+//		MR.getMember(userID).deleteBoat(boats);
 	}
 }
