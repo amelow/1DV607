@@ -53,7 +53,7 @@ public class MemberRegister {
 			System.out.println("Personal Number: "+memList.get(i).getPersonNum());
 			System.out.println("ID: "+memList.get(i).getID());
 			System.out.println("Number of Boats: "+memList.get(i).getAmountOfBoats());
-			if (memList.get(i).getAmountOfBoats() >0) {
+			if (memList.get(i).getAmountOfBoats() > 0) {
 				System.out.println("Registered Boats");
 				System.out.println("-----------------------------------");
 				for (int j = 0; j <memList.get(i).getAmountOfBoats(); j++) {
@@ -92,5 +92,7 @@ public class MemberRegister {
 	public ArrayList<Member> getMemberList() {
 		return memList;
 	}
+	
+	
 
 }
