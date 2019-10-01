@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Controller {
 	private String userIn;
-	// private int userInt;
+	private int userInt;
 	private String yesNo;
 	private long userLong;
 	private char checkYN;
@@ -12,6 +12,7 @@ public class Controller {
 	private Scanner scan = new Scanner(System.in);
 	public static View view = new View();
 	public static MemberRegister MR = new MemberRegister();
+	public static Boat boat = new Boat();
 
 	/**
 	 * TODO/ Fix: 1,member is saved before entering it in the switchcase 2,no output
@@ -106,6 +107,7 @@ public class Controller {
 				userIn = scan.next();
 				switch (userIn) {
 				case ("1"):
+					addBoat();
 					break;
 				case ("2"):
 					break;
@@ -121,6 +123,16 @@ public class Controller {
 	}
 
 	
+
+	/*private void addBoat() {
+		System.out.println("Type of boat?:");
+		userIn = scan.next();
+		System.out.println("length of boat?");
+		userInt = scan.nextInt();
+		System.out.println("Is " + userIn + " and length " + userInt + " correct?");
+		checkYN = scan.nextChar();
+		
+	} */
 
 	private void caseThree() {
 		view.printListMenu();
