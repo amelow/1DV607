@@ -18,10 +18,6 @@ public class MemberRegister {
 		memList.add(member);
 		amountOfMembers++;
 		id++;
-	/*	for (int i = 0; i < memList.size(); i++) {
-			System.out.println(memList.get(i).getName());
-		}*/
-
 	}
 
 	public void DeleteMember(int number) {
