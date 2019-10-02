@@ -1,5 +1,8 @@
 package theYachtClub;
 
+/*
+ * Authors: Amelie Löwe and Johan Eriksson for the 1DV607 course
+ */
 public class Main {
 	/*
 	 * Main class for the Yachtclub application
