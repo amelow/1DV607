@@ -18,10 +18,9 @@ public class MemberRegister {
 		memList.add(member);
 		amountOfMembers++;
 		id++;
-		System.out.println("Size of memlist: " + memList.size());
-		for (int i = 0; i < memList.size(); i++) {
+	/*	for (int i = 0; i < memList.size(); i++) {
 			System.out.println(memList.get(i).getName());
-		}
+		}*/
 
 	}
 

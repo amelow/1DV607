@@ -12,60 +12,59 @@ import java.util.Scanner;
 
 public class Controller {
 	private String userIn;
-	private int boats = 0;
 	private long userLong;
-	private String yesNo;
+	private String checkYesNoAnswer;
 	private char checkYN;
 	private String personNumberAsString;
 	private Scanner scan = new Scanner(System.in);
-	public static View view = new View();
-	public static MemberRegister MR = new MemberRegister();
-	public static Boat boat = new Boat();
+	public View view = new View();
+	public MemberRegister MR = new MemberRegister();
+	public Boat boat = new Boat();
 
-	public void welcomeM(){
+	public void welcomeM() {
 		initFile();
 		view.welcome();
-		startM();
+		startMenu();
 	}
 
-	public void startM() {
+	public void startMenu() {
 		view.mainMenu();
 		userIn = scan.next();
 		switch (userIn) {
 		case ("1"):
-			caseOne();
+			caseAddMember();
 			break;
 		case ("2"):
-			caseTwo();
+			caseChangeMember();
 			break;
 		case ("3"):
-			caseThree();
+			caseShowCompact();
 			break;
 		case ("4"):
-			caseFour();
+			caseShowVerbose();
 			break;
 		case ("Q"):
-			caseFive();
+			caseQuitApp();
 		default:
-			startM();
+			startMenu();
 		}
 
 	}
 
-	public void caseOne() {
+	public void caseAddMember() {
 		view.AddName();
 		userIn = scan.next();
 		view.correctName(userIn);
-		yesNo = scan.next();
-		checkYN = yesNo.charAt(0);
+		checkYesNoAnswer = scan.next();
+		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
 			boolean number = false;
 			while (number == false) {
 				view.AddPersonNum();
 				userLong = scan.nextLong();
 				view.correctPersonNum(userLong);
-				yesNo = scan.next();
-				checkYN = yesNo.charAt(0);
+				checkYesNoAnswer = scan.next();
+				checkYN = checkYesNoAnswer.charAt(0);
 				personNumberAsString = String.valueOf(userLong);
 				if (personNumberAsString.length() != 12) {
 					view.wrongFormat();
@@ -73,7 +72,7 @@ public class Controller {
 				for (int i = 0; i < MR.getMemberList().size(); i++) {
 					if (personNumberAsString.equals(MR.getMemberList().get(i).getPersonNum())) {
 						view.userExist();
-						startM();
+						startMenu();
 					}
 				}
 				int legthOfPersonNum = personNumberAsString.length();
@@ -83,20 +82,20 @@ public class Controller {
 				}
 			}
 			view.saveMember(userIn, userLong);
-			yesNo = scan.next();
-			checkYN = yesNo.charAt(0);
+			checkYesNoAnswer = scan.next();
+			checkYN = checkYesNoAnswer.charAt(0);
 			if (checkYN == 'Y' || checkYN == 'y') {
 				MR.CreateMember(userIn, personNumberAsString);
 				view.memberSaved();
-				startM();
+				startMenu();
 			}
 		} else {
-			caseOne();
+			caseAddMember();
 		}
 
 	}
 
-	private void caseTwo() {
+	private void caseChangeMember() {
 		view.printMemListForChange(MR.getMemberList());
 		;
 		view.typeID();
@@ -111,14 +110,14 @@ public class Controller {
 		}
 		if (index < 0) {
 			view.noUser();
-			startM();
+			startMenu();
 		} else {
 			view.changeMem();
 			userIn = scan.next();
 			switch (userIn) {
 			case ("1"):
 				addBoat(userID);
-				startM();
+				startMenu();
 				break;
 			case ("2"):
 				deleteBoat(userID);
@@ -134,59 +133,58 @@ public class Controller {
 				break;
 			}
 		}
-		//view.noUser();
-		caseTwo();
+		caseChangeMember();
 	}
 
-	private void caseThree() {
+	private void caseShowCompact() {
 		MR.CompactList();
-		startM();
+		startMenu();
 	}
 
-	private void caseFour() {
+	private void caseShowVerbose() {
 		MR.printVerbose();
-		startM();
+		startMenu();
 	}
 
-	private void caseFive() {
-		System.out.println("Are you sure? Do you want to exit the application? (y/n)");
-		yesNo = scan.next();
-		checkYN = yesNo.charAt(0);
+	private void caseQuitApp() {
+		System.out.println("Are you sure? Do you want to save and exit the application? (y/n)");
+		checkYesNoAnswer = scan.next();
+		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
 			fileHandler(MR.getMemberList());
 			System.out.println("Okay! Hope we will see you again");
 			System.exit(0);
 		}
 		System.out.println("Okay! Back to the main menu.");
-		startM();
+		startMenu();
 	}
 
 	private void changeName(int i) {
 		view.AddName();
 		userIn = scan.next();
 		view.correctName(userIn);
-		yesNo = scan.next();
-		checkYN = yesNo.charAt(0);
+		checkYesNoAnswer = scan.next();
+		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'y') {
 			MR.getMemberList().get(i).setName(userIn);
 			view.changes();
-			startM();
+			startMenu();
 		} else {
 			view.noChanges();
-			caseTwo();
+			caseChangeMember();
 		}
 	}
 
 	private void deleteMember(int id) {
 		System.out.println("Are you sure? Do you want to delete the member?" + id + "(y/n)");
-		yesNo = scan.next();
-		checkYN = yesNo.charAt(0);
+		checkYesNoAnswer = scan.next();
+		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
 			System.out.println("--The member gets deleted--");
 			MR.DeleteMember(id);
 		} else {
 			System.out.println("Okay back to the main menu");
-			startM();
+			startMenu();
 		}
 
 	}
@@ -199,8 +197,8 @@ public class Controller {
 		userIn = scan.next();
 		String lengthOfBoat = userIn;
 		System.out.println("Is " + typeOfBoat + " and length " + lengthOfBoat + " correct?(y/n)");
-		yesNo = scan.next();
-		checkYN = yesNo.charAt(0);
+		checkYesNoAnswer = scan.next();
+		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
 			BoatTypes type;
 			MR.getMember(id).addBoat(BoatTypes.getBoatType(typeOfBoat), Integer.parseInt(lengthOfBoat));
@@ -210,66 +208,63 @@ public class Controller {
 	private void changeBoat(int userID) {
 		System.out.println("Which boat should be changed? select the number infront of the boat type");
 		String p;
-		for(int i = 0; i < MR.getMemberList().get(userID).getBoatList().size(); i++) {
-		p =	i +" " + MR.getMemberList().get(userID).getBoatList().get(i).getType()+" "+MR.getMemberList().get(userID).getBoatList().get(i).getLength();
-		System.out.println(p);
+		for (int i = 0; i < MR.getMemberList().get(userID).getBoatList().size(); i++) {
+			p = i + " " + MR.getMemberList().get(userID).getBoatList().get(i).getType() + " "
+					+ MR.getMemberList().get(userID).getBoatList().get(i).getLength();
+			System.out.println(p);
 		}
 		userIn = scan.next();
 		int boatSelected = Integer.parseInt(userIn);
 		System.out.println("Do you want to change length(1), type (2), both (3)");
 		userIn = scan.next();
 		int changesSel = Integer.parseInt(userIn);
-		if(changesSel == 1 ||changesSel == 3) {
+		if (changesSel == 1 || changesSel == 3) {
 			System.out.println("Set new length for the boat: ");
 			userIn = scan.next();
 			MR.getMemberList().get(userID).getBoatList().get(boatSelected).setLength(Integer.parseInt(userIn));
 			System.out.println("Length set to: " + userIn);
-			
-		//	startM();
+
 		}
-		if(changesSel == 2 ||changesSel == 3) {
+		if (changesSel == 2 || changesSel == 3) {
 			System.out.println("Set new type for the boat: ");
 			userIn = scan.next();
 			MR.getMemberList().get(userID).getBoatList().get(boatSelected).setType(BoatTypes.getBoatType(userIn));
 			System.out.println("Boat Type set to: " + userIn);
 		}
-		startM();
-		
-		
-		
+		startMenu();
+
 	}
 
 	private void deleteBoat(int userID) {
 		int userIndex = 0;
-		for(int i = 0; i < MR.getMemberList().size(); i++) {
-			if(MR.getMemberList().get(i).getID() == userID) {
+		for (int i = 0; i < MR.getMemberList().size(); i++) {
+			if (MR.getMemberList().get(i).getID() == userID) {
 				userIndex = i;
 			}
 		}
 		String p;
-		for(int i = 0; i < MR.getMemberList().get(userIndex).getBoatList().size(); i++) {
-		p =	i +" " + MR.getMemberList().get(userIndex).getBoatList().get(i).getType()+" "+MR.getMemberList().get(userIndex).getBoatList().get(i).getLength();
-		System.out.println(p);
+		for (int i = 0; i < MR.getMemberList().get(userIndex).getBoatList().size(); i++) {
+			p = i + " " + MR.getMemberList().get(userIndex).getBoatList().get(i).getType() + " "
+					+ MR.getMemberList().get(userIndex).getBoatList().get(i).getLength();
+			System.out.println(p);
 		}
 		System.out.println("Which boat do you want to delete? select the number infront of boat type");
 		String deleteBoat = userIn;
 		deleteBoat = scan.next();
 		int deleteBoatInt = Integer.parseInt(deleteBoat);
-		for(int i = 0; i < MR.getMemberList().get(userIndex).getBoatList().size(); i++) {
-			String c =i +" "+ MR.getMemberList().get(userIndex).getBoatList().get(i);
-			String r =deleteBoatInt+" "+ MR.getMemberList().get(userIndex).getBoatList().get(i);
-			if(c.equals(r)) {
-				MR.getMemberList().get(userIndex).deleteBoat(i); 
+		for (int i = 0; i < MR.getMemberList().get(userIndex).getBoatList().size(); i++) {
+			String c = i + " " + MR.getMemberList().get(userIndex).getBoatList().get(i);
+			String r = deleteBoatInt + " " + MR.getMemberList().get(userIndex).getBoatList().get(i);
+			if (c.equals(r)) {
+				MR.getMemberList().get(userIndex).deleteBoat(i);
 				System.out.println("Boat is deleted and main menu will be showed");
 			}
-			startM();
-
 		}
+		startMenu();
 	}
-	
-	
+
 	private void initFile() {
-		String fileName= "file.txt";
+		String fileName = "file.txt";
 
 		try {
 			ArrayList<String> arr = new ArrayList<String>();
@@ -277,78 +272,74 @@ public class Controller {
 			FileReader fr = new FileReader(fileName);
 			BufferedReader br = new BufferedReader(fr);
 			int counter = 0;
-			while((line = br.readLine()) != null) {
-				if(line.equals(",")) {
+			while ((line = br.readLine()) != null) {
+				if (line.equals(",")) {
 					Member m = new Member(arr.get(0), arr.get(1));
-					for(int i = 0; i < Integer.parseInt(arr.get(3)); i++) {
-						m.addBoat(BoatTypes.getBoatType(arr.get(4+(counter))), Integer.parseInt(arr.get(5+(counter))));
-						counter+=2;
+					for (int i = 0; i < Integer.parseInt(arr.get(3)); i++) {
+						m.addBoat(BoatTypes.getBoatType(arr.get(4 + (counter))),
+								Integer.parseInt(arr.get(5 + (counter))));
+						counter += 2;
 					}
 					counter = 0;
 					MR.AddMember(m);
 					arr.clear();
-				}else {
+				} else {
 					arr.add(line);
-					}
+				}
 			}
 			br.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			return;
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 	}
-	
+
 	private void fileHandler(ArrayList<Member> arrayList) {
 		File file = new File("file.txt");
-		if(!file.exists()) {
+		if (!file.exists()) {
 			try {
-			BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-			saveFileInfo(writer,arrayList);
-			writer.close();
+				BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+				saveFileInfo(writer, arrayList);
+				writer.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}else {
+		} else {
 			try {
-			file.delete();
-			BufferedWriter writer = new BufferedWriter(new FileWriter(file,true));
-			saveFileInfo(writer,arrayList);
-			writer.close();
+				file.delete();
+				BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
+				saveFileInfo(writer, arrayList);
+				writer.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		
+
 	}
-	
+
 	private void saveFileInfo(BufferedWriter writer, ArrayList<Member> arrayList) {
-		
-	for(int i = 0; i < arrayList.size(); i++) {
-		  try {
-			writer.write(arrayList.get(i).getName() + System.lineSeparator());
-			writer.write(arrayList.get(i).getPersonNum() + System.lineSeparator());
-			  writer.write(arrayList.get(i).getID() + System.lineSeparator());
-			  writer.write(arrayList.get(i).getAmountOfBoats() + System.lineSeparator());
-			  if (arrayList.get(i).getAmountOfBoats() > 0) {
-					for (int j = 0; j <arrayList.get(i).getAmountOfBoats(); j++) {
-						writer.write(arrayList.get(i).getBoatList().get(j).getType().toString() + System.lineSeparator());
-						writer.write((int) arrayList.get(i).getBoatList().get(j).getLength() +	 System.lineSeparator());
+
+		for (int i = 0; i < arrayList.size(); i++) {
+			try {
+				writer.write(arrayList.get(i).getName() + System.lineSeparator());
+				writer.write(arrayList.get(i).getPersonNum() + System.lineSeparator());
+				writer.write(arrayList.get(i).getID() + System.lineSeparator());
+				writer.write(arrayList.get(i).getAmountOfBoats() + System.lineSeparator());
+				if (arrayList.get(i).getAmountOfBoats() > 0) {
+					for (int j = 0; j < arrayList.get(i).getAmountOfBoats(); j++) {
+						writer.write(
+								arrayList.get(i).getBoatList().get(j).getType().toString() + System.lineSeparator());
+						writer.write((int) arrayList.get(i).getBoatList().get(j).getLength() + System.lineSeparator());
 					}
-			}
+				}
 				writer.write("," + System.lineSeparator());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
 		}
-		  
+		arrayList.clear();
 	}
-	arrayList.clear();
-}
 }
