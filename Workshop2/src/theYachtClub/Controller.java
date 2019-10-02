@@ -12,15 +12,15 @@ import java.util.Scanner;
 
 public class Controller {
 	private String userIn;
-	private int boats = 0;
+  //private int boats = 0;
 	private long userLong;
 	private String yesNo;
 	private char checkYN;
 	private String personNumberAsString;
 	private Scanner scan = new Scanner(System.in);
-	public static View view = new View();
-	public static MemberRegister MR = new MemberRegister();
-	public static Boat boat = new Boat();
+	private  View view = new View();
+	private MemberRegister MR = new MemberRegister();
+//	public static Boat boat = new Boat();
 
 	public void welcomeM(){
 		initFile();
