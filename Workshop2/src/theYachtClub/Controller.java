@@ -17,11 +17,11 @@ public class Controller {
 	private char checkYN;
 	private String personNumberAsString;
 	private Scanner scan = new Scanner(System.in);
-	public View view = new View();
-	public MemberRegister MR = new MemberRegister();
-	public Boat boat = new Boat();
+	private View view = new View();
+	private MemberRegister MR = new MemberRegister();
+	private Boat boat = new Boat();
 
-	public void welcomeM() {
+	public void welcomeMessage() {
 		initFile();
 		view.welcome();
 		startMenu();
