@@ -1,31 +1,37 @@
 package theYachtClub;
 
+/*
+ * The enum class for the different boat-types
+ */
 public enum BoatTypes {
-	Sailboat, 
+	Sailboat,
 	Motorsailer,
 	Kayak,
-	Canoe, 
-	Other;	
-	
-public static BoatTypes getBoatType(String type) {
-	BoatTypes[] types = BoatTypes.values();
-	BoatTypes returnType = Other;
-	for (int i = 0; i < types.length; i++) {
-		if(type.equalsIgnoreCase("canoe")) {
-			returnType = Canoe;
+	Canoe,
+	Other;
+
+	/*
+	 * A static class that checks if the user chose a boattype and if not correct
+	 * spelling/ no real boattype it changes the input to Other
+	 */
+	public static BoatTypes getBoatType(String type) {
+		BoatTypes[] types = BoatTypes.values();
+		BoatTypes returnType = Other;
+		for (int i = 0; i < types.length; i++) {
+			if (type.equalsIgnoreCase("canoe")) {
+				returnType = Canoe;
+			} else if (type.equalsIgnoreCase("sailboat")) {
+				returnType = Sailboat;
+			} else if (type.equalsIgnoreCase("motorsailer")) {
+				returnType = Motorsailer;
+			} else if (type.equalsIgnoreCase("kayak")) {
+				returnType = Kayak;
+			} else {
+				returnType = Other;
+			}
+
 		}
-		else if (type.equalsIgnoreCase("sailboat")) {
-			returnType = Sailboat;
-		} else if (type.equalsIgnoreCase("motorsailer")){
-			returnType = Motorsailer;
-		} else if (type.equalsIgnoreCase("kayak")){
-			returnType = Kayak;
-		} else {
-			returnType= Other;
-		}
-		
-	}
-	
-	return returnType;
+
+		return returnType;
 	}
 }

@@ -1,7 +1,10 @@
 package theYachtClub;
 
+/*The member interface class, 
+ *used to add methods in the memberclass
+ */
 public interface MemberInterface {
-
+	// Getters and setters for the member info
 	public void setName(String name);
 
 	public String getName();
@@ -14,6 +17,7 @@ public interface MemberInterface {
 
 	public int getID();
 
+	// A getter and a Setter for the amount of boats the member has
 	public void setAmountOfBoats(int amount);
 
 	public int getAmountOfBoats();
