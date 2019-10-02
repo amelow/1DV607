@@ -6,10 +6,10 @@ import java.util.ArrayList;
  * The member class, handles all of the information that a member needs to get added into the register
  */
 public class Member implements MemberInterface {
-	// Declaring the variables
+	// Declaring and Initializing the variables
 	private String name;
 	private String personNum;
-	private int amountOfBoats = 0;
+	private int amountOfBoats = 0; // no boats registered in the list
 	private int memberId;
 	private ArrayList<Boat> boatList = new ArrayList<Boat>(); // the list for saving the amount of boats
 

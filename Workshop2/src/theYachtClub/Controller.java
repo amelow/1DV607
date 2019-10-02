@@ -10,23 +10,37 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/*
+ * The Controller class is the main class that handles the functionality of the application.
+ *  It fetches the users input and saves it in a txt file.
+ * If the user already has previously saved a file it loads the saved members info as well as the registered boats
+ */
 public class Controller {
-	private String userIn;
-	private long userLong;
-	private String checkYesNoAnswer;
-	private char checkYN;
-	private String personNumberAsString;
-	private Scanner scan = new Scanner(System.in);
+	// Declaring and Initializing the variables
+	private String userIn; // handles the user input
+	private long userLong;// handles the user input
+	private String checkYesNoAnswer; // checks the console input if it is (y/n)
+	private char checkYN; // checks the console input if it is (y/n)
+	private String personNumberAsString; // personal number
+	private Scanner scan = new Scanner(System.in); // scanner handles the conole inputs
 	private View view = new View();
-	private MemberRegister MR = new MemberRegister();
+	private MemberRegister memReg = new MemberRegister();
 	private Boat boat = new Boat();
 
+	/*
+	 * Prints the viewer class welcome message, initializes a file and calls the
+	 * main menu method
+	 */
 	public void welcomeMessage() {
 		initFile();
 		view.welcome();
 		startMenu();
 	}
 
+	/*
+	 * Main menu, giving the different options, reads the users input then calls
+	 * upon the option chosen. If wrong input it calls the main again
+	 */
 	public void startMenu() {
 		view.mainMenu();
 		userIn = scan.next();
@@ -51,6 +65,10 @@ public class Controller {
 
 	}
 
+	/*
+	 * Add member method that handles the member info such as Name and Personal
+	 * Number. If correct it adds it to the member registry
+	 */
 	public void caseAddMember() {
 		view.AddName();
 		userIn = scan.next();
@@ -69,13 +87,14 @@ public class Controller {
 				if (personNumberAsString.length() != 12) {
 					view.wrongFormat();
 				}
-				for (int i = 0; i < MR.getMemberList().size(); i++) {
-					if (personNumberAsString.equals(MR.getMemberList().get(i).getPersonNum())) {
+				for (int i = 0; i < memReg.getMemberList().size(); i++) { // checks the personal number if user already
+																			// exists
+					if (personNumberAsString.equals(memReg.getMemberList().get(i).getPersonNum())) {
 						view.userExist();
 						startMenu();
 					}
 				}
-				int legthOfPersonNum = personNumberAsString.length();
+				int legthOfPersonNum = personNumberAsString.length(); // checks if personal number is 12
 				if (checkYN == 'y' && legthOfPersonNum == 12) {
 					view.added();
 					number = true;
@@ -85,26 +104,32 @@ public class Controller {
 			checkYesNoAnswer = scan.next();
 			checkYN = checkYesNoAnswer.charAt(0);
 			if (checkYN == 'Y' || checkYN == 'y') {
-				MR.CreateMember(userIn, personNumberAsString);
+				memReg.CreateMember(userIn, personNumberAsString); // sends the users input as a parameter to
+																	// thecreatemember method
 				view.memberSaved();
-				startMenu();
+				startMenu(); // calls the main again
 			}
 		} else {
-			caseAddMember();
+			caseAddMember(); // calls itself again to add more members
 		}
 
 	}
 
+	/*
+	 * The change member method that handles the functionality of changing the users
+	 * information, adding a boat, deleting a boat, changing the boats information,
+	 * as well as deleting a member
+	 */
 	private void caseChangeMember() {
-		view.printMemListForChange(MR.getMemberList());
+		view.printMemListForChange(memReg.getMemberList());
 		;
 		view.typeID();
 		userIn = scan.next();
 		int userID = Integer.parseInt(userIn);
 		int index = -1;
 
-		for (int i = 0; i < MR.getMemberList().size(); i++) {
-			if (userID == MR.getMemberList().get(i).getID()) {
+		for (int i = 0; i < memReg.getMemberList().size(); i++) {
+			if (userID == memReg.getMemberList().get(i).getID()) {
 				index = i;
 			}
 		}
@@ -136,29 +161,45 @@ public class Controller {
 		caseChangeMember();
 	}
 
+	/*
+	 * Prints the compact list of the members information, then goes back to the
+	 * main menu
+	 */
 	private void caseShowCompact() {
-		MR.CompactList();
+		memReg.CompactList();
 		startMenu();
 	}
 
+	/*
+	 * Prints the verbose list of the member and boats information, then goes back
+	 * to the main menu
+	 */
 	private void caseShowVerbose() {
-		MR.printVerbose();
+		memReg.printVerbose();
 		startMenu();
 	}
 
+	/*
+	 * Checks if the user wants to quit the application, then saves the information
+	 * in the txt file
+	 */
 	private void caseQuitApp() {
 		System.out.println("Are you sure? Do you want to save and exit the application? (y/n)");
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
-			fileHandler(MR.getMemberList());
+			fileHandler(memReg.getMemberList()); // calls the filehandler and sends the members information to save it
 			System.out.println("Okay! Hope we will see you again");
-			System.exit(0);
+			System.exit(0);// closing the console application
 		}
 		System.out.println("Okay! Back to the main menu.");
 		startMenu();
 	}
 
+	/*
+	 * Checks if the user wants to change the name, then saves the information in
+	 * the Member register
+	 */
 	private void changeName(int i) {
 		view.AddName();
 		userIn = scan.next();
@@ -166,7 +207,7 @@ public class Controller {
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'y') {
-			MR.getMemberList().get(i).setName(userIn);
+			memReg.getMemberList().get(i).setName(userIn);
 			view.changes();
 			startMenu();
 		} else {
@@ -175,13 +216,17 @@ public class Controller {
 		}
 	}
 
+	/*
+	 * Checks if the user wants to delete a member, then saves the information in
+	 * the Member register
+	 */
 	private void deleteMember(int id) {
 		System.out.println("Are you sure? Do you want to delete the member?" + id + "(y/n)");
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
 			System.out.println("--The member gets deleted--");
-			MR.DeleteMember(id);
+			memReg.DeleteMember(id);
 		} else {
 			System.out.println("Okay back to the main menu");
 			startMenu();
@@ -189,6 +234,10 @@ public class Controller {
 
 	}
 
+	/*
+	 * Method that handles the functionality of addig a boat with a type and a
+	 * length, then adding it to the registry at the correct id
+	 */
 	private void addBoat(int id) {
 		System.out.println("Type of boat?:");
 		userIn = scan.next();
@@ -201,16 +250,21 @@ public class Controller {
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
 			BoatTypes type;
-			MR.getMember(id).addBoat(BoatTypes.getBoatType(typeOfBoat), Integer.parseInt(lengthOfBoat));
+			memReg.getMember(id).addBoat(BoatTypes.getBoatType(typeOfBoat), Integer.parseInt(lengthOfBoat));
 		}
 	}
 
+	/*
+	 * Method that handles the functionality of changing a already added boats
+	 * information such as a type and a length, then adding the changes it to the
+	 * registry
+	 */
 	private void changeBoat(int userID) {
 		System.out.println("Which boat should be changed? select the number infront of the boat type");
 		String p;
-		for (int i = 0; i < MR.getMemberList().get(userID).getBoatList().size(); i++) {
-			p = i + " " + MR.getMemberList().get(userID).getBoatList().get(i).getType() + " "
-					+ MR.getMemberList().get(userID).getBoatList().get(i).getLength();
+		for (int i = 0; i < memReg.getMemberList().get(userID).getBoatList().size(); i++) {
+			p = i + " " + memReg.getMemberList().get(userID).getBoatList().get(i).getType() + " "
+					+ memReg.getMemberList().get(userID).getBoatList().get(i).getLength();
 			System.out.println(p);
 		}
 		userIn = scan.next();
@@ -221,74 +275,87 @@ public class Controller {
 		if (changesSel == 1 || changesSel == 3) {
 			System.out.println("Set new length for the boat: ");
 			userIn = scan.next();
-			MR.getMemberList().get(userID).getBoatList().get(boatSelected).setLength(Integer.parseInt(userIn));
+			// updating the new boat length
+			memReg.getMemberList().get(userID).getBoatList().get(boatSelected).setLength(Integer.parseInt(userIn));
 			System.out.println("Length set to: " + userIn);
 
 		}
-		if (changesSel == 2 || changesSel == 3) {
+		if (changesSel == 2 || changesSel == 3) { // does the user want to change name, change type or both
 			System.out.println("Set new type for the boat: ");
 			userIn = scan.next();
-			MR.getMemberList().get(userID).getBoatList().get(boatSelected).setType(BoatTypes.getBoatType(userIn));
+			// updating the new boat type
+			memReg.getMemberList().get(userID).getBoatList().get(boatSelected).setType(BoatTypes.getBoatType(userIn));
 			System.out.println("Boat Type set to: " + userIn);
 		}
 		startMenu();
 
 	}
 
+	/*
+	 * Method that handles the functionality of deleting a already added boat, by
+	 * first checking the id then the user has to choose one of the boats and press
+	 * delete
+	 */
 	private void deleteBoat(int userID) {
 		int userIndex = 0;
-		for (int i = 0; i < MR.getMemberList().size(); i++) {
-			if (MR.getMemberList().get(i).getID() == userID) {
+		for (int i = 0; i < memReg.getMemberList().size(); i++) {
+			if (memReg.getMemberList().get(i).getID() == userID) { // checks if correct member id
 				userIndex = i;
 			}
 		}
 		String p;
-		for (int i = 0; i < MR.getMemberList().get(userIndex).getBoatList().size(); i++) {
-			p = i + " " + MR.getMemberList().get(userIndex).getBoatList().get(i).getType() + " "
-					+ MR.getMemberList().get(userIndex).getBoatList().get(i).getLength();
+		// Loops thru the users registered boats and gets the type and the length
+		for (int i = 0; i < memReg.getMemberList().get(userIndex).getBoatList().size(); i++) {
+			p = i + " " + memReg.getMemberList().get(userIndex).getBoatList().get(i).getType() + " "
+					+ memReg.getMemberList().get(userIndex).getBoatList().get(i).getLength();
 			System.out.println(p);
 		}
 		System.out.println("Which boat do you want to delete? select the number infront of boat type");
 		String deleteBoat = userIn;
 		deleteBoat = scan.next();
 		int deleteBoatInt = Integer.parseInt(deleteBoat);
-		for (int i = 0; i < MR.getMemberList().get(userIndex).getBoatList().size(); i++) {
-			String c = i + " " + MR.getMemberList().get(userIndex).getBoatList().get(i);
-			String r = deleteBoatInt + " " + MR.getMemberList().get(userIndex).getBoatList().get(i);
+		for (int i = 0; i < memReg.getMemberList().get(userIndex).getBoatList().size(); i++) {
+			String c = i + " " + memReg.getMemberList().get(userIndex).getBoatList().get(i);
+			String r = deleteBoatInt + " " + memReg.getMemberList().get(userIndex).getBoatList().get(i);
 			if (c.equals(r)) {
-				MR.getMemberList().get(userIndex).deleteBoat(i);
-				System.out.println("Boat is deleted and main menu will be showed");
+				memReg.getMemberList().get(userIndex).deleteBoat(i);
+				System.out.println("---Boat is deleted, back to the main menu---");
 			}
 		}
 		startMenu();
 	}
 
+	/*
+	 * The initFile() method checks if the user already has a saved txt file, if so
+	 * it reads the file and calls the addMember method and adds the saved members
+	 * information to the member register
+	 */
 	private void initFile() {
-		String fileName = "file.txt";
+		String fileName = "YachtClubRegister.txt";
 
 		try {
 			ArrayList<String> arr = new ArrayList<String>();
 			String line = null;
-			FileReader fr = new FileReader(fileName);
-			BufferedReader br = new BufferedReader(fr);
+			FileReader fileReader = new FileReader(fileName);
+			BufferedReader buffReader = new BufferedReader(fileReader);
 			int counter = 0;
-			while ((line = br.readLine()) != null) {
+			while ((line = buffReader.readLine()) != null) {
 				if (line.equals(",")) {
-					Member m = new Member(arr.get(0), arr.get(1));
+					Member m = new Member(arr.get(0), arr.get(1)); // gets the name and the personal number from file
 					for (int i = 0; i < Integer.parseInt(arr.get(3)); i++) {
-						m.addBoat(BoatTypes.getBoatType(arr.get(4 + (counter))),
+						m.addBoat(BoatTypes.getBoatType(arr.get(4 + (counter))), // gets the boattypes fro file
 								Integer.parseInt(arr.get(5 + (counter))));
 						counter += 2;
 					}
 					counter = 0;
-					MR.AddMember(m);
+					memReg.AddMember(m); // add the members
 					arr.clear();
 				} else {
 					arr.add(line);
 				}
 			}
-			br.close();
-		} catch (FileNotFoundException e) {
+			buffReader.close();
+		} catch (FileNotFoundException e) { // catches the exceptions
 			return;
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -296,8 +363,12 @@ public class Controller {
 
 	}
 
+	/*
+	 * The fileHandler() method is called when the user doesnt have any saved files.
+	 * Makes a new YachtClubRegister.txt
+	 */
 	private void fileHandler(ArrayList<Member> arrayList) {
-		File file = new File("file.txt");
+		File file = new File("YachtClubRegister.txt");
 		if (!file.exists()) {
 			try {
 				BufferedWriter writer = new BufferedWriter(new FileWriter(file));
@@ -319,6 +390,10 @@ public class Controller {
 
 	}
 
+	/*
+	 * ThesaveFileInfo() method is called when the user wants to quit the
+	 * application, so txt file can save the members information.
+	 */
 	private void saveFileInfo(BufferedWriter writer, ArrayList<Member> arrayList) {
 
 		for (int i = 0; i < arrayList.size(); i++) {
@@ -340,6 +415,6 @@ public class Controller {
 			}
 
 		}
-		arrayList.clear();
+		arrayList.clear(); // clears it so we dont get duplicate members
 	}
 }
