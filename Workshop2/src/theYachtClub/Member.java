@@ -2,14 +2,16 @@ package theYachtClub;
 
 import java.util.ArrayList;
 
+/*
+ * The member class, handles all of the information that a member needs to get added into the register
+ */
 public class Member implements MemberInterface {
-
+	// Declaring the variables
 	private String name;
 	private String personNum;
-	private int amountOfBoats =0;
+	private int amountOfBoats = 0;
 	private int memberId;
-
-	private ArrayList<Boat> boatList = new ArrayList<Boat>();
+	private ArrayList<Boat> boatList = new ArrayList<Boat>(); // the list for saving the amount of boats
 
 	public Member(String Name, String num) {
 		this.name = Name;
@@ -17,64 +19,65 @@ public class Member implements MemberInterface {
 	}
 
 	public Member() {
+
 	}
 
 	@Override
-	public void setName(String Name) {
+	public void setName(String Name) { // adding a name
 		this.name = Name;
 
 	}
 
 	@Override
-	public String getName() {
+	public String getName() { // getting the name
 		return this.name;
 	}
 
 	@Override
-	public void setPersonNum(String num) {
+	public void setPersonNum(String num) { // adding the personal number
 		this.personNum = num;
 
 	}
 
 	@Override
-	public String getPersonNum() {
+	public String getPersonNum() { // getting the personal number
 		return personNum;
 	}
 
 	@Override
-	public void setID(int memberID) {
+	public void setID(int memberID) { // Setting the users personal id number
 		this.memberId = memberID;
 
 	}
 
 	@Override
-	public int getID() {
+	public int getID() { // Getting the users personal id number
 		return memberId;
 	}
 
 	@Override
-	public void setAmountOfBoats(int amount) {
+	public void setAmountOfBoats(int amount) { // setting the amount of boats for each user
 		this.amountOfBoats = amount;
 
 	}
 
 	@Override
-	public int getAmountOfBoats() {
+	public int getAmountOfBoats() { // getting the boatlist size
 		return boatList.size();
 	}
 
 	public void addBoat(BoatTypes t, int l) {
-		Boat boat = new Boat(t, l);
-		boatList.add(boat);
-		amountOfBoats++;
+		Boat boat = new Boat(t, l);// new boat with a type and length
+		boatList.add(boat); // adding it to the arraylist so it gets saved
+		amountOfBoats++; // Incrementing the size
 	}
 
-	public void deleteBoat(int removeBoat) {
-		boatList.remove(removeBoat);
-		amountOfBoats--;
+	public void deleteBoat(int removeBoat) { // Deleting the boat
+		boatList.remove(removeBoat);// removing it from the boatlist register
+		amountOfBoats--; // Decrementing the amount of boats/size
 	}
 
 	public ArrayList<Boat> getBoatList() {
-		return new ArrayList<Boat>(boatList);
+		return new ArrayList<Boat>(boatList);// returns the boat registerlist
 	}
 }
