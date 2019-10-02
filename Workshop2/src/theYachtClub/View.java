@@ -2,6 +2,9 @@ package theYachtClub;
 
 import java.util.ArrayList;
 
+/*
+ * The view class handles most of the outprints the user gets in the console
+ */
 public class View {
 
 	public void welcome() {
@@ -93,7 +96,7 @@ public class View {
 		for (int i = 0; i < arrayList.size(); i++) {
 			String name = arrayList.get(i).getName();
 			int id = arrayList.get(i).getID();
-			String change = "name: " + name + " Memberid: " + id;
+			String change = "Name: " + name + " Memberid: " + id;
 			System.out.println(change);
 		}
 
