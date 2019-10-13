@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import View.View;
+
 /*
 	* The Controller class is the main class that handles the functionality of the application.
 	*  It fetches the users input and saves it in a txt file.
