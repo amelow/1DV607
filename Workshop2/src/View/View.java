@@ -40,29 +40,22 @@ public class View {
 		System.out.println("Please enter your personal-number: YYYYMMDDXXXX");
 	}
 
-	/*
-	 * public void correctName(String str) { String nameQ =
-	 * "Is this correct? Your name is: " + str + " (y/n)";
-	 * 
-	 * System.out.println(nameQ); }
-	 * 
-	 * public void correctPersonNum(long id) { String idPer =
-	 * "Is this correct? Your person number is: " + id + " (y/n)";
-	 * 
-	 * System.out.println(idPer); }
-	 */
+	public void correctName(String str) {
+		String nameQ = "Is this correct? Your name is: " + str + " (y/n)";
+
+		System.out.println(nameQ);
+	}
+
+	public void correctPersonNum(long id) {
+		String idPer = "Is this correct? Your person number is: " + id + " (y/n)";
+
+		System.out.println(idPer);
+	}
 
 	public void saveMember(String str, long id) {
 		String save = "Do you want to save the member with name " + str + " and personal number " + id + "?(y/n)";
 		System.out.println(save);
 	}
-
-	/*
-	 * public void added() { String added = "--The member is now added--";
-	 * System.out.println(added + "\n");
-	 * 
-	 * }
-	 */
 	public void memberSaved() {
 		String saved = "--The member is now saved--";
 		System.out.println(saved + "\n");
