@@ -76,17 +76,17 @@ public class Controller {
 	public void caseAddMember() {
 		view.AddName();
 		userIn = scan.next();
-		view.correctName(userIn);
-		checkYesNoAnswer = scan.next();
-		checkYN = checkYesNoAnswer.charAt(0);
+//		view.correctName(userIn);
+//		checkYesNoAnswer = scan.next();
+//		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
 			boolean number = false;
 			while (number == false) {
 				view.AddPersonNum();
-				userLong = scan.nextLong();
-				view.correctPersonNum(userLong);
-				checkYesNoAnswer = scan.next();
-				checkYN = checkYesNoAnswer.charAt(0);
+//				userLong = scan.nextLong();
+//				view.correctPersonNum(userLong);
+//				checkYesNoAnswer = scan.next();
+//				checkYN = checkYesNoAnswer.charAt(0);
 				personNumberAsString = String.valueOf(userLong);
 				if (personNumberAsString.length() != 12) {
 					view.wrongFormat();
@@ -100,7 +100,7 @@ public class Controller {
 				}
 				int legthOfPersonNum = personNumberAsString.length(); // checks if personal number is 12
 				if (checkYN == 'y' && legthOfPersonNum == 12) {
-					view.added();
+				//	view.added();
 					number = true;
 				}
 			}
@@ -207,7 +207,7 @@ public class Controller {
 	private void changeName(int i) {
 		view.AddName();
 		userIn = scan.next();
-		view.correctName(userIn);
+//		view.correctName(userIn);
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'y') {

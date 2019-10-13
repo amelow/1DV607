@@ -78,6 +78,6 @@ public class Member implements MemberInterface {
 	}
 
 	public ArrayList<Boat> getBoatList() {
-		return new ArrayList<Boat>(boatList);// returns the boat registerlist
+		return new ArrayList<Boat>(boatList);// returns the boat register list
 	}
 }
