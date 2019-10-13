@@ -100,7 +100,7 @@ public class Controller {
 				}
 				int legthOfPersonNum = personNumberAsString.length(); // checks if personal number is 12
 				if (checkYN == 'y' && legthOfPersonNum == 12) {
-				//	view.added();
+					// view.added();
 					number = true;
 				}
 			}
@@ -243,7 +243,7 @@ public class Controller {
 	 * length, then adding it to the registry at the correct id
 	 */
 	private void addBoat(int id) {
-		System.out.println("Type of boat?:");
+		System.out.println("Type of boat? Choose between: Sailboat, Motorsailer, Kayak, Canoe and Other");
 		userIn = scan.next();
 		String typeOfBoat = userIn;
 		System.out.println("length of boat?");
