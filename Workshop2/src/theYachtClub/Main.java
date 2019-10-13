@@ -1,5 +1,7 @@
 package theYachtClub;
 
+import Controller.Controller;
+
 /*
  * Authors: Amelie Löwe and Johan Eriksson for the 1DV607 course
  */

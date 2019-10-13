@@ -1,4 +1,4 @@
-package theYachtClub;
+package Model;
 
 /*
  * The enum class for the different boat-types

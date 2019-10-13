@@ -1,4 +1,4 @@
-package theYachtClub;
+package Controller;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Model.BoatTypes;
+import Model.Member;
+import Model.MemberRegister;
 import View.View;
 
 /*

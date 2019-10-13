@@ -1,4 +1,4 @@
-package theYachtClub;
+package Model;
 
 import java.util.ArrayList;
 

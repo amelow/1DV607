@@ -1,4 +1,4 @@
-package theYachtClub;
+package Model;
 
 /*
  * The Boat Interface class with all of its classes 

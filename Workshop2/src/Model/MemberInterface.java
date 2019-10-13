@@ -1,4 +1,4 @@
-package theYachtClub;
+package Model;
 
 /*The member interface class, 
  *used to add methods in the memberclass

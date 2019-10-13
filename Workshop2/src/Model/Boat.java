@@ -1,4 +1,4 @@
-package theYachtClub;
+package Model;
 
 /*
  * The Boat class gets the methods to implement from the BoatInterface

@@ -2,7 +2,7 @@ package View;
 
 import java.util.ArrayList;
 
-import theYachtClub.Member;
+import Model.Member;
 
 /*
  * The view class handles most of the outprints the user gets in the console
