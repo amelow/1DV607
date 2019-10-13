@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /*
- * The Controller class is the main class that handles the functionality of the application.
- *  It fetches the users input and saves it in a txt file.
- * If the user already has previously saved a file it loads the saved members info as well as the registered boats
+	* The Controller class is the main class that handles the functionality of the application.
+	*  It fetches the users input and saves it in a txt file.
+	* If the user already has previously saved a file it loads the saved members info as well as the registered boats
  */
 public class Controller {
 	// Declaring and Initializing the variables
