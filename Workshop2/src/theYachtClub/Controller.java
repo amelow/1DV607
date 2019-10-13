@@ -27,7 +27,6 @@ public class Controller {
 	private Scanner scan = new Scanner(System.in); // scanner handles the conole inputs
 	private View view = new View();
 	private MemberRegister memReg = new MemberRegister();
-	private Boat boat = new Boat();
 
 	/*
 	 * Prints the viewer class welcome message, initializes a file and calls the
