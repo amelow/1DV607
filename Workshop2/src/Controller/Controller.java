@@ -171,9 +171,9 @@ public class Controller {
 	 * to the main menu
 	 */
 	private void caseShowVerbose() {
-		memReg.verboseList();
-		startMenu();
-	}
+        ArrayList verbose = memReg.printVerbose();
+        view.verboseListView(verbose);
+    }
 
 	/*
 	 * Checks if the user wants to quit the application, then saves the information

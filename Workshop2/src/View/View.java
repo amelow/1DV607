@@ -169,4 +169,9 @@ public class View {
 
 	}
 
+	public void verboseListView(ArrayList<Object> verbose) {
+        verbose.forEach(System.out::println);
+       
+    }
+
 }

@@ -10,7 +10,6 @@ public class MemberRegister {
 	// Declaring/Initiating the variables
 	private int id = 1040; // start at 1040 and not 1 so i cannot be so easily guessed
 	private int amountOfMembers;
-	private Member mem;
 	private ArrayList<Member> memList = new ArrayList<Member>();// the memlist that saves the members
 
 	/*
@@ -61,7 +60,7 @@ public class MemberRegister {
 	 * Method for printing the Verbose List with the members Name, Personal number,
 	 * Member id and Boats with boat information
 	 */
-	public ArrayList printVerbose() {
+	public ArrayList<Object> printVerbose() {
 		ArrayList<Object> verbose = new ArrayList<Object>();
 		String lineBreak = ("---------------------------------------\n");
 		for (int i = 0; i < memList.size(); i++) {// loops thru the register and prints the information
