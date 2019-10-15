@@ -75,11 +75,11 @@ public class Controller {
 	 * Number. If correct it adds it to the member registry
 	 */
 	public void caseAddMember() {
-		view.AddName();
+		view.addName();
 		userIn = scan.next();
 		boolean number = false;
 		while (number == false) {
-			view.AddPersonNum();
+			view.addPersonNum();
 			userLong = scan.nextLong();
 			personNumberAsString = String.valueOf(userLong);
 			if (personNumberAsString.length() != 12) {
@@ -119,7 +119,7 @@ public class Controller {
 	private void caseChangeMember() {
 		view.printMemListForChange(memReg.getMemberList());
 		;
-		view.typeID();
+		view.selectID();
 		userIn = scan.next();
 		int userID = Integer.parseInt(userIn);
 		int index = -1;
@@ -196,7 +196,7 @@ public class Controller {
 	 * the Member register
 	 */
 	private void changeName(int i) {
-		view.AddName();
+		view.addName();
 		userIn = scan.next();
 		view.correctName(userIn);
 		checkYesNoAnswer = scan.next();

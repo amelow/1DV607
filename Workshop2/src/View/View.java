@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import Model.Member;
 
 /*
- * The view class handles most of the outprints the user gets in the console
+ * The view class handles most of the printouts the user gets in the console
  */
 public class View {
 
@@ -31,12 +31,12 @@ public class View {
 		System.out.println(quit);
 	}
 
-	public void AddName() {
+	public void addName() {
 		System.out.println("Please enter your name: ");
 
 	}
 
-	public void AddPersonNum() {
+	public void addPersonNum() {
 		System.out.println("Please enter your personal-number: YYYYMMDDXXXX");
 	}
 
@@ -63,33 +63,32 @@ public class View {
 	}
 
 	public void memberSaved() {
-		String saved = "--The member is now saved--";
+		String saved = "---The member is now saved---";
 		System.out.println(saved + "\n");
 	}
-
-	public void deletedBoat() {
-		System.out.println("---Boat is deleted, back to the main menu---");
-	}
-
 
 	public void deleteMember() {
 		System.out.println("Are you sure? Do you want to delete the member? (y/n)");
 	}
 
 	public void memberDeleted() {
-		System.out.println("--The member gets deleted--");
+		System.out.println("---The member gets deleted---");
 		System.out.println("\n");
 	}
 
-	public void typeOfBoat() {
-		System.out.println("Type of boat? Choose between: Sailboat, Motorsailer, Kayak, Canoe and Other");
+	public void deletedBoat() {
+		System.out.println("---Boat is deleted, back to the main menu---");
 	}
 
 	public void changeBoat() {
 		System.out.println("Which boat should be changed? select the number infront of the boat type");
 	}
 
-	public void typeID() {
+	public void typeOfBoat() {
+		System.out.println("Type of boat? Choose between: Sailboat, Motorsailer, Kayak, Canoe and Other");
+	}
+
+	public void selectID() {
 		String chooseID = "Select the member ID of the member that should be changed";
 		System.out.println(chooseID);
 
