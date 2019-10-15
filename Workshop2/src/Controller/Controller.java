@@ -216,12 +216,13 @@ public class Controller {
 	 * the Member register
 	 */
 	private void deleteMember(int id) {
-		System.out.println("Are you sure? Do you want to delete the member?" + id + "(y/n)");
+		System.out.println("Are you sure? Do you want to delete the member? (y/n)");
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
 			System.out.println("--The member gets deleted--");
 			memReg.DeleteMember(id);
+			startMenu();
 		} else {
 			System.out.println("Okay back to the main menu");
 			startMenu();
