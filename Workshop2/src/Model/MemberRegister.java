@@ -67,7 +67,6 @@ public class MemberRegister {
 			System.out.println("ID: " + memList.get(i).getID());
 			System.out.println("Number of Boats: " + memList.get(i).getAmountOfBoats());
 			if (memList.get(i).getAmountOfBoats() > 0) {// checks if user has 1 or more boats
-				System.out.println("Registered Boats");
 				System.out.println("-----------------------------------");
 				for (int j = 0; j < memList.get(i).getAmountOfBoats(); j++) { // loops thru the boats
 					System.out.println("Type: " + memList.get(i).getBoatList().get(j).getType());// prints all of the
