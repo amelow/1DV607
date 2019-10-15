@@ -52,14 +52,37 @@ public class View {
 		System.out.println(idPer);
 	}
 
+	public void correctBoatInfo(String typeOfBoat, String lengthOfBoat) {
+		System.out.println("Is " + typeOfBoat + " and length " + lengthOfBoat + " correct?(y/n)");
+
+	}
+
 	public void saveMember(String str, long id) {
 		String save = "Do you want to save the member with name " + str + " and personal number " + id + "?(y/n)";
 		System.out.println(save);
 	}
+
 	public void memberSaved() {
 		String saved = "--The member is now saved--";
 		System.out.println(saved + "\n");
 
+	}
+
+	public void deleteMember() {
+		System.out.println("Are you sure? Do you want to delete the member? (y/n)");
+	}
+
+	public void memberDeleted() {
+		System.out.println("--The member gets deleted--");
+		System.out.println("\n");
+	}
+
+	public void typeOfBoat() {
+		System.out.println("Type of boat? Choose between: Sailboat, Motorsailer, Kayak, Canoe and Other");
+	}
+
+	public void changeBoat() {
+		System.out.println("Which boat should be changed? select the number infront of the boat type");
 	}
 
 	public void typeID() {
@@ -123,6 +146,10 @@ public class View {
 	public void userExist() {
 		System.out.println("Person number exist - returns to start menu");
 
+	}
+
+	public void saveAndQuit() {
+		System.out.println("Are you sure? Do you want to save and exit the application? (y/n)");
 	}
 
 }

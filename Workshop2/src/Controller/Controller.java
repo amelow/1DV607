@@ -179,16 +179,14 @@ public class Controller {
 	 * in the txt file
 	 */
 	private void caseQuitApp() {
-		System.out.println("Are you sure? Do you want to save and exit the application? (y/n)");
+		view.saveAndQuit();
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
 			fileHandler(memReg.getMemberList()); // calls the filehandler and sends the
 			// members information to save it
-			System.out.println("Okay! Hope we will see you again");
 			System.exit(0);// closing the console application
 		}
-		System.out.println("Okay! Back to the main menu.");
 		startMenu();
 	}
 
@@ -217,15 +215,14 @@ public class Controller {
 	 * the Member register
 	 */
 	private void deleteMember(int id) {
-		System.out.println("Are you sure? Do you want to delete the member? (y/n)");
+		view.deleteMember();
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
-			System.out.println("--The member gets deleted--");
+			view.memberDeleted();
 			memReg.DeleteMember(id);
 			startMenu();
 		} else {
-			System.out.println("Okay back to the main menu");
 			startMenu();
 		}
 
@@ -236,17 +233,16 @@ public class Controller {
 	 * length, then adding it to the registry at the correct id
 	 */
 	private void addBoat(int id) {
-		System.out.println("Type of boat? Choose between: Sailboat, Motorsailer, Kayak, Canoe and Other");
+		view.typeOfBoat();
 		userIn = scan.next();
 		String typeOfBoat = userIn;
 		System.out.println("length of boat?");
 		userIn = scan.next();
 		String lengthOfBoat = userIn;
-		System.out.println("Is " + typeOfBoat + " and length " + lengthOfBoat + " correct?(y/n)");
+		view.correctBoatInfo(typeOfBoat, lengthOfBoat);
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
-			BoatTypes type;
 			memReg.getMember(id).addBoat(BoatTypes.getBoatType(typeOfBoat), Integer.parseInt(lengthOfBoat));
 		}
 	}
@@ -257,7 +253,7 @@ public class Controller {
 	 * registry
 	 */
 	private void changeBoat(int userID) {
-		System.out.println("Which boat should be changed? select the number infront of the boat type");
+		view.changeBoat();
 		String p;
 		for (int i = 0; i < memReg.getMemberList().get(userID).getBoatList().size(); i++) {
 			p = i + " " + memReg.getMemberList().get(userID).getBoatList().get(i).getType() + " "
