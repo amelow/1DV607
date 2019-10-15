@@ -19,14 +19,14 @@ public class MemberRegister {
 	 */
 	public void CreateMember(String name, String num) {
 		Member member = new Member(name, num);
-		AddMember(member);
+		addMember(member);
 	}
 
 	/*
 	 * Method that adds the new member to the list with a unique Id. Id starts at
 	 * 1040
 	 */
-	public void AddMember(Member member) {
+	public void addMember(Member member) {
 		member.setID(id);
 		memList.add(member);
 		amountOfMembers++; // incrementing the amount of members in the list
@@ -36,7 +36,7 @@ public class MemberRegister {
 	/*
 	 * Method that handles the delete member functionality
 	 */
-	public void DeleteMember(int number) {
+	public void deleteMember(int number) {
 		memList.remove(number);// removes the member with the right Id
 		amountOfMembers--;// decrementing the amount of members in the list
 
@@ -46,7 +46,7 @@ public class MemberRegister {
 	 * Method for printing the Compact List with the members Name, Member id and
 	 * Number of boats
 	 */
-	public void CompactList() {
+	public void compactList() {
 		for (int i = 0; i < memList.size(); i++) {// loops thru the register and prints the information
 			System.out.println("Name: " + memList.get(i).getName() + " " + "ID: " + memList.get(i).getID() + " "
 					+ "Boats: " + memList.get(i).getAmountOfBoats());
@@ -59,7 +59,7 @@ public class MemberRegister {
 	 * Method for printing the Verbose List with the members Name, Personal number,
 	 * Member id and Boats with boat information
 	 */
-	public void printVerbose() {
+	public void verboseList() {
 		for (int i = 0; i < memList.size(); i++) {// loops thru the register and prints the information
 			System.out.println("---------------------------------------");
 			System.out.println("Name: " + memList.get(i).getName());
@@ -100,6 +100,7 @@ public class MemberRegister {
 			return memList.get(index);
 		}
 	}
+
 	public ArrayList<Member> getMemberList() { // returns the entire member registry list
 		return memList;
 	}

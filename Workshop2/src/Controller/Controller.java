@@ -162,7 +162,7 @@ public class Controller {
 	 * main menu
 	 */
 	private void caseShowCompact() {
-		memReg.CompactList();
+		memReg.compactList();
 		startMenu();
 	}
 
@@ -171,7 +171,7 @@ public class Controller {
 	 * to the main menu
 	 */
 	private void caseShowVerbose() {
-		memReg.printVerbose();
+		memReg.verboseList();
 		startMenu();
 	}
 
@@ -221,7 +221,7 @@ public class Controller {
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
 			view.memberDeleted();
-			memReg.DeleteMember(id);
+			memReg.deleteMember(id);
 			startMenu();
 		} else {
 			startMenu();
@@ -342,7 +342,7 @@ public class Controller {
 						counter += 2;
 					}
 					counter = 0;
-					memReg.AddMember(m); // add the members
+					memReg.addMember(m); // add the members
 					arr.clear();
 				} else {
 					arr.add(line);
