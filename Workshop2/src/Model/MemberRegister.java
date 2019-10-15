@@ -99,9 +99,7 @@ public class MemberRegister {
 		} else {
 			return memList.get(index);
 		}
-
 	}
-
 	public ArrayList<Member> getMemberList() { // returns the entire member registry list
 		return memList;
 	}

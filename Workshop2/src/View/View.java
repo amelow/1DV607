@@ -65,8 +65,12 @@ public class View {
 	public void memberSaved() {
 		String saved = "--The member is now saved--";
 		System.out.println(saved + "\n");
-
 	}
+
+	public void deletedBoat() {
+		System.out.println("---Boat is deleted, back to the main menu---");
+	}
+
 
 	public void deleteMember() {
 		System.out.println("Are you sure? Do you want to delete the member? (y/n)");
@@ -75,10 +79,6 @@ public class View {
 	public void memberDeleted() {
 		System.out.println("--The member gets deleted--");
 		System.out.println("\n");
-	}
-
-	public void deletedBoat() {
-		System.out.println("---Boat is deleted, back to the main menu---");
 	}
 
 	public void typeOfBoat() {
@@ -94,6 +94,7 @@ public class View {
 		System.out.println(chooseID);
 
 	}
+
 	public void selectBoatToDelete() {
 		System.out.println("Which boat do you want to delete? select the number infront of boat type");
 
