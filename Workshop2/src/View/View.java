@@ -77,6 +77,10 @@ public class View {
 		System.out.println("\n");
 	}
 
+	public void deletedBoat() {
+		System.out.println("---Boat is deleted, back to the main menu---");
+	}
+
 	public void typeOfBoat() {
 		System.out.println("Type of boat? Choose between: Sailboat, Motorsailer, Kayak, Canoe and Other");
 	}
@@ -88,6 +92,10 @@ public class View {
 	public void typeID() {
 		String chooseID = "Select the member ID of the member that should be changed";
 		System.out.println(chooseID);
+
+	}
+	public void selectBoatToDelete() {
+		System.out.println("Which boat do you want to delete? select the number infront of boat type");
 
 	}
 
@@ -150,6 +158,11 @@ public class View {
 
 	public void saveAndQuit() {
 		System.out.println("Are you sure? Do you want to save and exit the application? (y/n)");
+	}
+
+	public void listMembersBoats(String listOfBoatsPrintOuts) {
+		System.out.println(listOfBoatsPrintOuts);
+
 	}
 
 }

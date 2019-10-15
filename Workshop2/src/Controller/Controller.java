@@ -30,6 +30,7 @@ public class Controller {
 	private Scanner scan = new Scanner(System.in); // scanner handles the conole inputs
 	private View view = new View();
 	private MemberRegister memReg = new MemberRegister();
+	private String listOfBoatsPrintOuts = "";
 
 	/*
 	 * Prints the viewer class welcome message, initializes a file and calls the
@@ -254,12 +255,12 @@ public class Controller {
 	 */
 	private void changeBoat(int userID) {
 		view.changeBoat();
-		String p;
 		for (int i = 0; i < memReg.getMemberList().get(userID).getBoatList().size(); i++) {
-			p = i + " " + memReg.getMemberList().get(userID).getBoatList().get(i).getType() + " "
+			listOfBoatsPrintOuts = i + " " + memReg.getMemberList().get(userID).getBoatList().get(i).getType() + " "
 					+ memReg.getMemberList().get(userID).getBoatList().get(i).getLength();
-			System.out.println(p);
 		}
+		view.listMembersBoats(listOfBoatsPrintOuts);
+
 		userIn = scan.next();
 		int boatSelected = Integer.parseInt(userIn);
 		System.out.println("Do you want to change length(1), type (2), both (3)");
@@ -296,14 +297,14 @@ public class Controller {
 				userIndex = i;
 			}
 		}
-		String p;
+
 		// Loops thru the users registered boats and gets the type and the length
 		for (int i = 0; i < memReg.getMemberList().get(userIndex).getBoatList().size(); i++) {
-			p = i + " " + memReg.getMemberList().get(userIndex).getBoatList().get(i).getType() + " "
+			listOfBoatsPrintOuts = i + " " + memReg.getMemberList().get(userIndex).getBoatList().get(i).getType() + " "
 					+ memReg.getMemberList().get(userIndex).getBoatList().get(i).getLength();
-			System.out.println(p);
+			view.listMembersBoats(listOfBoatsPrintOuts);
 		}
-		System.out.println("Which boat do you want to delete? select the number infront of boat type");
+		view.selectBoatToDelete();
 		String deleteBoat = userIn;
 		deleteBoat = scan.next();
 		int deleteBoatInt = Integer.parseInt(deleteBoat);
@@ -312,7 +313,7 @@ public class Controller {
 			String r = deleteBoatInt + " " + memReg.getMemberList().get(userIndex).getBoatList().get(i);
 			if (c.equals(r)) {
 				memReg.getMemberList().get(userIndex).deleteBoat(i);
-				System.out.println("---Boat is deleted, back to the main menu---");
+				view.deletedBoat();
 			}
 		}
 		startMenu();
