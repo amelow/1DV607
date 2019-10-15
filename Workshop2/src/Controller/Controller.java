@@ -27,7 +27,7 @@ public class Controller {
 	private String checkYesNoAnswer; // checks the console input if it is (y/n)
 	private char checkYN; // checks the console input if it is (y/n)
 	private String personNumberAsString; // personal number
-	private Scanner scan = new Scanner(System.in); // scanner handles the conole inputs
+	private Scanner scan = new Scanner(System.in); // scanner handles the console inputs
 	private View view = new View();
 	private MemberRegister memReg = new MemberRegister();
 	private String listOfBoatsPrintOuts = "";
@@ -38,7 +38,7 @@ public class Controller {
 	 */
 	public void welcomeMessage() {
 		initFile();
-		view.welcome();
+		view.welcomeMessage();
 		startMenu();
 	}
 

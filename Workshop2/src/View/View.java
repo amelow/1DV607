@@ -9,7 +9,7 @@ import Model.Member;
  */
 public class View {
 
-	public void welcome() {
+	public void welcomeMessage() {
 		String hi = "Hi and Welcome!" + "\n";
 		System.out.println(hi);
 
