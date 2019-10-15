@@ -103,53 +103,12 @@ public class Controller {
 				// thecreatemember method
 				view.memberSaved();
 				startMenu(); // calls the main again
+			} else {
+				startMenu();
 			}
 
 		}
 	}
-
-//		view.AddName();
-//		userIn = scan.next();
-//		view.correctName(userIn);
-//		checkYesNoAnswer = scan.next();
-//		checkYN = checkYesNoAnswer.charAt(0);
-//		if (checkYN == 'Y' || checkYN == 'y') {
-//			boolean number = false;
-//			while (number == false) {
-//				view.AddPersonNum();
-//				userLong = scan.nextLong();
-//				view.correctPersonNum(userLong);
-//				checkYesNoAnswer = scan.next();
-//				checkYN = checkYesNoAnswer.charAt(0);
-//				personNumberAsString = String.valueOf(userLong);
-//				if (personNumberAsString.length() != 12) {
-//					view.wrongFormat();
-//				}
-//				for (int i = 0; i < memReg.getMemberList().size(); i++) { // checks the personal number if user already
-//																			// exists
-//					if (personNumberAsString.equals(memReg.getMemberList().get(i).getPersonNum())) {
-//						view.userExist();
-//						startMenu();
-//					}
-//				}
-//				int legthOfPersonNum = personNumberAsString.length(); // checks if personal number is 12
-//				if (checkYN == 'y' && legthOfPersonNum == 12) {
-//					// view.added();
-//					number = true;
-//				}
-//			}
-//			view.saveMember(userIn, userLong);
-//			checkYesNoAnswer = scan.next();
-//			checkYN = checkYesNoAnswer.charAt(0);
-//			if (checkYN == 'Y' || checkYN == 'y') {
-//				memReg.CreateMember(userIn, personNumberAsString); // sends the users input as a parameter to
-//																	// thecreatemember method
-//				view.memberSaved();
-//				startMenu(); // calls the main again
-//			}
-//		} else {
-//			caseAddMember(); // calls itself again to add more members
-//		}
 
 	/*
 	 * The change member method that handles the functionality of changing the users
