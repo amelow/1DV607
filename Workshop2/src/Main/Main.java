@@ -1,4 +1,4 @@
-package theYachtClub;
+package Main;
 
 import Controller.Controller;
 
