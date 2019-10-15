@@ -61,26 +61,22 @@ public class MemberRegister {
 	 * Method for printing the Verbose List with the members Name, Personal number,
 	 * Member id and Boats with boat information
 	 */
-	public void verboseList() {
+	public ArrayList printVerbose() {
+		ArrayList<Object> verbose = new ArrayList<Object>();
+		String lineBreak = ("---------------------------------------\n");
 		for (int i = 0; i < memList.size(); i++) {// loops thru the register and prints the information
-			System.out.println("---------------------------------------");
-			System.out.println("Name: " + memList.get(i).getName());
-			System.out.println("Personal Number: " + memList.get(i).getPersonNum());
-			System.out.println("ID: " + memList.get(i).getID());
-			System.out.println("Number of Boats: " + memList.get(i).getAmountOfBoats());
+			verbose.add(lineBreak + " Name: " + memList.get(i).getName() + " Personal Number: "
+					+ memList.get(i).getPersonNum() + " ID: " + memList.get(i).getID() + " Number of Boats: "
+					+ memList.get(i).getAmountOfBoats());
 			if (memList.get(i).getAmountOfBoats() > 0) {// checks if user has 1 or more boats
-				System.out.println("-----------------------------------");
 				for (int j = 0; j < memList.get(i).getAmountOfBoats(); j++) { // loops thru the boats
-					System.out.println("Type: " + memList.get(i).getBoatList().get(j).getType());// prints all of the
-																									// boats information
-					System.out.println("Length: " + memList.get(i).getBoatList().get(j).getLength());
-					System.out.println(" ");
+					verbose.add(lineBreak + " Type: " + memList.get(i).getBoatList().get(j).getType() + " Length: "
+							+ memList.get(i).getBoatList().get(j).getLength());
 				}
-				System.out.println("-----------------------------------");
 			}
-			System.out.println("----------------------------------------");
-		}
 
+		}
+		return verbose;
 	}
 
 	public long getID() {// returns the members id
