@@ -46,12 +46,14 @@ public class MemberRegister {
 	 * Method for printing the Compact List with the members Name, Member id and
 	 * Number of boats
 	 */
-	public void compactList() {
-		for (int i = 0; i < memList.size(); i++) {// loops thru the register and prints the information
-			System.out.println("Name: " + memList.get(i).getName() + " " + "ID: " + memList.get(i).getID() + " "
+	public ArrayList<Object> CompactList() {
+		ArrayList<Object> memberCompact = new ArrayList<Object>();
+		for (int i = 0; i < memList.size(); i++) {// loops thru the register
+			memberCompact.add("Name: " + memList.get(i).getName() + " " + "ID: " + memList.get(i).getID() + " "
 					+ "Boats: " + memList.get(i).getAmountOfBoats());
 
 		}
+		return memberCompact;
 
 	}
 

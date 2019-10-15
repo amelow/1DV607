@@ -162,10 +162,10 @@ public class Controller {
 	 * main menu
 	 */
 	private void caseShowCompact() {
-		memReg.compactList();
-		startMenu();
-	}
-
+        ArrayList compact = memReg.CompactList();
+        view.compactListView(compact);
+        startMenu();
+    }
 	/*
 	 * Prints the verbose list of the member and boats information, then goes back
 	 * to the main menu

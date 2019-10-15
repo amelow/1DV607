@@ -127,6 +127,10 @@ public class View {
 		}
 
 	}
+	public void compactListView(ArrayList<Object> compact) {
+        compact.forEach(System.out::println);
+       
+    }
 
 	public void noChanges() {
 		String no = "No changes made, prints the list of members again";
