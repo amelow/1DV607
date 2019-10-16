@@ -187,6 +187,7 @@ public class Controller {
 	private void caseShowVerbose() {
 		ArrayList verbose = memReg.printVerbose();
 		view.verboseListView(verbose);
+		startMenu();
 	}
 
 	/*
