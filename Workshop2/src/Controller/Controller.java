@@ -74,49 +74,41 @@ public class Controller {
 	 * Add member method that handles the member info such as Name and Personal
 	 * Number. If correct it adds it to the member registry
 	 */
-	  public void caseAddMember() {
-	        view.addName();
-	        userIn = scan.next();
-	        boolean number = false;
-	        while (number == false) {
-	            view.addPersonNum();
-	            userLong = scan.nextLong();
-	            personNumberAsString = String.valueOf(userLong);
-//	          if (personNumberAsString.length() != 12) {
-//	              view.wrongFormat();
-//	             
-//	          }
-//	         
-	            for (int i = 0; i < memReg.getMemberList().size(); i++) { // checks the personal number if user already
-	                // exists
-	                if (personNumberAsString.equals(memReg.getMemberList().get(i).getPersonNum())) {
-	                    view.userExist();
-	                    startMenu();
-	                }
-	            }
-	            int lengthOfPersonNum = personNumberAsString.length(); // checks if personal number is 12
-	            if (lengthOfPersonNum == 12) {
-	                number = true;
-	                view.saveMember(userIn, userLong);
-	            }
-	            else {
-	                view.wrongFormat();
-	                }
-	            }
-	            checkYesNoAnswer = scan.next();
-	            checkYN = checkYesNoAnswer.charAt(0);
-	            if (checkYN == 'Y' || checkYN == 'y') {
-	                memReg.CreateMember(userIn, personNumberAsString); // sends the users input as a parameter to
-	                // thecreatemember method
-	                view.memberSaved();
-	                startMenu(); // calls the main again
-	            } else {
-	                startMenu();
-	           
-	 
-	        }
-	    }
-	 
+	public void caseAddMember() {
+		view.addName();
+		userIn = scan.next();
+		boolean number = false;
+		while (number == false) {
+			view.addPersonNum();
+			userLong = scan.nextLong();
+			personNumberAsString = String.valueOf(userLong);
+			for (int i = 0; i < memReg.getMemberList().size(); i++) { // checks the personal number if user already
+				// exists
+				if (personNumberAsString.equals(memReg.getMemberList().get(i).getPersonNum())) {
+					view.userExist();
+					startMenu();
+				}
+			}
+			int lengthOfPersonNum = personNumberAsString.length(); // checks if personal number is 12
+			if (lengthOfPersonNum == 12) {
+				number = true;
+				view.saveMember(userIn, userLong);
+			} else {
+				view.wrongFormat();
+			}
+		}
+		checkYesNoAnswer = scan.next();
+		checkYN = checkYesNoAnswer.charAt(0);
+		if (checkYN == 'Y' || checkYN == 'y') {
+			memReg.CreateMember(userIn, personNumberAsString); // sends the users input as a parameter to
+			// thecreatemember method
+			view.memberSaved();
+			startMenu(); // calls the main again
+		} else {
+			startMenu();
+
+		}
+	}
 
 	/*
 	 * The change member method that handles the functionality of changing the users
@@ -169,18 +161,19 @@ public class Controller {
 	 * main menu
 	 */
 	private void caseShowCompact() {
-        ArrayList compact = memReg.CompactList();
-        view.compactListView(compact);
-        startMenu();
-    }
+		ArrayList compact = memReg.CompactList();
+		view.compactListView(compact);
+		startMenu();
+	}
+
 	/*
 	 * Prints the verbose list of the member and boats information, then goes back
 	 * to the main menu
 	 */
 	private void caseShowVerbose() {
-        ArrayList verbose = memReg.printVerbose();
-        view.verboseListView(verbose);
-    }
+		ArrayList verbose = memReg.printVerbose();
+		view.verboseListView(verbose);
+	}
 
 	/*
 	 * Checks if the user wants to quit the application, then saves the information
