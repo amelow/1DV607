@@ -32,7 +32,7 @@ public class View {
 	}
 
 	public void addName() {
-		System.out.println("Please enter your name: ");
+		System.out.println("Please enter your name (end with enter and -1: ");
 
 	}
 
@@ -127,10 +127,11 @@ public class View {
 		}
 
 	}
+
 	public void compactListView(ArrayList<Object> compact) {
-        compact.forEach(System.out::println);
-       
-    }
+		compact.forEach(System.out::println);
+
+	}
 
 	public void noChanges() {
 		String no = "No changes made, prints the list of members again";
@@ -170,8 +171,8 @@ public class View {
 	}
 
 	public void verboseListView(ArrayList<Object> verbose) {
-        verbose.forEach(System.out::println);
-       
-    }
+		verbose.forEach(System.out::println);
+
+	}
 
 }
