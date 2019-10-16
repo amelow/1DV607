@@ -82,9 +82,11 @@ public class Controller {
 			view.addPersonNum();
 			userLong = scan.nextLong();
 			personNumberAsString = String.valueOf(userLong);
-			if (personNumberAsString.length() != 12) {
-				view.wrongFormat();
-			}
+//			if (personNumberAsString.length() != 12) {
+//				view.wrongFormat();
+//				
+//			}
+//			
 			for (int i = 0; i < memReg.getMemberList().size(); i++) { // checks the personal number if user already
 				// exists
 				if (personNumberAsString.equals(memReg.getMemberList().get(i).getPersonNum())) {
@@ -96,6 +98,9 @@ public class Controller {
 			if (lengthOfPersonNum == 12) {
 				number = true;
 				view.saveMember(userIn, userLong);
+			}else {
+				view.wrongFormat();
+				view.addPersonNum();
 			}
 			checkYesNoAnswer = scan.next();
 			checkYN = checkYesNoAnswer.charAt(0);

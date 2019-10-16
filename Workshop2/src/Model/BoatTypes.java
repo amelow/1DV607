@@ -1,7 +1,7 @@
 package Model;
 
 /*
- * The enum class for the different boat-types
+ * The Enum class for the different boat-types
  */
 public enum BoatTypes {
 	Sailboat,
@@ -12,7 +12,7 @@ public enum BoatTypes {
 
 	/*
 	 * A static class that checks if the user chose a boattype and if not correct
-	 * spelling/ no real boattype it changes the input to Other
+	 * spelling/ no real boat type it changes the input to Other
 	 */
 	public static BoatTypes getBoatType(String type) {
 		BoatTypes[] types = BoatTypes.values();

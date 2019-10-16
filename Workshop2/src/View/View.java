@@ -151,7 +151,7 @@ public class View {
 	}
 
 	public void wrongFormat() {
-		System.out.println("Wrong format should be YYYYMMDDXXXX");
+		System.out.println("Wrong format!It should be like: YYYYMMDDXXXX");
 
 	}
 
