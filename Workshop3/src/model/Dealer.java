@@ -1,5 +1,9 @@
 package model;
 
+import model.rules.IHitStrategy;
+import model.rules.INewGameStrategy;
+import model.rules.RulesFactory;
+
 public class Dealer extends Player {
 
 	private Deck m_deck;
