@@ -1,4 +1,4 @@
-package BlackJack.view;
+x	package view;
 
 public class SimpleView implements IView 
 {

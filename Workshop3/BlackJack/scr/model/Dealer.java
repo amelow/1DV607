@@ -1,6 +1,5 @@
-package BlackJack.model;
+package model;
 
-import BlackJack.model.rules.*;
 
 public class Dealer extends Player {
 

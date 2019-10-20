@@ -1,4 +1,4 @@
-package BlackJack.view;
+package view;
 
 public interface IView
 {

@@ -1,7 +1,4 @@
-package BlackJack.controller;
-
-import BlackJack.view.IView;
-import BlackJack.model.Game;
+package controller;
 
 public class PlayGame {
 
