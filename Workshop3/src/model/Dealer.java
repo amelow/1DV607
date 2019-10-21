@@ -59,4 +59,8 @@ public class Dealer extends Player {
 		return false;
 	}
 
+	public boolean Stand() {
+
+	}
+
 }
