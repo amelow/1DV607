@@ -14,14 +14,15 @@ public class Soft17Strategy implements IHitStrategy {
 	 * 16 or lower).
 	 */
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
+	private int upperLimit = 21;
+	private int lowerUpperLimit = 17;
 
 	@Override
 	public boolean DoHit(Player a_dealer) {
-		// TODO Auto-generated method stub
+		int dealerScore = a_dealer.CalcScore();
+		if (dealerScore == lowerUpperLimit) {
+
+		}
 		return false;
 	}
 
