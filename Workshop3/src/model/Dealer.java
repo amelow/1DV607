@@ -60,7 +60,22 @@ public class Dealer extends Player {
 	}
 
 	public boolean Stand() {
+		if (m_deck != null) {
+			ShowHand();
 
+		}
+		while (m_hitRule.DoHit(this)) {
+			DealCard(this, true);
+			return true;
+
+		}
+		return false;
+	}
+
+	public void DealCard(Player m_player, boolean isShow) {
+		Card c = m_deck.GetCard();
+		c.Show(isShow);
+		m_player.DealCard(c);
 	}
 
 }
