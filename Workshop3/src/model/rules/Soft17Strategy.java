@@ -1,6 +1,8 @@
 package model.rules;
 
-public class Soft17Strategy {
+import model.Player;
+
+public class Soft17Strategy implements IHitStrategy {
 	/*
 	 * Design and implement a new rule variant for when the dealer should take one
 	 * more card. The new variant is “Soft 17″, use the same design pattern already
@@ -15,6 +17,12 @@ public class Soft17Strategy {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public boolean DoHit(Player a_dealer) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
