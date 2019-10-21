@@ -65,6 +65,7 @@ public class Dealer extends Player {
 
 		}
 		while (m_hitRule.DoHit(this)) {
+			m_hitRule.DoHit(this);
 			DealCard(this, true);
 			return true;
 
@@ -72,10 +73,10 @@ public class Dealer extends Player {
 		return false;
 	}
 
-	public void DealCard(Player m_player, boolean isShow) {
+	public void DealCard(Player a_player, boolean isShow) {
 		Card c = m_deck.GetCard();
 		c.Show(isShow);
-		m_player.DealCard(c);
+		a_player.DealCard(c);
 	}
 
 }
