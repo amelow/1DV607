@@ -4,7 +4,7 @@ package model.rules;
 public class RulesFactory {
 
   public IHitStrategy GetHitRule() {
-    return new BasicHitStrategy();
+    return new Soft17Strategy();
   }
 
   public INewGameStrategy GetNewGameRule() {

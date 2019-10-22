@@ -38,8 +38,7 @@ public class Game {
 
 	public boolean Stand() {
 		UpdateView();
-		// TODO: Implement this according to Game_Stand.sequencediagram
-		 return m_dealer.Stand();
+		return m_dealer.Stand();
 	}
 
 	public Iterable<Card> GetDealerHand() {
@@ -57,11 +56,11 @@ public class Game {
 	public int GetPlayerScore() {
 		return m_player.CalcScore();
 	}
-	
+
 	private void UpdateView() {
-	    a_view.DisplayWelcomeMessage();    
-	    a_view.DisplayDealerHand(GetDealerHand(), GetDealerScore());
-	    a_view.DisplayPlayerHand(GetPlayerHand(), GetPlayerScore());		
+		a_view.DisplayWelcomeMessage();
+		a_view.DisplayDealerHand(GetDealerHand(), GetDealerScore());
+		a_view.DisplayPlayerHand(GetPlayerHand(), GetPlayerScore());
 	}
 
 }

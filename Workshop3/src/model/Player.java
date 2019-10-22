@@ -7,6 +7,7 @@ public class Player {
 
 	private List<Card> m_hand;
 	protected final int g_maxScore = 21;
+	private int countAces = 0;
 
 	public Player() {
 
@@ -60,10 +61,12 @@ public class Player {
 	}
 
 	public boolean checkIfAce() {
-		for (Card c : m_hand)
-
-			if (c.GetValue() == Card.Value.Ace) {
-				System.out.println("dealer has ace");
+		for (Card card : m_hand)
+			if (card.GetValue() == Card.Value.Ace) {
+				System.out.println("DEALER HAS AN ACE!!!");
+				countAces++;
+				if (countAces < 0)
+					
 				return true;
 			}
 
