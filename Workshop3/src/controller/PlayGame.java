@@ -10,7 +10,6 @@ public class PlayGame {
 		a_game.IsGameOver();
 
 		int input = a_view.GetInput();
-
 		if (input == 'p') {
 			a_game.NewGame();
 		} else if (input == 'h') {

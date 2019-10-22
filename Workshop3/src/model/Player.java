@@ -11,7 +11,7 @@ public class Player {
 	public Player() {
 
 		m_hand = new LinkedList<Card>();
-		//System.out.println("Hello List World");
+		// System.out.println("Hello List World");
 	}
 
 	public void DealCard(Card a_addToHand) {
@@ -61,8 +61,12 @@ public class Player {
 
 	public boolean checkIfAce() {
 		for (Card c : m_hand)
-			if (c.GetValue() == Card.Value.Ace)
+
+			if (c.GetValue() == Card.Value.Ace) {
+				System.out.println("dealer has ace");
 				return true;
+			}
+
 		return false;
 	}
 }
