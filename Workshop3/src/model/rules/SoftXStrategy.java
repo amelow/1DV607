@@ -12,18 +12,18 @@ import model.Player;
  * (compared to the original rule when the dealer only takes cards on a score of
  * 16 or lower).
  */
-public class Soft17Strategy implements IHitStrategy {
-	private final int softSeventeenLimit = 17;
+public class SoftXStrategy implements IHitStrategy {
+	private final int g_hitLimit = 17;
 
 	@Override
 	public boolean DoHit(Player a_dealer) {
 		int currentDealerScore = a_dealer.CalcScore();
-		if (softSeventeenLimit > currentDealerScore) {
+		if (currentDealerScore < g_hitLimit) {
 			return true;
-		} else if (softSeventeenLimit == currentDealerScore) {
-			a_dealer.checkIfAce();
-			System.out.println("SHOULD BE 17");
-			
+		}  
+		if (g_hitLimit == currentDealerScore && a_dealer.checkIfAce()) {
+			System.out.println("Soft " + g_hitLimit);
+			return true;
 		}
 		return false;
 	}
