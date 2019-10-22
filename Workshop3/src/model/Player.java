@@ -11,7 +11,7 @@ public class Player {
 	public Player() {
 
 		m_hand = new LinkedList<Card>();
-		System.out.println("Hello List World");
+		//System.out.println("Hello List World");
 	}
 
 	public void DealCard(Card a_addToHand) {
@@ -57,5 +57,12 @@ public class Player {
 		}
 
 		return score;
+	}
+
+	public boolean checkIfAce() {
+		for (Card c : m_hand)
+			if (c.GetValue() == Card.Value.Ace)
+				return true;
+		return false;
 	}
 }

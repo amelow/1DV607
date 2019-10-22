@@ -20,8 +20,18 @@ public class Soft17Strategy implements IHitStrategy {
 	@Override
 	public boolean DoHit(Player a_dealer) {
 		int dealerScore = a_dealer.CalcScore();
-		if (dealerScore == lowerUpperLimit) {
+		int cardScores[] = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11 };
 
+		if (dealerScore == upperLimit) {
+			System.out.println("test");
+			if (dealerScore < lowerUpperLimit) {
+				return true;
+			}
+				
+			else if (dealerScore == lowerUpperLimit && a_dealer.checkIfAce()) // soft 17
+				return true;
+
+			return false;
 		}
 		return false;
 	}
