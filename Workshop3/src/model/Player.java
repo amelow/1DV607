@@ -46,6 +46,7 @@ public class Player {
 			if (c.GetValue() != Card.Value.Hidden) {
 				score = 21;
 				// score += cardScores[c.GetValue().ordinal()];
+
 			}
 		}
 

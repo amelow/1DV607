@@ -7,12 +7,12 @@ public class WinGameStrategy implements ITheWinnerStrategy {
 	public boolean isWinner(int dealerScore, int playerScore) {
 
 		if (dealerScore == playerScore && playerScore == equalHitLimit) {
-			System.out.println("dealerScore"+ dealerScore);
-			System.out.println("playerScore"+ playerScore);
-			return false;
+			System.out.println("dealerScore" + dealerScore);
+			System.out.println("playerScore" + playerScore);
+			return true;
 		}
 
-		return true;
+		return false;
 	}
 
 }

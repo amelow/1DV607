@@ -51,6 +51,8 @@ public class Dealer extends Player {
 			return true;
 		} else if (CalcScore() > g_maxScore) {
 			return false;
+		} if (CalcScore() >= a_player.CalcScore()) {
+			return true;
 		}
 		return m_winnerRule.isWinner(this.CalcScore(), a_player.CalcScore());
 		// return CalcScore() >= a_player.CalcScore();
