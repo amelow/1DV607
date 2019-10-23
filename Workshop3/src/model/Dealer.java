@@ -47,14 +47,19 @@ public class Dealer extends Player {
 	}
 
 	public boolean IsDealerWinner(Player a_player) {
-		if (a_player.CalcScore() > g_maxScore) {
+		if (a_player.CalcScore() > g_maxScore && CalcScore() >= a_player.CalcScore()) {
+			System.out.println("----if 1----");
 			return true;
 		} else if (CalcScore() > g_maxScore) {
+			System.out.println("----if 2----");
 			return false;
-		} if (CalcScore() >= a_player.CalcScore()) {
-			return true;
+			// }
+			// if (CalcScore() >= a_player.CalcScore()) {
+			// return true;
 		}
+		System.out.println("----return----");
 		return m_winnerRule.isWinner(this.CalcScore(), a_player.CalcScore());
+
 		// return CalcScore() >= a_player.CalcScore();
 	}
 

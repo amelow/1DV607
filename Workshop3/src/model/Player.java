@@ -44,8 +44,8 @@ public class Player {
 
 		for (Card c : GetHand()) {
 			if (c.GetValue() != Card.Value.Hidden) {
-				score = 21;
-				// score += cardScores[c.GetValue().ordinal()];
+				score += cardScores[c.GetValue().ordinal()];
+//				score = 21;
 
 			}
 		}
