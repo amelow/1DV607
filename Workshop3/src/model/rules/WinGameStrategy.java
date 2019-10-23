@@ -5,12 +5,14 @@ public class WinGameStrategy implements ITheWinnerStrategy {
 
 	@Override
 	public boolean isWinner(int dealerScore, int playerScore) {
-		
+
 		if (dealerScore == playerScore && playerScore == equalHitLimit) {
-			return true;
+			System.out.println("dealerScore"+ dealerScore);
+			System.out.println("playerScore"+ playerScore);
+			return false;
 		}
 
-		return false;
+		return true;
 	}
 
 }

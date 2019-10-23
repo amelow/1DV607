@@ -2,6 +2,7 @@ package model;
 
 import model.rules.IHitStrategy;
 import model.rules.INewGameStrategy;
+import model.rules.ITheWinnerStrategy;
 import model.rules.RulesFactory;
 
 public class Dealer extends Player {
@@ -9,11 +10,13 @@ public class Dealer extends Player {
 	private Deck m_deck;
 	private INewGameStrategy m_newGameRule;
 	private IHitStrategy m_hitRule;
+	private ITheWinnerStrategy m_winnerRule;
 
 	public Dealer(RulesFactory a_rulesFactory) {
 
 		m_newGameRule = a_rulesFactory.GetNewGameRule();
 		m_hitRule = a_rulesFactory.GetHitRule();
+		m_winnerRule = a_rulesFactory.GetNewRule();
 
 		/*
 		 * for(Card c : m_deck.GetCards()) { c.Show(true); System.out.println("" +
@@ -49,7 +52,8 @@ public class Dealer extends Player {
 		} else if (CalcScore() > g_maxScore) {
 			return false;
 		}
-		return CalcScore() >= a_player.CalcScore();
+		return m_winnerRule.isWinner(this.CalcScore(), a_player.CalcScore());
+		// return CalcScore() >= a_player.CalcScore();
 	}
 
 	public boolean IsGameOver() {
