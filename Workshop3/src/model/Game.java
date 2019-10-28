@@ -1,5 +1,6 @@
 package model;
 
+import model.observer.IObserver;
 import view.IView;
 
 public class Game {
@@ -61,6 +62,12 @@ public class Game {
 		a_view.DisplayWelcomeMessage();
 		a_view.DisplayDealerHand(GetDealerHand(), GetDealerScore());
 		a_view.DisplayPlayerHand(GetPlayerHand(), GetPlayerScore());
+	}
+
+	public void newGameObserver(IObserver observer) {
+		m_dealer.addGameObserver(observer);
+		m_player.addGameObserver(observer);
+		
 	}
 
 }
