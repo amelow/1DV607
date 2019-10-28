@@ -50,6 +50,8 @@ public class Player extends Observer {
 			if (c.GetValue() != Card.Value.Hidden) {
 				score += cardScores[c.GetValue().ordinal()];
 
+//				score = 21;
+
 			}
 		}
 
