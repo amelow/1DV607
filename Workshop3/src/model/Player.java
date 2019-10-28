@@ -6,7 +6,7 @@ import model.observer.Observer;
 
 import java.util.LinkedList;
 
-public class Player extends Observer {
+public class Player extends Observer{
 
 	private List<Card> m_hand;
 	protected final int g_maxScore = 21;
@@ -19,7 +19,6 @@ public class Player extends Observer {
 
 	public void DealCard(Card a_addToHand) {
 		m_hand.add(a_addToHand);
-		pingGameObserver();
 	}
 
 	public Iterable<Card> GetHand() {
@@ -49,6 +48,7 @@ public class Player extends Observer {
 		for (Card c : GetHand()) {
 			if (c.GetValue() != Card.Value.Hidden) {
 				score += cardScores[c.GetValue().ordinal()];
+//				score = 21;
 
 //				score = 21;
 
@@ -73,5 +73,4 @@ public class Player extends Observer {
 			}
 		return false;
 	}
-
 }
