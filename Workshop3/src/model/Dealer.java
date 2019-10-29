@@ -36,10 +36,6 @@ public class Dealer extends Player {
 
 	public boolean Hit(Player a_player) {
 		if (m_deck != null && a_player.CalcScore() < g_maxScore && !IsGameOver()) {
-//			Card c;
-//			c = m_deck.GetCard();
-//			c.Show(true);
-//			a_player.DealCard(c);
 			DealCard(a_player,true);
 			
 			
@@ -50,21 +46,19 @@ public class Dealer extends Player {
 	}
 
 	public boolean IsDealerWinner(Player a_player) {
-		if (a_player.CalcScore() > g_maxScore && CalcScore() >= a_player.CalcScore()) {
-			System.out.println("----if 1----");
-			return true;
-		} else if (CalcScore() > g_maxScore) {
-			System.out.println("----if 2----");
-			return false;
-			// }
-			// if (CalcScore() >= a_player.CalcScore()) {
-			// return true;
-		}
-		System.out.println("----return----");
-		return m_winnerRule.isWinner(this.CalcScore(), a_player.CalcScore());
-
-		// return CalcScore() >= a_player.CalcScore();
-	}
+        if (a_player.CalcScore() > g_maxScore) {
+            System.out.println("----if 1----");
+            return true;
+        }else if (CalcScore() > g_maxScore) {
+            System.out.println("----if 2----");
+            return false;
+           
+        }
+        System.out.println("----return----");
+        return m_winnerRule.isWinner(this.CalcScore(), a_player.CalcScore());
+ 
+    
+    }
 
 	public boolean IsGameOver() {
 		if (m_deck != null && m_hitRule.DoHit(this) != true) {
@@ -90,6 +84,7 @@ public class Dealer extends Player {
 		Card c = m_deck.GetCard();
 		c.Show(isShow);
 		a_player.DealCard(c);
+		
 	}
 
 }
