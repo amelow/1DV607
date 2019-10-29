@@ -19,7 +19,7 @@ public class Player extends Observer {
 
 	public void DealCard(Card a_addToHand) {
 		m_hand.add(a_addToHand);
-		//pingGameObserver();
+		pingGameObserver();
 	}
 
 	public Iterable<Card> GetHand() {
@@ -49,9 +49,6 @@ public class Player extends Observer {
 		for (Card c : GetHand()) {
 			if (c.GetValue() != Card.Value.Hidden) {
 				score += cardScores[c.GetValue().ordinal()];
-//				score = 21;
-
-//				score = 21;
 
 			}
 		}

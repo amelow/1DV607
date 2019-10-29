@@ -22,7 +22,6 @@ public class SoftXStrategy implements IHitStrategy {
 			return true;
 		}  
 		if (g_hitLimit == currentDealerScore && a_dealer.checkIfAce()) {
-			System.out.println("Soft " + g_hitLimit);
 			return true;
 		}
 		return false;
