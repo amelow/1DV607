@@ -17,7 +17,7 @@ public class MemberRegister {
 	 * member method
 	 */
 	public void CreateMember(String name, String num) {
-		Member member = new Member(name, num);
+		Member member = new Member(name, num, id);
 		addMember(member);
 	}
 
@@ -26,7 +26,7 @@ public class MemberRegister {
 	 * 1040
 	 */
 	public void addMember(Member member) {
-		member.setID(id);
+		// member.setID(id);
 		memList.add(member);
 		amountOfMembers++; // incrementing the amount of members in the list
 		id++;// incrementing the Id so next member has a new ID
@@ -78,7 +78,7 @@ public class MemberRegister {
 		return verbose;
 	}
 
-	public long getID() {// returns the members id
+	public long getID() { // returns the members id
 		return id;
 
 	}

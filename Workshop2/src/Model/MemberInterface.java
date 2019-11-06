@@ -13,13 +13,11 @@ public interface MemberInterface {
 
 	public String getPersonNum();
 
-	public void setID(int memberID);
-
+//	public void setID(int memberID);
+//
 	public int getID();
 
 	// A getter and a Setter for the amount of boats the member has
-	public void setAmountOfBoats(int amount);
-
 	public int getAmountOfBoats();
 
 }
