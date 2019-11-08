@@ -350,7 +350,7 @@ public class Controller {
 			int counter = 0;
 			while ((line = buffReader.readLine()) != null) {
 				if (line.equals(",")) {
-					Member m = new Member(arr.get(0), arr.get(1)); // gets the name and the personal number from file
+					Member m = new Member(arr.get(0), arr.get(1), Integer.parseInt(arr.get(2))); // gets the name and the personal number from file
 					for (int i = 0; i < Integer.parseInt(arr.get(3)); i++) {
 						m.addBoat(BoatTypes.getBoatType(arr.get(4 + (counter))), // gets the boattypes fro file
 								Integer.parseInt(arr.get(5 + (counter))));
