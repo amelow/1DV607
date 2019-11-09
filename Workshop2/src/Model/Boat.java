@@ -3,7 +3,7 @@ package Model;
 /*
  * The Boat class gets the methods to implement from the BoatInterface
  */
-public class Boat implements BoatInterface {
+public class Boat {
 	private double length;
 	private BoatTypes type;
 
@@ -21,24 +21,21 @@ public class Boat implements BoatInterface {
 	 * Getters and Setters for the boatinformation: The type of boat and the length
 	 * of the boat
 	 */
-	@Override
+
 	public void setLength(double Length) {
 		if (Length > 0) { // Minimum value of boat is 0
 			this.length = Length;
 		}
 	}
 
-	@Override
 	public double getLength() {
 		return this.length;
 	}
 
-	@Override
 	public void setType(BoatTypes Type) {
 		this.type = Type;
 	}
 
-	@Override
 	public BoatTypes getType() {
 		return this.type;
 	}
