@@ -6,7 +6,7 @@ import java.util.List;
 /*
  * The member class, handles all of the information that a member needs to get added into the register
  */
-public class Member implements MemberInterface {
+public class Member {
 	// Declaring and Initializing the variables
 	private String name;
 	private String personNum;
@@ -23,40 +23,28 @@ public class Member implements MemberInterface {
 
 	}
 
-	@Override
 	public void setName(String Name) { // adding a name
 		this.name = Name;
 
 	}
 
-	@Override
 	public String getName() { // getting the name
 		return this.name;
 	}
 
-	@Override
 	public void setPersonNum(String num) { // adding the personal number
 		this.personNum = num;
 
 	}
 
-	@Override
 	public String getPersonNum() { // getting the personal number
 		return personNum;
 	}
 
-//	@Override
-//	public void setID(int memberID) { // Setting the users personal id number
-//		this.memberId = memberID;
-//
-//	}
-
-	@Override
 	public int getID() { // Getting the users personal id number
 		return memberId;
 	}
 
-	@Override
 	public int getAmountOfBoats() { // getting the boatlist size
 		return boatList.size();
 	}
