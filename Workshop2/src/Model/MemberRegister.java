@@ -98,4 +98,23 @@ public class MemberRegister {
 		return memList;
 	}
 
+	public boolean checkIfPersonNumExists(String personNumberAsString) {
+		for (int i = 0; i < memList.size(); i++) { // checks the personal number if user exists
+			if (personNumberAsString.equals(memList.get(i).getPersonNum())) {
+
+				return false;
+
+			}
+
+		}
+		return false;
+	}
+
+	public boolean checkLengthOfPersonNum(int lengthOfPersonNum) {
+		if (lengthOfPersonNum == 12) {
+			return true;
+		}
+		return false;
+
+	}
 }

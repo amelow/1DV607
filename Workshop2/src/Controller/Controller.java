@@ -72,30 +72,28 @@ public class Controller {
 	public void caseAddMember() {
 		view.addName();
 		String createName = nameWithSpace();
-		boolean number = false;
-		while (number == false) {
-			view.addPersonNum(); //SHOULD MOVE TO MEMBERREG
-			userLong = scan.nextLong();
-			personNumberAsString = String.valueOf(userLong);
-			for (int i = 0; i < memReg.getMemberList().size(); i++) { // checks the personal number if user exists
-				if (personNumberAsString.equals(memReg.getMemberList().get(i).getPersonNum())) {
-					view.userExist();
-					startMenu();
-				}
-			}
-			int lengthOfPersonNum = personNumberAsString.length(); // checks if personal number is 12
-			if (lengthOfPersonNum == 12) {
-				number = true;
+		view.addPersonNum();
+		userLong = scan.nextLong();
+		personNumberAsString = String.valueOf(userLong);
+		boolean doesExist = false;
+		boolean correctNum = false;
+		doesExist = memReg.checkIfPersonNumExists(personNumberAsString);
+		if (doesExist == false) {
+			int lengthOfPersonNum = personNumberAsString.length();
+			correctNum = memReg.checkLengthOfPersonNum(lengthOfPersonNum);
+			if (correctNum == true) {
 				view.saveMember(createName, userLong);
-			} else {
+			} else if (correctNum == false) {
 				view.wrongFormat();
 			}
+		} else {
+			view.userExist();
+			startMenu();
 		}
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
-			memReg.CreateMember(createName, personNumberAsString); // sends the users input as a parameter to
-			// thecreatemember method
+			memReg.CreateMember(createName, personNumberAsString);
 			view.memberSaved();
 			startMenu(); // calls the main again
 		} else {
@@ -103,7 +101,6 @@ public class Controller {
 
 		}
 	}
-
 	private String nameWithSpace() {
 		String temp = "";
 		ArrayList<String> name = new ArrayList<String>();
@@ -205,7 +202,7 @@ public class Controller {
 	 * Checks if the user wants to change the name, then saves the information in
 	 * the Member register
 	 */
-	private void changeName(int i) { //LOGIC IN MEMBERREG
+	private void changeName(int i) { // LOGIC IN MEMBERREG
 		view.addName();
 		String newName = nameWithSpace();
 		view.correctName(newName);
