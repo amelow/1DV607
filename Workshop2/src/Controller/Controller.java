@@ -124,7 +124,8 @@ public class Controller {
 	 * as well as deleting a member
 	 */
 	private void caseChangeMember() {
-		view.printMemListForChange(memReg.getMemberList());
+		String listOfM = memReg.getMemberListAsString();
+		view.printMemListForChange(listOfM);
 		;
 		view.selectID();
 		userIn = scan.next();

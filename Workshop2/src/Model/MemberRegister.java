@@ -97,5 +97,15 @@ public class MemberRegister {
 	public ArrayList<Member> getMemberList() { // returns the entire member registry list
 		return memList;
 	}
+	
+	public String getMemberListAsString() {
+		String listOfMembers ="";
+		for (int i = 0; i < memList.size(); i++) {
+			String name = memList.get(i).getName();
+			int id = memList.get(i).getID();
+			listOfMembers =listOfMembers + "\n" + "Name: " + name + " Memberid: " + id;
+		}
+			return listOfMembers;
+	}
 
 }

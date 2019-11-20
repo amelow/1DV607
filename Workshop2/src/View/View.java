@@ -1,6 +1,7 @@
 package View;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import Model.Member;
 
@@ -118,14 +119,8 @@ public class View {
 
 	}
 
-	public void printMemListForChange(ArrayList<Member> arrayList) { // dependancy to member
-		for (int i = 0; i < arrayList.size(); i++) {
-			String name = arrayList.get(i).getName();
-			int id = arrayList.get(i).getID();
-			String change = "Name: " + name + " Memberid: " + id;
-			System.out.println(change);
-		}
-
+	public void printMemListForChange(String listM) { // dependancy to member	
+			System.out.println(listM);
 	}
 
 	public void compactListView(ArrayList<Object> compact) {
