@@ -14,7 +14,6 @@ import View.View;
 * If the user already has previously saved a file it loads the saved members info as well as the registered boats
 */
 public class Controller {
-
 	private String userIn; // handles the user input
 	private long userLong;// handles the user input
 	private String checkYesNoAnswer; // checks the console input if it is (y/n)
