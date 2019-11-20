@@ -37,6 +37,11 @@ public class View {
 
 	}
 
+	public void changName() {
+		System.out.println("Please enter your new name (end with enter and -1: ");
+
+	}
+
 	public void addPersonNum() {
 		System.out.println("Please enter your personal-number: YYYYMMDDXXXX");
 	}

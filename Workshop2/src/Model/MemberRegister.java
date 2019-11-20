@@ -39,7 +39,7 @@ public class MemberRegister {
 
 	/*
 	 * Method for prepping the Compact List with the members Name, Member id and
-	 * Number of boats
+	 * Number of boats, gets printed in the view
 	 */
 	public ArrayList<Object> CompactList() {
 		ArrayList<Object> memberCompact = new ArrayList<Object>();
@@ -54,7 +54,7 @@ public class MemberRegister {
 
 	/*
 	 * Method for prepping the Verbose List with the members Name, Personal number,
-	 * Member id and Boats with boat information
+	 * Member id and Boats with boat information, gets printed in the view
 	 */
 	public ArrayList<Object> verboseList() {
 		ArrayList<Object> verbose = new ArrayList<Object>();
@@ -97,15 +97,15 @@ public class MemberRegister {
 	public ArrayList<Member> getMemberList() { // returns the entire member registry list
 		return memList;
 	}
-	
+
 	public String getMemberListAsString() {
-		String listOfMembers ="";
+		String listOfMembers = "";
 		for (int i = 0; i < memList.size(); i++) {
 			String name = memList.get(i).getName();
 			int id = memList.get(i).getID();
-			listOfMembers =listOfMembers + "\n" + "Name: " + name + " Memberid: " + id;
+			listOfMembers = listOfMembers + "\n" + "Name: " + name + " Memberid: " + id;
 		}
-			return listOfMembers;
+		return listOfMembers;
 	}
 
 	public boolean checkIfPersonNumExists(String personNumberAsString) {
@@ -126,5 +126,10 @@ public class MemberRegister {
 		}
 		return false;
 
+	}
+
+	public String changeName(int i, String newName) {
+		memList.get(i).setName(newName);
+		return newName;
 	}
 }

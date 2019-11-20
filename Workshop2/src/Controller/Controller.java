@@ -205,15 +205,13 @@ public class Controller {
 	 * the Member register
 	 */
 	private void changeName(int i) { // LOGIC IN MEMBERREG
-		view.addName();
+		view.changName();
 		String newName = nameWithSpace();
 		view.correctName(newName);
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
-		if (checkYN == 'y') {
-			memReg.getMemberList().get(i).setName(newName);
-			view.changes();
-			startMenu();
+		if (checkYN == 'y' || checkYN == 'Y') {
+			memReg.changeName(i, newName);
 		} else {
 			view.noChanges();
 			caseChangeMember();
