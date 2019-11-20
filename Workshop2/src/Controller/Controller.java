@@ -1,27 +1,18 @@
 package Controller;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import Model.BoatTypes;
-import Model.Member;
 import Model.MemberRegister;
 import Model.FileHandler.CreateFile;
 import Model.FileHandler.InitFile;
 import View.View;
 
 /*
-    * The Controller class is the main class that handles the functionality of the application.
-    *  It fetches the users input and saves it in a txt file.
-    * If the user already has previously saved a file it loads the saved members info as well as the registered boats
- */
+* The Controller class is the main class that handles the functionality of the application.
+*  It fetches the users input and saves it in a txt file.
+* If the user already has previously saved a file it loads the saved members info as well as the registered boats
+*/
 public class Controller {
 
 	private String userIn; // handles the user input
@@ -86,8 +77,7 @@ public class Controller {
 			view.addPersonNum();
 			userLong = scan.nextLong();
 			personNumberAsString = String.valueOf(userLong);
-			for (int i = 0; i < memReg.getMemberList().size(); i++) { // checks the personal number if user already
-				// exists
+			for (int i = 0; i < memReg.getMemberList().size(); i++) { // checks the personal number if user exists
 				if (personNumberAsString.equals(memReg.getMemberList().get(i).getPersonNum())) {
 					view.userExist();
 					startMenu();
