@@ -101,6 +101,7 @@ public class Controller {
 
 		}
 	}
+
 	private String nameWithSpace() {
 		String temp = "";
 		ArrayList<String> name = new ArrayList<String>();
