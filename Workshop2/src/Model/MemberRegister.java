@@ -46,10 +46,8 @@ public class MemberRegister {
 		for (int i = 0; i < memList.size(); i++) {// loops thru the register
 			memberCompact.add("Name: " + memList.get(i).getName() + " " + "ID: " + memList.get(i).getID() + " "
 					+ "Boats: " + memList.get(i).getAmountOfBoats());
-
 		}
 		return memberCompact;
-
 	}
 
 	/*
@@ -69,14 +67,12 @@ public class MemberRegister {
 							+ memList.get(i).getBoatList().get(j).getLength());
 				}
 			}
-
 		}
 		return verbose;
 	}
 
 	public long getID() { // returns the members id
 		return id;
-
 	}
 
 	public Member getMember(int id) { // get the member by the id
@@ -131,7 +127,12 @@ public class MemberRegister {
 		return newName;
 	}
 
-	public void addBoat(int id, String typeOfBoat, String lengthOfBoat) {
-		memList.get(id).addBoat(BoatTypes.getBoatType(typeOfBoat), Integer.parseInt(lengthOfBoat));
+	public void addBoatToMember(int id, String typeOfBoat, String lengthOfBoat) {
+		for (int i = 0; i < memList.size(); i++) {
+			if (i == id) {
+				memList.get(i).addBoat(BoatTypes.getBoatType(typeOfBoat), Integer.parseInt(lengthOfBoat));
+			}
+		}
+
 	}
 }

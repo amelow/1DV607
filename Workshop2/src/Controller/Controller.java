@@ -252,7 +252,7 @@ public class Controller {
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
-			memReg.addBoat(id,typeOfBoat,lengthOfBoat);
+			memReg.addBoatToMember(id, typeOfBoat, lengthOfBoat);
 //			memReg.getMember(id).addBoat(BoatTypes.getBoatType(typeOfBoat), Integer.parseInt(lengthOfBoat));
 			startMenu();
 		} else {
@@ -310,7 +310,6 @@ public class Controller {
 				userIndex = i;
 			}
 		}
-
 		// Loops thru the users registered boats and gets the type and the length
 		for (int i = 0; i < memReg.getMemberList().get(userIndex).getBoatList().size(); i++) {
 			listOfBoatsPrintOuts = i + " " + memReg.getMemberList().get(userIndex).getBoatList().get(i).getType() + " "
