@@ -218,7 +218,7 @@ public class Controller {
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'y') {
-			memReg.getMemberList().get(i).setName(userIn);
+			memReg.getMemberList().get(i).setName(newName);
 			view.changes();
 			startMenu();
 		} else {
