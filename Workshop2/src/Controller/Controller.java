@@ -146,7 +146,7 @@ public class Controller {
 				startMenu();
 				break;
 			case ("2"):
-				deleteBoat(userID);
+				deleteBoat(index);
 				break;
 			case ("3"):
 				changeBoat(index);
@@ -302,31 +302,18 @@ public class Controller {
 	 * first checking the id then the user has to choose one of the boats and press
 	 * delete
 	 */
-	private void deleteBoat(int userID) {
-		int userIndex = 0;
-		for (int i = 0; i < memReg.getMemberList().size(); i++) {
-			if (memReg.getMemberList().get(i).getID() == userID) { // checks if correct member id
-				userIndex = i;
-			}
-		}
-		// Loops thru the users registered boats and gets the type and the length
-		for (int i = 0; i < memReg.getMemberList().get(userIndex).getBoatList().size(); i++) {
-			listOfBoatsPrintOuts = i + " " + memReg.getMemberList().get(userIndex).getBoatList().get(i).getType() + " "
-					+ memReg.getMemberList().get(userIndex).getBoatList().get(i).getLength();
-			view.listMembersBoats(listOfBoatsPrintOuts);
-		}
+	private void deleteBoat(int index) {
+		String listOfBoats = memReg.deleteBoatFromMemberList(index);
+		view.listMembersBoats(listOfBoats);
 		view.selectBoatToDelete();
 		String deleteBoat = userIn;
 		deleteBoat = scan.next();
 		int deleteBoatInt = Integer.parseInt(deleteBoat);
-		for (int i = 0; i < memReg.getMemberList().get(userIndex).getBoatList().size(); i++) {
-			String c = i + " " + memReg.getMemberList().get(userIndex).getBoatList().get(i);
-			String r = deleteBoatInt + " " + memReg.getMemberList().get(userIndex).getBoatList().get(i);
-			if (c.equals(r)) {
-				memReg.getMemberList().get(userIndex).deleteBoat(i);
-				view.deletedBoat();
-			}
+		String deletedBoat = memReg.deleteBoatFromMember(index, deleteBoatInt);
+
+			view.deletedBoat(deletedBoat);
+//			}
 		}
-		startMenu();
+//		startMenu();
 	}
-}
+
