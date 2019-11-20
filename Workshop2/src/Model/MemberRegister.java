@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class MemberRegister {
 	// Declaring/Initiating the variables
 	private int id = 1040; // start at 1040 and not 1 so i cannot be so easily guessed
-	private int amountOfMembers;
+//	private int amountOfMembers = 0;
 	private ArrayList<Member> memList = new ArrayList<Member>();// the memlist that saves the members
 
 	/*
@@ -28,7 +28,7 @@ public class MemberRegister {
 	public void addMember(Member member) {
 		// member.setID(id);
 		memList.add(member);
-		amountOfMembers++; // incrementing the amount of members in the list
+	//	amountOfMembers++; // incrementing the amount of members in the list
 		id++;// incrementing the Id so next member has a new ID
 	}
 
@@ -37,7 +37,7 @@ public class MemberRegister {
 	 */
 	public void deleteMember(int number) {
 		memList.remove(number);// removes the member with the right Id
-		amountOfMembers--;// decrementing the amount of members in the list
+	//	amountOfMembers--;// decrementing the amount of members in the list
 
 	}
 
