@@ -74,7 +74,7 @@ public class Controller {
 		String createName = nameWithSpace();
 		boolean number = false;
 		while (number == false) {
-			view.addPersonNum();
+			view.addPersonNum(); //SHOULD MOVE TO MEMBERREG
 			userLong = scan.nextLong();
 			personNumberAsString = String.valueOf(userLong);
 			for (int i = 0; i < memReg.getMemberList().size(); i++) { // checks the personal number if user exists
@@ -179,7 +179,7 @@ public class Controller {
 	 * to the main menu
 	 */
 	private void caseShowVerbose() {
-		ArrayList<Object> verbose = memReg.printVerbose();
+		ArrayList<Object> verbose = memReg.verboseList();
 		view.verboseListView(verbose);
 		startMenu();
 	}
@@ -205,7 +205,7 @@ public class Controller {
 	 * Checks if the user wants to change the name, then saves the information in
 	 * the Member register
 	 */
-	private void changeName(int i) {
+	private void changeName(int i) { //LOGIC IN MEMBERREG
 		view.addName();
 		String newName = nameWithSpace();
 		view.correctName(newName);

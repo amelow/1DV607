@@ -38,7 +38,7 @@ public class MemberRegister {
 	}
 
 	/*
-	 * Method for printing the Compact List with the members Name, Member id and
+	 * Method for prepping the Compact List with the members Name, Member id and
 	 * Number of boats
 	 */
 	public ArrayList<Object> CompactList() {
@@ -53,10 +53,10 @@ public class MemberRegister {
 	}
 
 	/*
-	 * Method for printing the Verbose List with the members Name, Personal number,
+	 * Method for prepping the Verbose List with the members Name, Personal number,
 	 * Member id and Boats with boat information
 	 */
-	public ArrayList<Object> printVerbose() {
+	public ArrayList<Object> verboseList() {
 		ArrayList<Object> verbose = new ArrayList<Object>();
 		String lineBreak = ("---------------------------------------\n");
 		for (int i = 0; i < memList.size(); i++) {// loops thru the register and prints the information

@@ -18,7 +18,7 @@ public class Boat {
 	}
 
 	/*
-	 * Getters and Setters for the boatinformation: The type of boat and the length
+	 * Getters and Setters for the boat information: The type of boat and the length
 	 * of the boat
 	 */
 

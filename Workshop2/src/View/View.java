@@ -118,7 +118,7 @@ public class View {
 
 	}
 
-	public void printMemListForChange(ArrayList<Member> arrayList) {
+	public void printMemListForChange(ArrayList<Member> arrayList) { // dependancy to member
 		for (int i = 0; i < arrayList.size(); i++) {
 			String name = arrayList.get(i).getName();
 			int id = arrayList.get(i).getID();
