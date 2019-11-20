@@ -142,7 +142,7 @@ public class Controller {
 			userIn = scan.next();
 			switch (userIn) {
 			case ("1"):
-				addBoat(userID);
+				addBoat(index);
 				startMenu();
 				break;
 			case ("2"):
