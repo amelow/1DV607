@@ -10,6 +10,7 @@ public class MemberRegister {
 	// Declaring/Initiating the variables
 	private int id = 1040; // start at 1040 and not 1 so i cannot be so easily guessed
 	private ArrayList<Member> memList = new ArrayList<Member>();// the memlist that saves the members
+	private int firstId = 1040;
 
 	/*
 	 * Creating a member with a name and a personal number, then calling the add
@@ -128,11 +129,7 @@ public class MemberRegister {
 	}
 
 	public void addBoatToMember(int id, String typeOfBoat, String lengthOfBoat) {
-		for (int i = 0; i < memList.size(); i++) {
-			if (i == id) {
-				memList.get(i).addBoat(BoatTypes.getBoatType(typeOfBoat), Integer.parseInt(lengthOfBoat));
-			}
-		}
-
+				memList.get(id-this.firstId).addBoat(BoatTypes.getBoatType(typeOfBoat), Integer.parseInt(lengthOfBoat));
 	}
+
 }
