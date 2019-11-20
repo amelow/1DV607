@@ -214,7 +214,8 @@ public class Controller {
 			memReg.changeName(i, newName);
 		} else {
 			view.noChanges();
-			caseChangeMember();
+			// caseChangeMember();
+			startMenu();
 		}
 	}
 
@@ -244,15 +245,20 @@ public class Controller {
 		view.typeOfBoat();
 		userIn = scan.next();
 		String typeOfBoat = userIn;
-		System.out.println("length of boat?");
+		view.addBoatLength();
 		userIn = scan.next();
 		String lengthOfBoat = userIn;
 		view.correctBoatInfo(typeOfBoat, lengthOfBoat);
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
-			memReg.getMember(id).addBoat(BoatTypes.getBoatType(typeOfBoat), Integer.parseInt(lengthOfBoat));
+			memReg.addBoat(id,typeOfBoat,lengthOfBoat);
+//			memReg.getMember(id).addBoat(BoatTypes.getBoatType(typeOfBoat), Integer.parseInt(lengthOfBoat));
+			startMenu();
+		} else {
+			startMenu();
 		}
+
 	}
 
 	/*

@@ -175,4 +175,9 @@ public class View {
 
 	}
 
+	public void addBoatLength() {
+		System.out.println("length of boat?");
+		
+	}
+
 }

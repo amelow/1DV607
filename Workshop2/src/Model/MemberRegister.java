@@ -111,9 +111,7 @@ public class MemberRegister {
 	public boolean checkIfPersonNumExists(String personNumberAsString) {
 		for (int i = 0; i < memList.size(); i++) { // checks the personal number if user exists
 			if (personNumberAsString.equals(memList.get(i).getPersonNum())) {
-
 				return false;
-
 			}
 
 		}
@@ -131,5 +129,9 @@ public class MemberRegister {
 	public String changeName(int i, String newName) {
 		memList.get(i).setName(newName);
 		return newName;
+	}
+
+	public void addBoat(int id, String typeOfBoat, String lengthOfBoat) {
+		memList.get(id).addBoat(BoatTypes.getBoatType(typeOfBoat), Integer.parseInt(lengthOfBoat));
 	}
 }
