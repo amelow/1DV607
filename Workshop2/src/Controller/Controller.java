@@ -74,18 +74,20 @@ public class Controller {
 		view.addPersonNum();
 		userLong = scan.nextLong();
 		personNumberAsString = String.valueOf(userLong);
-		boolean doesExist = false;
+		boolean doesExist = true;
 		boolean correctNum = false;
 		doesExist = memReg.checkIfPersonNumExists(personNumberAsString);
-		if (doesExist == false) {
+		while (doesExist) {
 			int lengthOfPersonNum = personNumberAsString.length();
 			correctNum = memReg.checkLengthOfPersonNum(lengthOfPersonNum);
 			if (correctNum == true) {
 				view.saveMember(createName, userLong);
+				doesExist = false;
 			} else if (correctNum == false) {
 				view.wrongFormat();
+
 			}
-		} else {
+			// } else {
 			view.userExist();
 			startMenu();
 		}
