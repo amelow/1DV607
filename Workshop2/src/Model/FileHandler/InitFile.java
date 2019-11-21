@@ -24,7 +24,7 @@ public class InitFile {
 			while ((line = buffReader.readLine()) != null) {
 				if (line.equals(",")) {
 
-					Member m = new Member(arr.get(0), arr.get(1), Integer.parseInt(arr.get(2))); // gets the name and
+					Member m = new Member(arr.get(0), arr.get(1),  Integer.parseInt(arr.get(2))); // gets the name and
 																							// the personal
 																									// number from file
 					
