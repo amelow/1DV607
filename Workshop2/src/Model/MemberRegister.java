@@ -151,6 +151,7 @@ public class MemberRegister {
 		if (c.equals(r)) {
 			memList.get(index).deleteBoat(i);
 		return "Boat is deleted";
+	
 			}
 		
 		}

@@ -311,9 +311,7 @@ public class Controller {
 		int deleteBoatInt = Integer.parseInt(deleteBoat);
 		String deletedBoat = memReg.deleteBoatFromMember(index, deleteBoatInt);
 
-			view.deletedBoat(deletedBoat);
-//			}
-		}
-//		startMenu();
+		view.deletedBoat(deletedBoat);
+		startMenu();
 	}
-
+}
