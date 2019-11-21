@@ -2,7 +2,7 @@ package Controller;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import Model.BoatTypes;
+
 import Model.MemberRegister;
 import Model.FileHandler.CreateFile;
 import Model.FileHandler.InitFile;
@@ -20,9 +20,8 @@ public class Controller {
 	private char checkYN; // checks the console input if it is (y/n)
 	private String personNumberAsString; // personal number
 	private Scanner scan = new Scanner(System.in); // scanner handles the console inputs
-	private View view = new View();
 	private MemberRegister memReg = new MemberRegister();
-	private String listOfBoatsPrintOuts = "";
+	private View view = new View(memReg);
 	private InitFile readFile = new InitFile();
 	private CreateFile createFile = new CreateFile();
 
@@ -167,8 +166,7 @@ public class Controller {
 	 * main menu
 	 */
 	private void caseShowCompact() {
-		ArrayList<Object> compact = memReg.CompactList();
-		view.compactListView(compact);
+		view.compactListView();
 		startMenu();
 	}
 
@@ -177,8 +175,8 @@ public class Controller {
 	 * to the main menu
 	 */
 	private void caseShowVerbose() {
-		ArrayList<Object> verbose = memReg.verboseList();
-		view.verboseListView(verbose);
+	//	ArrayList<Object> verbose = memReg.verboseList();
+		view.verboseListView();
 		startMenu();
 	}
 
@@ -278,9 +276,7 @@ public class Controller {
 		userIn = scan.next();
 		String updated = memReg.changeBoatMember(index, boatSelected, changeLength, userIn);
 		view.boatUpdated(updated);
-		}
-		
-	
+	}
 
 	/*
 	 * Method that handles the functionality of deleting a already added boat, by

@@ -44,23 +44,10 @@ public class MemberRegister {
 	}
 
 	/*
-	 * Method for prepping the Compact List with the members Name, Member id and
-	 * Number of boats, gets printed in the view
-	 */
-	public ArrayList<Object> CompactList() {
-		ArrayList<Object> memberCompact = new ArrayList<Object>();
-		for (int i = 0; i < memList.size(); i++) {// loops thru the register
-			memberCompact.add("Name: " + memList.get(i).getName() + " " + "ID: " + memList.get(i).getID() + " "
-					+ "Boats: " + memList.get(i).getAmountOfBoats());
-		}
-		return memberCompact;
-	}
-
-	/*
 	 * Method for prepping the Verbose List with the members Name, Personal number,
 	 * Member id and Boats with boat information, gets printed in the view
 	 */
-	public ArrayList<Object> verboseList() {
+	/*public ArrayList<Object> verboseList() {
 		ArrayList<Object> verbose = new ArrayList<Object>();
 		String lineBreak = ("---------------------------------------\n");
 		for (int i = 0; i < memList.size(); i++) {// loops thru the register and prints the information
@@ -75,7 +62,7 @@ public class MemberRegister {
 			}
 		}
 		return verbose;
-	}
+	}*/
 
 	public long getID() { // returns the members id
 		return id;

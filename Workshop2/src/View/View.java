@@ -1,14 +1,20 @@
 package View;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import Model.Member;
+import Model.MemberRegister;
 
 /*
  * The view class handles most of the printouts the user gets in the console
  */
 public class View {
+
+	private MemberRegister model;
+
+	public View(MemberRegister model) {
+		this.model = model;
+	}
 
 	public void welcomeMessage() {
 		String hi = "Hi and Welcome!" + "\n";
@@ -124,13 +130,8 @@ public class View {
 
 	}
 
-	public void printMemListForChange(String listM) { // dependancy to member	
-			System.out.println(listM);
-	}
-
-	public void compactListView(ArrayList<Object> compact) {
-		compact.forEach(System.out::println);
-
+	public void printMemListForChange(String listM) { // dependancy to member
+		System.out.println(listM);
 	}
 
 	public void noChanges() {
@@ -170,34 +171,59 @@ public class View {
 
 	}
 
-	public void verboseListView(ArrayList<Object> verbose) {
+	public void compactListView() {
+		ArrayList<String> compact = new ArrayList<String>();
+		ArrayList<Member> memList = model.getMemberList();
+
+		for (int i = 0; i < memList.size(); i++) {// loops thru the register
+			compact.add("Name: " + memList.get(i).getName() + " " + "ID: " + memList.get(i).getID() + " " + "Boats: "
+					+ memList.get(i).getAmountOfBoats());
+		}
+		compact.forEach(System.out::println);
+	}
+
+	public void verboseListView() {
+		ArrayList<String> verbose = new ArrayList<String>();
+		ArrayList<Member> memList = model.getMemberList();
+		String lineBreak = ("-----------------------------------------------------------------------\n");
+		for (int i = 0; i < memList.size(); i++) {// loops thru the register and prints the information
+			verbose.add(lineBreak + " Name: " + memList.get(i).getName() + " Personal Number: "
+					+ memList.get(i).getPersonNum() + " ID: " + memList.get(i).getID() + " Number of Boats: "
+					+ memList.get(i).getAmountOfBoats());
+			if (memList.get(i).getAmountOfBoats() > 0) {// checks if user has 1 or more boats
+				for (int j = 0; j < memList.get(i).getAmountOfBoats(); j++) { // loops thru the boats
+					verbose.add(lineBreak + " Type: " + memList.get(i).getBoatList().get(j).getType() + " Length: "
+							+ memList.get(i).getBoatList().get(j).getLength());
+				}
+			}
+		}
 		verbose.forEach(System.out::println);
 
 	}
 
 	public void addBoatLength() {
 		System.out.println("length of boat?");
-		
+
 	}
 
 	public void changeTheBoat(String whatToChange) {
 		System.out.println(whatToChange);
-		
+
 	}
 
 	public void changeBoatTL(String change) {
 		System.out.println(change);
-		
+
 	}
 
 	public void boatSel(String userIn) {
 		System.out.println("Boat selected is:" + userIn);
-		
+
 	}
 
 	public void boatUpdated(String updated) {
 		System.out.println(updated);
-		
+
 	}
 
 }
