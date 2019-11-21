@@ -28,7 +28,7 @@ public class MemberRegister {
 		memList.add(member);
 		id++;// incrementing the Id so next member has a new ID
 	}
-	
+
 	public void addMemberList(Member m, int idM) {
 		memList.add(m);
 		id = idM;
@@ -42,27 +42,6 @@ public class MemberRegister {
 		memList.remove(number);// removes the member with the right Id
 
 	}
-
-	/*
-	 * Method for prepping the Verbose List with the members Name, Personal number,
-	 * Member id and Boats with boat information, gets printed in the view
-	 */
-	/*public ArrayList<Object> verboseList() {
-		ArrayList<Object> verbose = new ArrayList<Object>();
-		String lineBreak = ("---------------------------------------\n");
-		for (int i = 0; i < memList.size(); i++) {// loops thru the register and prints the information
-			verbose.add(lineBreak + " Name: " + memList.get(i).getName() + " Personal Number: "
-					+ memList.get(i).getPersonNum() + " ID: " + memList.get(i).getID() + " Number of Boats: "
-					+ memList.get(i).getAmountOfBoats());
-			if (memList.get(i).getAmountOfBoats() > 0) {// checks if user has 1 or more boats
-				for (int j = 0; j < memList.get(i).getAmountOfBoats(); j++) { // loops thru the boats
-					verbose.add(lineBreak + " Type: " + memList.get(i).getBoatList().get(j).getType() + " Length: "
-							+ memList.get(i).getBoatList().get(j).getLength());
-				}
-			}
-		}
-		return verbose;
-	}*/
 
 	public long getID() { // returns the members id
 		return id;
@@ -128,36 +107,35 @@ public class MemberRegister {
 		}
 
 	}
+
 	public String boatFromMemberList(int userIndex) {
 		String listOfBoats = "";
 		for (int i = 0; i < memList.get(userIndex).getBoatList().size(); i++) {
 			listOfBoats = listOfBoats + i + " " + memList.get(userIndex).getBoatList().get(i).getType() + " "
-				+ memList.get(userIndex).getBoatList().get(i).getLength() + "\n";
-			}
+					+ memList.get(userIndex).getBoatList().get(i).getLength() + "\n";
+		}
 		return listOfBoats;
 	}
 
 	public String deleteBoatFromMember(int index, int deleteBoat) {
 		for (int i = 0; i < memList.get(index).getBoatList().size(); i++) {
-		String c = i + " " + memList.get(index).getBoatList().get(i);
-		String r = deleteBoat + " " + memList.get(index).getBoatList().get(i);
-		if (c.equals(r)) {
-			memList.get(index).deleteBoat(i);
-		return "Boat is deleted";
-	
+			String c = i + " " + memList.get(index).getBoatList().get(i);
+			String r = deleteBoat + " " + memList.get(index).getBoatList().get(i);
+			if (c.equals(r)) {
+				memList.get(index).deleteBoat(i);
+				return "Boat is deleted";
+
 			}
-		
+
 		}
-		return "Boat is not deleted" ;
+		return "Boat is not deleted";
 	}
 
-	public String changeBoatMember(int index, int boat, int length, String userIn ) {
+	public String changeBoatMember(int index, int boat, int length, String userIn) {
 		memList.get(index).getBoatList().get(boat).setLength(length);
 		memList.get(index).getBoatList().get(boat).setType(BoatTypes.getBoatType(userIn));
 		return "Updated";
-		
-		
+
 	}
 
-	
 }

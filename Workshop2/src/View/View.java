@@ -21,7 +21,6 @@ public class View {
 		System.out.println(hi);
 
 	}
-
 	public void mainMenu() {
 		String choose = "What do you want to do?";
 		String alt1 = "To add a member, enter (1)";
