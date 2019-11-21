@@ -252,7 +252,6 @@ public class Controller {
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
 			memReg.addBoatToMember(id, typeOfBoat, lengthOfBoat);
-//			memReg.getMember(id).addBoat(BoatTypes.getBoatType(typeOfBoat), Integer.parseInt(lengthOfBoat));
 			startMenu();
 		} else {
 			startMenu();
