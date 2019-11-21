@@ -180,4 +180,24 @@ public class View {
 		
 	}
 
+	public void changeTheBoat(String whatToChange) {
+		System.out.println(whatToChange);
+		
+	}
+
+	public void changeBoatTL(String change) {
+		System.out.println(change);
+		
+	}
+
+	public void boatSel(String userIn) {
+		System.out.println("Boat selected is:" + userIn);
+		
+	}
+
+	public void boatUpdated(String updated) {
+		System.out.println(updated);
+		
+	}
+
 }
