@@ -135,4 +135,25 @@ public class MemberRegister {
 		}
 
 	}
+	public String deleteBoatFromMemberList(int userIndex) {
+		String listOfBoats = "";
+		for (int i = 0; i < memList.get(userIndex).getBoatList().size(); i++) {
+			listOfBoats = listOfBoats + i + " " + memList.get(userIndex).getBoatList().get(i).getType() + " "
+				+ memList.get(userIndex).getBoatList().get(i).getLength() + "\n";
+			}
+		return listOfBoats;
+	}
+
+	public String deleteBoatFromMember(int index, int deleteBoat) {
+		for (int i = 0; i < memList.get(index).getBoatList().size(); i++) {
+		String c = i + " " + memList.get(index).getBoatList().get(i);
+		String r = deleteBoat + " " + memList.get(index).getBoatList().get(i);
+		if (c.equals(r)) {
+			memList.get(index).deleteBoat(i);
+		return "Boat is deleted";
+			}
+		
+		}
+		return "Boat is not deleted" ;
+	}
 }

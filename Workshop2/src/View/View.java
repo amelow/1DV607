@@ -82,8 +82,8 @@ public class View {
 		System.out.println("\n");
 	}
 
-	public void deletedBoat() {
-		System.out.println("---Boat is deleted, back to the main menu---");
+	public void deletedBoat(String deletedBoat) {
+		System.out.println(deletedBoat);
 	}
 
 	public void changeBoat() {
