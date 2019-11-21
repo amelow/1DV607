@@ -264,37 +264,23 @@ public class Controller {
 	 * information such as a type and a length, then adding the changes it to the
 	 * registry
 	 */
-	private void changeBoat(int userID) {
+	private void changeBoat(int index) {
 		view.changeBoat();
-		for (int i = 0; i < memReg.getMemberList().get(userID).getBoatList().size(); i++) {
-			listOfBoatsPrintOuts = i + " " + memReg.getMemberList().get(userID).getBoatList().get(i).getType() + " "
-					+ memReg.getMemberList().get(userID).getBoatList().get(i).getLength();
-		}
-		view.listMembersBoats(listOfBoatsPrintOuts);
-
-		userIn = scan.next();
+		String listOfBoats = memReg.boatFromMemberList(index);
+		view.listMembersBoats(listOfBoats);
+		String userIn = scan.next();
+		view.boatSel(userIn);
+		String change = "Set new length and type for the boat ";
+		view.changeBoatTL(change);
 		int boatSelected = Integer.parseInt(userIn);
-		System.out.println("Do you want to change length(1), type (2), both (3)");
 		userIn = scan.next();
-		int changesSel = Integer.parseInt(userIn);
-		if (changesSel == 1 || changesSel == 3) {
-			System.out.println("Set new length for the boat: ");
-			userIn = scan.next();
-			// updating the new boat length
-			memReg.getMemberList().get(userID).getBoatList().get(boatSelected).setLength(Integer.parseInt(userIn));
-			System.out.println("Length set to: " + userIn);
-
+		int changeLength = Integer.parseInt(userIn);
+		userIn = scan.next();
+		String updated = memReg.changeBoatMember(index, boatSelected, changeLength, userIn);
+		view.boatUpdated(updated);
 		}
-		if (changesSel == 2 || changesSel == 3) { // does the user want to change name, change type or both
-			System.out.println("Set new type for the boat: ");
-			userIn = scan.next();
-			// updating the new boat type
-			memReg.getMemberList().get(userID).getBoatList().get(boatSelected).setType(BoatTypes.getBoatType(userIn));
-			System.out.println("Boat Type set to: " + userIn);
-		}
-		startMenu();
-
-	}
+		
+	
 
 	/*
 	 * Method that handles the functionality of deleting a already added boat, by
@@ -302,7 +288,7 @@ public class Controller {
 	 * delete
 	 */
 	private void deleteBoat(int index) {
-		String listOfBoats = memReg.deleteBoatFromMemberList(index);
+		String listOfBoats = memReg.boatFromMemberList(index);
 		view.listMembersBoats(listOfBoats);
 		view.selectBoatToDelete();
 		String deleteBoat = userIn;

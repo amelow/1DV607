@@ -28,6 +28,12 @@ public class MemberRegister {
 		memList.add(member);
 		id++;// incrementing the Id so next member has a new ID
 	}
+	
+	public void addMemberList(Member m, int idM) {
+		memList.add(m);
+		id = idM;
+		id++;
+	}
 
 	/*
 	 * Method that handles the delete member functionality
@@ -135,7 +141,7 @@ public class MemberRegister {
 		}
 
 	}
-	public String deleteBoatFromMemberList(int userIndex) {
+	public String boatFromMemberList(int userIndex) {
 		String listOfBoats = "";
 		for (int i = 0; i < memList.get(userIndex).getBoatList().size(); i++) {
 			listOfBoats = listOfBoats + i + " " + memList.get(userIndex).getBoatList().get(i).getType() + " "
@@ -157,4 +163,14 @@ public class MemberRegister {
 		}
 		return "Boat is not deleted" ;
 	}
+
+	public String changeBoatMember(int index, int boat, int length, String userIn ) {
+		memList.get(index).getBoatList().get(boat).setLength(length);
+		memList.get(index).getBoatList().get(boat).setType(BoatTypes.getBoatType(userIn));
+		return "Updated";
+		
+		
+	}
+
+	
 }
