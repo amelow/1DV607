@@ -79,7 +79,7 @@ public class MemberRegister {
 	public boolean checkIfPersonNumExists(String personNumberAsString) {
 		for (int i = 0; i < memList.size(); i++) { // checks the personal number if user exists
 			if (personNumberAsString.equals(memList.get(i).getPersonNum())) {
-				return false;
+				return true;
 			}
 
 		}
