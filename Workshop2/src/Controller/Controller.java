@@ -74,20 +74,18 @@ public class Controller {
 		view.addPersonNum();
 		userLong = scan.nextLong();
 		personNumberAsString = String.valueOf(userLong);
-		boolean doesExist = true;
+		boolean doesExist = false;
 		boolean correctNum = false;
 		doesExist = memReg.checkIfPersonNumExists(personNumberAsString);
-		while (doesExist) {
+		if (doesExist == false) {
 			int lengthOfPersonNum = personNumberAsString.length();
 			correctNum = memReg.checkLengthOfPersonNum(lengthOfPersonNum);
 			if (correctNum == true) {
 				view.saveMember(createName, userLong);
-				doesExist = false;
 			} else if (correctNum == false) {
 				view.wrongFormat();
-
 			}
-			// } else {
+		} else {
 			view.userExist();
 			startMenu();
 		}
@@ -96,7 +94,7 @@ public class Controller {
 		if (checkYN == 'Y' || checkYN == 'y') {
 			memReg.CreateMember(createName, personNumberAsString);
 			view.memberSaved();
-			startMenu(); // calls the main again
+			startMenu();
 		} else {
 			startMenu();
 
@@ -205,7 +203,7 @@ public class Controller {
 	 * Checks if the user wants to change the name, then saves the information in
 	 * the Member register
 	 */
-	private void changeName(int i) { // LOGIC IN MEMBERREG
+	private void changeName(int i) {
 		view.changName();
 		String newName = nameWithSpace();
 		view.correctName(newName);
