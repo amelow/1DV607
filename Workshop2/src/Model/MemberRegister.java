@@ -28,6 +28,12 @@ public class MemberRegister {
 		memList.add(member);
 		id++;// incrementing the Id so next member has a new ID
 	}
+	
+	public void addMemberList(Member m, int idM) {
+		memList.add(m);
+		id = idM;
+		id++;
+	}
 
 	/*
 	 * Method that handles the delete member functionality
@@ -165,4 +171,6 @@ public class MemberRegister {
 		
 		
 	}
+
+	
 }
