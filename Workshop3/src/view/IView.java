@@ -2,6 +2,10 @@ package view;
 
 public interface IView {
 	void DisplayWelcomeMessage();
+	
+	public IView.Action getAction();
+	
+	public enum Action{PLAY, HIT, STAND, QUIT}
 
 	int GetInput();
 
