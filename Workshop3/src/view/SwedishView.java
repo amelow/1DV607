@@ -1,6 +1,12 @@
 package view;
 
 public class SwedishView implements IView {
+	
+	private final char play = 'p';
+	private final char hit = 'h';
+	private final char stand = 's';
+	private final char quit = 'q';
+	
 	public void DisplayWelcomeMessage() {
 
 		for (int i = 0; i < 50; i++) {
@@ -24,6 +30,26 @@ public class SwedishView implements IView {
 			System.out.println("" + e);
 			return 0;
 		}
+	}
+	
+	public IView.Action getAction() {
+		int userInput = this.GetInput();
+		if (userInput == play) {
+			return Action.PLAY;
+		}
+		else if(userInput == hit) {
+			return Action.HIT;
+		}
+		else if (userInput == stand) {
+			return Action.STAND;
+		}
+		else if (userInput == quit) {
+			return Action.QUIT;
+		}
+		else {
+		return null;
+		}
+		
 	}
 
 	public void DisplayCard(model.Card a_card) {
