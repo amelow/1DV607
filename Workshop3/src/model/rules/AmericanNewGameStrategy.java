@@ -1,6 +1,5 @@
 package model.rules;
 
-import model.Deck;
 import model.Dealer;
 import model.Player;
 import model.Card;
@@ -8,7 +7,7 @@ import model.Card;
 class AmericanNewGameStrategy implements INewGameStrategy {
 	private Dealer dealer;
 
-	public boolean NewGame(Deck a_deck, Dealer a_dealer, Player a_player) {
+	public boolean NewGame(Dealer a_dealer, Player a_player) {// removing deck
 		Card c;
 		dealer = a_dealer;
 
