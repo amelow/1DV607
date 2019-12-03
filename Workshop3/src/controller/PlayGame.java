@@ -18,9 +18,7 @@ public class PlayGame implements IObserver {
 	public PlayGame(Game a_game, IView a_view) {
 		this.observ_game = a_game;
 		this.observ_view = a_view;
-		observ_game.newGameObserver(this);
-		// a_game.newGameObserver(this);
-		// a_game.IsGameOver();
+		this.observ_game.newGameObserver(this);
 	}
 
 	// removing the hidden dependencies
@@ -28,11 +26,10 @@ public class PlayGame implements IObserver {
 		this.observ_view.DisplayWelcomeMessage();
 		observ_view.DisplayDealerHand(observ_game.GetDealerHand(), observ_game.GetDealerScore());
 		observ_view.DisplayPlayerHand(observ_game.GetPlayerHand(), observ_game.GetPlayerScore());
+		observ_game.IsGameOver();
 
-		if (observ_game.IsGameOver()) {
-			observ_view.DisplayGameOver(observ_game.IsDealerWinner());
-		}
 		Action userChoice = observ_view.getAction();
+
 		if (userChoice == Action.PLAY) {
 			observ_game.NewGame();
 		} else if (userChoice == Action.HIT) {
