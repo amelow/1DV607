@@ -3,6 +3,10 @@ package controller;
 import model.Game;
 import model.observer.IObserver;
 import view.IView;
+/*
+ * Code provided by Tobias Ohlsson for the 1DV607 course.
+ * Changes are made by Amelie Löwe and Johan Eriksson
+ */
 
 public class PlayGame implements IObserver{
 	private Game observ_game;
