@@ -29,7 +29,7 @@ public class SimpleView implements IView {
 		}
 	}
 	
-	public IView.Action getAction() {
+	public Action getAction() {
 		int userInput = this.GetInput();
 		if (userInput == play) {
 			return Action.PLAY;
