@@ -23,9 +23,6 @@ public class PlayGame implements IObserver {
 
 	// removing the hidden dependencies
 	public boolean Play() {
-		this.observ_view.DisplayWelcomeMessage();
-		observ_view.DisplayDealerHand(observ_game.GetDealerHand(), observ_game.GetDealerScore());
-		observ_view.DisplayPlayerHand(observ_game.GetPlayerHand(), observ_game.GetPlayerScore());
 		observ_game.IsGameOver();
 
 		Action userChoice = observ_view.getAction();

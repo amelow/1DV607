@@ -9,10 +9,10 @@ public class SwedishView implements IView {
 	
 	public void DisplayWelcomeMessage() {
 
-		for (int i = 0; i < 50; i++) {
-			System.out.print("\n");
-		}
-		;
+//		for (int i = 0; i < 50; i++) {
+//			System.out.print("\n");
+//		}
+//		;
 
 		System.out.println("Hej Black Jack Världen");
 		System.out.println("----------------------");
