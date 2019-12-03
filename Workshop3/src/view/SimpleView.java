@@ -8,9 +8,9 @@ public class SimpleView implements IView {
 	private final char quit = 'q';
 
 	public void DisplayWelcomeMessage() {
-		for (int i = 0; i < 50; i++) {
-			System.out.print("\n");
-		}
+	//	for (int i = 0; i < 50; i++) {
+	///		System.out.print("\n");
+		//}
 		;
 		System.out.println("Hello Black Jack World");
 		System.out.println("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
