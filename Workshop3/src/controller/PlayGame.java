@@ -12,17 +12,20 @@ public class PlayGame implements IObserver {
 	private Game observ_game;
 	private IView observ_view;
 	private int sleepTime = 2500;
-
+	
+	//new constructor
 	public PlayGame(Game a_game, IView a_view) {
 		observ_game = a_game;
 		observ_view = a_view;
 	//	a_game.newGameObserver(this);
 	//	a_game.IsGameOver();
 	}
-
+	//removing the hidden dependencies
 	public boolean Play() {
 		this.observ_view.DisplayWelcomeMessage();
-//		int input = observ_view.GetInput();
+		int choices = observ_view.GetInput();
+		if(choices)
+		
 //		if (input == 'p') {
 //			a_game.NewGame();
 //		} else if (input == 'h') {
