@@ -21,16 +21,18 @@ public class PlayGame implements IObserver {
 	}
 
 	public boolean Play() {
-		int input = observ_view.GetInput();
-		if (input == 'p') {
-			a_game.NewGame();
-		} else if (input == 'h') {
-			a_game.Hit();
-		} else if (input == 's') {
-			a_game.Stand();
-		}
-
-		return input != 'q';
+		this.observ_view.DisplayWelcomeMessage();
+//		int input = observ_view.GetInput();
+//		if (input == 'p') {
+//			a_game.NewGame();
+//		} else if (input == 'h') {
+//			a_game.Hit();
+//		} else if (input == 's') {
+//			a_game.Stand();
+//		}
+//
+//		return input != 'q';
+		return false;
 	}
 
 	@Override
