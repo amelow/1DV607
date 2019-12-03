@@ -16,8 +16,9 @@ public class PlayGame implements IObserver {
 
 	// new constructor
 	public PlayGame(Game a_game, IView a_view) {
-		observ_game = a_game;
-		observ_view = a_view;
+		this.observ_game = a_game;
+		this.observ_view = a_view;
+		observ_game.newGameObserver(this);
 		// a_game.newGameObserver(this);
 		// a_game.IsGameOver();
 	}
@@ -25,6 +26,8 @@ public class PlayGame implements IObserver {
 	// removing the hidden dependencies
 	public boolean Play() {
 		this.observ_view.DisplayWelcomeMessage();
+		observ_view.DisplayDealerHand(observ_game.GetDealerHand(), observ_game.GetDealerScore());
+		observ_view.DisplayPlayerHand(observ_game.GetPlayerHand(), observ_game.GetPlayerScore());
 
 		if (observ_game.IsGameOver()) {
 			observ_view.DisplayGameOver(observ_game.IsDealerWinner());

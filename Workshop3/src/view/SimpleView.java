@@ -1,18 +1,19 @@
 package view;
 
 public class SimpleView implements IView {
-	
+
 	private final char play = 'p';
 	private final char hit = 'h';
 	private final char stand = 's';
 	private final char quit = 'q';
 
 	public void DisplayWelcomeMessage() {
-	//	for (int i = 0; i < 50; i++) {
-	///		System.out.print("\n");
-		//}
+		for (int i = 0; i < 50; i++) {
+			System.out.print("\n");
+		}
 		;
-		System.out.println("Hello Black Jack World");
+		System.out.println("WELCOME TO BLACK JACK");
+		System.out.println("-----------------------------");
 		System.out.println("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
 	}
 
@@ -28,25 +29,21 @@ public class SimpleView implements IView {
 			return 0;
 		}
 	}
-	
+
 	public Action getAction() {
 		int userInput = this.GetInput();
 		if (userInput == play) {
 			return Action.PLAY;
-		}
-		else if(userInput == hit) {
+		} else if (userInput == hit) {
 			return Action.HIT;
-		}
-		else if (userInput == stand) {
+		} else if (userInput == stand) {
 			return Action.STAND;
-		}
-		else if (userInput == quit) {
+		} else if (userInput == quit) {
 			return Action.QUIT;
+		} else {
+			return null;
 		}
-		else {
-		return null;
-		}
-		
+
 	}
 
 	public void DisplayCard(model.Card a_card) {
