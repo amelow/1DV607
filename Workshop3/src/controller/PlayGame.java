@@ -25,43 +25,19 @@ public class PlayGame implements IObserver {
 	// removing the hidden dependencies
 	public boolean Play() {
 		this.observ_view.DisplayWelcomeMessage();
-		Action userChoice = observ_view.getAction();
-		while (!observ_game.IsGameOver())
-			if (userChoice == Action.PLAY) {
-				observ_game.NewGame();
-			} else if (userChoice == Action.HIT) {
-				observ_game.Hit();
-			} else if (userChoice == Action.STAND) {
-
-			}
 
 		if (observ_game.IsGameOver()) {
 			observ_view.DisplayGameOver(observ_game.IsDealerWinner());
 		}
-		/*
-		 * m_view.DisplayWelcomeMessage();
-		 * 
-		 * m_view.DisplayDealerHand(m_game.GetDealerHand(), m_game.GetDealerScore());
-		 * m_view.DisplayPlayerHand(m_game.GetPlayerHand(), m_game.GetPlayerScore());
-		 * 
-		 * if (m_game.IsGameOver()) { m_view.DisplayGameOver(m_game.IsDealerWinner()); }
-		 * 
-		 * IView.Intent input = m_view.getIntent();
-		 * 
-		 * if (input == IView.Intent.NewGame) { m_game.NewGame(); } else if (input ==
-		 * IView.Intent.Hit) { m_game.Hit(); } else if (input == IView.Intent.Stand) {
-		 * m_game.Stand(); } return input != IView.Intent.Quit;
-		 */
-//		if (input == 'p') {
-//			a_game.NewGame();
-//		} else if (input == 'h') {
-//			a_game.Hit();
-//		} else if (input == 's') {
-//			a_game.Stand();
-//		}
-//
-//		return input != 'q';
-		return false;
+		Action userChoice = observ_view.getAction();
+		if (userChoice == Action.PLAY) {
+			observ_game.NewGame();
+		} else if (userChoice == Action.HIT) {
+			observ_game.Hit();
+		} else if (userChoice == Action.STAND) {
+			observ_game.Stand();
+		}
+		return userChoice != Action.QUIT;
 	}
 
 	@Override
