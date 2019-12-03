@@ -11,12 +11,12 @@ public class Program {
 
 	public static void main(String[] a_args) {
 
-		// IView v = new SimpleView(); // new SwedishView();
-		IView v = new SwedishView();
+		IView v = new SimpleView();
+		// IView v = new SwedishView();
 		Game g = new Game(v);
-		PlayGame ctrl = new PlayGame();
+		PlayGame ctrl = new PlayGame(g, v);
 
-		while (ctrl.Play(g, v))
+		while (ctrl.Play())
 			;
 	}
 }
