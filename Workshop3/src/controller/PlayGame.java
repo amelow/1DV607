@@ -12,7 +12,7 @@ import view.IView.Action;
 public class PlayGame implements IObserver {
 	private Game observ_game;
 	private IView observ_view;
-	private int sleepTime = 500;
+	private int sleepTime = 1000;
 
 	// new constructor
 	public PlayGame(Game a_game, IView a_view) {
