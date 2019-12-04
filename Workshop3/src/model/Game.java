@@ -23,7 +23,6 @@ public class Game {
 		}
 		else {
 			a_view.DisplayGameOver(IsDealerWinner());
-			a_view.DisplayDealerHand(m_dealer.GetHand(), m_dealer.CalcScore());
 		}
 		return res;
 	}
