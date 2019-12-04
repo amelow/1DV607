@@ -63,11 +63,11 @@ public class Game {
 		a_view.DisplayDealerHand(GetDealerHand(), GetDealerScore());
 		a_view.DisplayPlayerHand(GetPlayerHand(), GetPlayerScore());
 	}
+
 	public void newGameObserver(IObserver observer) {
 		m_dealer.addGameObserver(observer);
 		m_player.addGameObserver(observer);
-		
-	}
 
+	}
 
 }

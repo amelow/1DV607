@@ -18,7 +18,7 @@ public class PlayGame implements IObserver {
 	public PlayGame(Game a_game, IView a_view) {
 		this.observ_game = a_game;
 		this.observ_view = a_view;
-		//this.observ_game.newGameObserver(this);
+		this.observ_game.newGameObserver(this);
 	}
 
 	// removing the hidden dependencies
