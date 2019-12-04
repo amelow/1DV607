@@ -26,7 +26,6 @@ public class PlayGame implements IObserver {
 		observ_view.DisplayWelcomeMessage();
 		
 		Action userChoice = observ_view.getAction();
-
 		if (userChoice == Action.PLAY) {
 			observ_game.NewGame();
 		} else if (userChoice == Action.HIT) {
