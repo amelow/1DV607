@@ -18,4 +18,5 @@ public abstract class Observer {
             observers.get(i).infoToObservers();
         }
     }
+    
 }
