@@ -12,7 +12,7 @@ import view.IView.Action;
 public class PlayGame implements IObserver {
 	private Game observ_game;
 	private IView observ_view;
-	private int sleepTime = 2500;
+	private int sleepTime = 500;
 
 	// new constructor
 	public PlayGame(Game a_game, IView a_view) {
@@ -23,7 +23,8 @@ public class PlayGame implements IObserver {
 
 	// removing the hidden dependencies
 	public boolean Play() {
-		observ_game.IsGameOver();
+		observ_view.DisplayWelcomeMessage();
+		
 		Action userChoice = observ_view.getAction();
 
 		if (userChoice == Action.PLAY) {
@@ -32,6 +33,7 @@ public class PlayGame implements IObserver {
 			observ_game.Hit();
 		} else if (userChoice == Action.STAND) {
 			observ_game.Stand();
+			observ_game.IsGameOver();
 		}
 		return userChoice != Action.QUIT;
 	}

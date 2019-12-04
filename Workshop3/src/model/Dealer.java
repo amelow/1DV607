@@ -61,7 +61,7 @@ public class Dealer extends Player {
 			ShowHand();
 		}
 		while (m_hitRule.DoHit(this)) {
-			m_hitRule.DoHit(this);
+			//m_hitRule.DoHit(this);
 			DealCard(this, true);
 			return true;
 

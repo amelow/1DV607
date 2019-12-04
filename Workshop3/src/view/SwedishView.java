@@ -32,7 +32,7 @@ public class SwedishView implements IView {
 		}
 	}
 	
-	public Action getAction() {
+	public IView.Action getAction() {
 		int userInput = this.GetInput();
 		if (userInput == play) {
 			return Action.PLAY;

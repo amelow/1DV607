@@ -17,9 +17,14 @@ public class Game {
 
 	public boolean IsGameOver() {
 		UpdateView();
-		boolean res = m_dealer.IsGameOver();
-		if (res)
+		boolean res = IsDealerWinner();
+		if (res) {
 			a_view.DisplayGameOver(IsDealerWinner());
+		}
+		else {
+			a_view.DisplayGameOver(IsDealerWinner());
+			a_view.DisplayDealerHand(m_dealer.GetHand(), m_dealer.CalcScore());
+		}
 		return res;
 	}
 
