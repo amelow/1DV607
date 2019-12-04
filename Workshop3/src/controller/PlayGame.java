@@ -24,8 +24,6 @@ public class PlayGame implements IObserver {
 	// removing the hidden dependencies
 	public boolean Play() {
 		observ_game.IsGameOver();
-
-
 		Action userChoice = observ_view.getAction();
 
 		if (userChoice == Action.PLAY) {

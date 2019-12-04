@@ -10,7 +10,6 @@ class InternationalNewGameStrategy implements INewGameStrategy {
 	public boolean NewGame(Dealer a_dealer, Player a_player) { // removing deck
 		dealer = a_dealer;
 		Card c;
-
 		dealer.DealCard(a_player, true);
 		dealer.DealCard(a_dealer, true);
 		dealer.DealCard(a_player, true);

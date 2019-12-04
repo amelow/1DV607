@@ -69,7 +69,7 @@ public class SimpleView implements IView {
 
 	public void DisplayGameOver(boolean a_dealerIsWinner) {
 		System.out.println("GameOver: ");
-		if (a_dealerIsWinner) {
+		if (a_dealerIsWinner == true) {
 			System.out.println("Dealer Won!");
 		} else {
 			System.out.println("You Won!");
