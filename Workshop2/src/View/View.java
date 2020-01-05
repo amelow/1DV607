@@ -211,9 +211,9 @@ public class View {
 
 	public void verboseListView() {
 		Iterator<Member> membersList = memberRegistry.getMemberList();
-		// Iterator<Boat> boatsList= member
+		// Iterator<Boat> boatsList= member;
 		StringBuffer verboseList = new StringBuffer();
-		String lineBreak = ("-----------------------------------------------------------------------\n");
+		System.out.println("-----------------------------------------------------------------------\n");
 		while (membersList.hasNext()) {
 			Member member = membersList.next();
 			verboseList.append("Member Id: " + member.getID());
@@ -270,9 +270,9 @@ public class View {
 
 	public void boatUpdated(boolean updated) {
 		if (updated)
-			System.out.println("Boat updated");
+			System.out.println("Boat is updated");
 		else
-			System.out.println("Boat NOT updated");
+			System.out.println("Boat is NOT updated");
 	}
 
 }

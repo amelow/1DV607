@@ -1,8 +1,5 @@
 package Model;
 
-/*
- * The Enum class for the different boat-types
- */
 public enum BoatTypes {
 	Sailboat,
 	Motorsailer,
