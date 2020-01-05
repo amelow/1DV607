@@ -129,7 +129,7 @@ public class View {
 
 	}
 
-	public void printMemListForChange(String listM) { // dependancy to member
+	public void printMemListForChange(String listM) { // dependency to member
 		System.out.println(listM);
 	}
 
