@@ -6,7 +6,7 @@ import java.util.Iterator;
 public class MemberRegister {
 	// Declaring/Initiating the variables
 	private int id = 1040; // start at 1040 and not 1 so i cannot be so easily guessed
-	private ArrayList<Member> memList = new ArrayList<Member>();// the memlist that saves the members
+	private ArrayList<Member> memList = new ArrayList<Member>();/
 
 	public MemberRegister() {
 		this.memList = new ArrayList<Member>();

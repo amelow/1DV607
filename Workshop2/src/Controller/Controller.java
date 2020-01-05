@@ -162,31 +162,25 @@ public class Controller {
 	 */
 	private void caseShowVerbose() {
 		// ArrayList<Object> verbose = memReg.verboseList();
-		//view.verboseListView();
+		view.verboseListView();
 		startMenu();
 	}
 
-	/*
-	 * Checks if the user wants to quit the application, then saves the information
-	 * in the txt file
-	 */
+	
 	private void caseQuitApp() {
 		view.saveAndQuit();
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
 			fileHandler.fileHandler(memReg.getMemberList());
-			// fileHandler(memReg.getMemberList()); // calls the filehandler and sends the
-			// members information to save it
-			System.exit(0);// closing the console application
+			// fileHandler(memReg.getMemberList()); 
+			
+			System.exit(0);
 		}
 		startMenu();
 	}
 
-	/*
-	 * Checks if the user wants to change the name, then saves the information in
-	 * the Member register
-	 */
+
 	private void changeName(int i) {
 		view.changName();
 		String newName = nameWithSpace();

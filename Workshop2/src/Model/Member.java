@@ -12,7 +12,7 @@ public class Member {
 	private String name;
 	private String personNum;
 	private int memberId;
-	private List<Boat> boatList = new ArrayList<Boat>(); // the list for saving the amount of boats
+	private List<Boat> boatList = new ArrayList<Boat>();
 
 	public Member(String Name, String num, int id) {
 		this.name = Name;
@@ -24,35 +24,35 @@ public class Member {
 
 	}
 
-	public void setName(String Name) { // adding a name
+	public void setName(String Name) {
 		this.name = Name;
 
 	}
 
-	public String getName() { // getting the name
+	public String getName() {
 		return this.name;
 	}
 
-	public void setPersonNum(String num) { // adding the personal number
+	public void setPersonNum(String num) {
 		this.personNum = num;
 
 	}
 
-	public String getPersonNum() { // getting the personal number
+	public String getPersonNum() {
 		return personNum;
 	}
 
-	public int getID() { // Getting the users personal id number
+	public int getID() {
 		return memberId;
 	}
 
-	public int getAmountOfBoats() { // getting the boatlist size
+	public int getAmountOfBoats() {
 		return boatList.size();
 	}
 
-	public void addBoat(BoatTypes t, int l) {
-		Boat boat = new Boat(t, l);// new boat with a type and length
-		boatList.add(boat); // adding it to the arraylist so it gets saved
+	public void addBoat(BoatTypes type, int length) {
+		Boat boat = new Boat(type, length);
+		boatList.add(boat);
 
 	}
 
@@ -60,7 +60,6 @@ public class Member {
 		boatList.remove(removeBoat);// removing it from the boatlist register
 
 	}
-
 
 	public Iterator<Boat> getBoatList() {
 		return boatList.iterator();// returns the boat register list
