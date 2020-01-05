@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class MemberRegister {
 	// Declaring/Initiating the variables
@@ -19,21 +20,22 @@ public class MemberRegister {
 
 	public void addMember(Member member) {
 		memList.add(member);
-		id++;// incrementing the Id so next member has a new ID
+		id++; //incrementing the Id so next member has a new ID
 	}
 
-	/*
-	 * public void addMemberList(Member m, int idM) { memList.add(m); id = idM;
-	 * id++; }
-	 */
+	public void addMemberList(Member m, int idM) {
+		memList.add(m);
+		id = idM;
+		id++;
+	}
+
 	public void deleteMember(int id) {
-		memList.remove(id);// removes the member with the right Id
-
+		memList.remove(id);
 	}
 
-	public Member GetMember(int a_id) {
+	public Member getMember(int a_id) {
 		for (Member m : memList) {
-			if (m.GetId() == a_id) {
+			if (m.getId() == a_id) {
 				return m;
 			}
 		}
@@ -41,28 +43,12 @@ public class MemberRegister {
 		return null;
 	}
 
-	/*
-	 * public Member getMember(int id) { // get the member by the id int index = -1;
-	 * for (int i = 0; i < memList.size(); i++) { Member testmem = memList.get(i);
-	 * if (testmem.getID() == id) { index = i; } } if (index == -1) { return null; }
-	 * else { return memList.get(index); } }
-	 */
-	public ArrayList<Member> getMemberList() { // returns the entire member registry list
-		return memList;
-	}
-
-	public String getMemberListAsString() {
-		String listOfMembers = "";
-		for (int i = 0; i < memList.size(); i++) {
-			String name = memList.get(i).getName();
-			int id = memList.get(i).getID();
-			listOfMembers = listOfMembers + "\n" + "Name: " + name + " Memberid: " + id;
-		}
-		return listOfMembers;
+	public Iterator<Member> getMemberList() {
+		return memList.iterator();
 	}
 
 	public boolean checkIfPersonNumExists(String personNumberAsString) {
-		for (int i = 0; i < memList.size(); i++) { // checks the personal number if user exists
+		for (int i = 0; i < memList.size(); i++) {
 			if (personNumberAsString.equals(memList.get(i).getPersonNum())) {
 				return true;
 			}
@@ -71,56 +57,56 @@ public class MemberRegister {
 		return false;
 	}
 
+	public int getMemberIndex4Id(int memberId) {
+		for (int i = 0; i < memList.size(); i++) {
+			if (memberId == memList.get(i).getID()) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
 	public boolean checkLengthOfPersonNum(int lengthOfPersonNum) {
 		if (lengthOfPersonNum == 12) {
 			return true;
 		}
 		return false;
-
 	}
 
-	public String changeName(int i, String newName) {
+	public void changeName(int i, String newName) {
 		memList.get(i).setName(newName);
-		return newName;
 	}
 
-	public void addBoatToMember(int id, String typeOfBoat, String lengthOfBoat) {
-		for (int i = 0; i < memList.size(); i++) {
-			if (i == id) {
-				memList.get(i).addBoat(BoatTypes.getBoatType(typeOfBoat), Integer.parseInt(lengthOfBoat));
-			}
+	public boolean addBoatToMember(int memberIndex, int lengthOfBoat, String boatType) {
+		try {
+			Member member = memList.get(memberIndex);
+			member.addBoat(BoatTypes.getBoatType(boatType), lengthOfBoat);
+			return true;
+		} catch (IndexOutOfBoundsException e) {
+			return false;
 		}
-
 	}
 
-	public String boatFromMemberList(int userIndex) {
-		String listOfBoats = "";
-		for (int i = 0; i < memList.get(userIndex).getBoatList().size(); i++) {
-			listOfBoats = listOfBoats + i + " " + memList.get(userIndex).getBoatList().get(i).getType() + " "
-					+ memList.get(userIndex).getBoatList().get(i).getLength() + "\n";
+	public boolean deleteBoatFromMember(int memberIndex, int boatIndex) {
+		try {
+			Member member = memList.get(memberIndex);
+			member.getBoatList().remove(boatIndex);
+			return true;
+		} catch (IndexOutOfBoundsException e) {
+			return false;
 		}
-		return listOfBoats;
 	}
 
-	public String deleteBoatFromMember(int index, int deleteBoat) {
-		for (int i = 0; i < memList.get(index).getBoatList().size(); i++) {
-			String c = i + " " + memList.get(index).getBoatList().get(i);
-			String r = deleteBoat + " " + memList.get(index).getBoatList().get(i);
-			if (c.equals(r)) {
-				memList.get(index).deleteBoat(i);
-				return "Boat is deleted";
-
-			}
-
+	public boolean changeBoatMember(int memberIndex, int boatIndex, int lengthOfBoat, String boatType) {
+		try {
+			Member member = memList.get(memberIndex);
+			Boat boat = member.getBoatList().get(boatIndex);
+			boat.setLength(lengthOfBoat);
+			boat.setType(BoatTypes.getBoatType(boatType));
+			return true;
+		} catch (IndexOutOfBoundsException e) {
+			return false;
 		}
-		return "Boat is not deleted";
-	}
-
-	public String changeBoatMember(int index, int boat, int length, String userIn) {
-		memList.get(index).getBoatList().get(boat).setLength(length);
-		memList.get(index).getBoatList().get(boat).setType(BoatTypes.getBoatType(userIn));
-		return "Updated";
-
 	}
 
 }

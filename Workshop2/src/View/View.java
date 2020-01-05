@@ -1,7 +1,9 @@
 package View;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
+import Model.Boat;
 import Model.Member;
 import Model.MemberRegister;
 
@@ -10,10 +12,10 @@ import Model.MemberRegister;
  */
 public class View {
 
-	private MemberRegister model;
+	private MemberRegister memberRegistry;
 
-	public View(MemberRegister model) {
-		this.model = model;
+	public View(MemberRegister memberRegistry) {
+		this.memberRegistry = memberRegistry;
 	}
 
 	public void welcomeMessage() {
@@ -21,6 +23,7 @@ public class View {
 		System.out.println(hi);
 
 	}
+
 	public void mainMenu() {
 		String choose = "What do you want to do?";
 		String alt1 = "To add a member, enter (1)";
@@ -63,8 +66,8 @@ public class View {
 		System.out.println(idPer);
 	}
 
-	public void correctBoatInfo(String typeOfBoat, String lengthOfBoat) {
-		System.out.println("Is " + typeOfBoat + " and length " + lengthOfBoat + " correct?(y/n)");
+	public void correctBoatInfo(String typeOfBoat, int lengthOfBoat) {
+		System.out.println("Is " + typeOfBoat + " and length " + lengthOfBoat + " correct? (y/n)");
 
 	}
 
@@ -87,8 +90,11 @@ public class View {
 		System.out.println("\n");
 	}
 
-	public void deletedBoat(String deletedBoat) {
-		System.out.println(deletedBoat);
+	public void deletedBoat(boolean deletedBoat) {
+		if (deletedBoat)
+			System.out.println("Boat deleted");
+		else
+			System.out.println("Boat NOT deleted");
 	}
 
 	public void changeBoat() {
@@ -126,11 +132,20 @@ public class View {
 		System.out.println(alt4);
 		System.out.println(alt5);
 		System.out.println(quit);
-
 	}
 
-	public void printMemListForChange(String listM) { // dependency to member
-		System.out.println(listM);
+	public void listMembers() {
+		StringBuffer listOfMembers = new StringBuffer();
+		Iterator<Member> membersList = memberRegistry.getMemberList();
+		while (membersList.hasNext()) {
+			Member member = membersList.next();
+			String name = member.getName();
+			int id = member.getID();
+			listOfMembers.append("Name: " + name);
+			listOfMembers.append(" Member id: " + id);
+			listOfMembers.append("\n");
+		}
+		System.out.println(listOfMembers.toString());
 	}
 
 	public void noChanges() {
@@ -165,40 +180,73 @@ public class View {
 		System.out.println("Are you sure? Do you want to save and exit the application? (y/n)");
 	}
 
-	public void listMembersBoats(String listOfBoatsPrintOuts) {
-		System.out.println(listOfBoatsPrintOuts);
+	public void listMembersBoats(int memberIndex) {
+		Member member = memberRegistry.getMember(memberIndex);
+		StringBuffer listOfBoats = new StringBuffer();
+		for (int i = 0; i < member.getBoatList().size(); i++) {
+			Boat boat = member.getBoatList().get(i);
+			listOfBoats.append(i);
+			listOfBoats.append(" " + boat.getType());
+			listOfBoats.append(" " + boat.getLength());
+			listOfBoats.append("\n");
+		}
+		System.out.println(listOfBoats.toString());
 
 	}
 
 	public void compactListView() {
-		ArrayList<String> compact = new ArrayList<String>();
-		ArrayList<Member> memList = model.getMemberList();
+		Iterator<Member> membersList = memberRegistry.getMemberList();
+		StringBuffer compactList = new StringBuffer();
+		while (membersList.hasNext()) {
+			Member member = membersList.next();
+			compactList.append("Name: " + member.getName());
+			compactList.append("Member Id: " + member.getID());
+			compactList.append("Amount of Boats: " + member.getAmountOfBoats());
+			compactList.append("\n");
 
-		for (int i = 0; i < memList.size(); i++) {// loops thru the register
-			compact.add("Name: " + memList.get(i).getName() + " " + "ID: " + memList.get(i).getID() + " " + "Boats: "
-					+ memList.get(i).getAmountOfBoats());
 		}
-		compact.forEach(System.out::println);
+
+		System.out.println(compactList.toString());
 	}
 
 	public void verboseListView() {
-		ArrayList<String> verbose = new ArrayList<String>();
-		ArrayList<Member> memList = model.getMemberList();
+		Iterator<Member> membersList = memberRegistry.getMemberList();
+		// Iterator<Boat> boatsList= member
+		StringBuffer verboseList = new StringBuffer();
 		String lineBreak = ("-----------------------------------------------------------------------\n");
-		for (int i = 0; i < memList.size(); i++) {// loops thru the register and prints the information
-			verbose.add(lineBreak + " Name: " + memList.get(i).getName() + " Personal Number: "
-					+ memList.get(i).getPersonNum() + " ID: " + memList.get(i).getID() + " Number of Boats: "
-					+ memList.get(i).getAmountOfBoats());
-			if (memList.get(i).getAmountOfBoats() > 0) {// checks if user has 1 or more boats
-				for (int j = 0; j < memList.get(i).getAmountOfBoats(); j++) { // loops thru the boats
-					verbose.add(lineBreak + " Type: " + memList.get(i).getBoatList().get(j).getType() + " Length: "
-							+ memList.get(i).getBoatList().get(j).getLength());
-				}
-			}
+		while (membersList.hasNext()) {
+			Member member = membersList.next();
+			verboseList.append("Name: " + member.getName());
+			verboseList.append("Personal Number: " + member.getPersonNum());
+			verboseList.append("Member Id: " + member.getID());
+			verboseList.append("Amount of Boats: " + member.getAmountOfBoats());
+			verboseList.append("\n");
+			verboseList.append("Type of Boat: " + member.getBoatList());
+			verboseList.append("Length of Boat: " + member.getBoatList());
+			verboseList.append("\n");
 		}
-		verbose.forEach(System.out::println);
-
+		System.out.println(verboseList.toString());
 	}
+
+	/*
+	 * public void verboseListView() { ArrayList<String> verbose = new
+	 * ArrayList<String>(); ArrayList<Member> memList =
+	 * memberRegistry.getMemberList(); String lineBreak =
+	 * ("-----------------------------------------------------------------------\n")
+	 * ; for (int i = 0; i < memList.size(); i++) {// loops thru the register and
+	 * prints the information verbose.add(lineBreak + " Name: " +
+	 * memList.get(i).getName() + " Personal Number: " +
+	 * memList.get(i).getPersonNum() + " ID: " + memList.get(i).getID() +
+	 * " Number of Boats: " + memList.get(i).getAmountOfBoats()); if
+	 * (memList.get(i).getAmountOfBoats() > 0) {// checks if user has 1 or more
+	 * boats for (int j = 0; j < memList.get(i).getAmountOfBoats(); j++) { // loops
+	 * thru the boats verbose.add(lineBreak + " Type: " +
+	 * memList.get(i).getBoatList().get(j).getType() + " Length: " +
+	 * memList.get(i).getBoatList().get(j).getLength()); } } }
+	 * verbose.forEach(System.out::println);
+	 * 
+	 * }
+	 */
 
 	public void addBoatLength() {
 		System.out.println("length of boat?");
@@ -220,9 +268,11 @@ public class View {
 
 	}
 
-	public void boatUpdated(String updated) {
-		System.out.println(updated);
-
+	public void boatUpdated(boolean updated) {
+		if (updated)
+			System.out.println("Boat updated");
+		else
+			System.out.println("Boat NOT updated");
 	}
 
 }

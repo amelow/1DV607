@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /*
@@ -60,11 +61,12 @@ public class Member {
 
 	}
 
-	public List<Boat> getBoatList() {
-		return new ArrayList<Boat>(boatList);// returns the boat register list
+
+	public Iterator<Boat> getBoatList() {
+		return boatList.iterator();// returns the boat register list
 	}
 
-	public int GetId() {
+	public int getId() {
 		return memberId;
 	}
 }

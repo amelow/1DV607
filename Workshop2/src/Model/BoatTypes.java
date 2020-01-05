@@ -29,7 +29,6 @@ public enum BoatTypes {
 			} else {
 				returnType = Other;
 			}
-
 		}
 
 		return returnType;

@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 import Model.MemberRegister;
 import Model.FileHandler.CreateFile;
-import Model.FileHandler.InitFile;
 import View.View;
 
 public class Controller {
@@ -17,15 +16,14 @@ public class Controller {
 	private Scanner scan = new Scanner(System.in); // scanner handles the console inputs
 	private MemberRegister memReg = new MemberRegister();
 	private View view = new View(memReg);
-	private InitFile readFile = new InitFile();
-	private CreateFile createFile = new CreateFile();
+	private CreateFile fileHandler = new CreateFile();
 
 	/*
 	 * Prints the viewer class welcome message, initializes a file and calls the
 	 * main menu method
 	 */
 	public void welcomeMessage() {
-		readFile.initFile(memReg);
+		fileHandler.initFile(memReg);
 		view.welcomeMessage();
 		startMenu();
 	}
@@ -115,20 +113,13 @@ public class Controller {
 	 * as well as deleting a member
 	 */
 	private void caseChangeMember() {
-		String listOfM = memReg.getMemberListAsString();
-		view.printMemListForChange(listOfM);
-		;
+		view.listMembers();
 		view.selectID();
 		userIn = scan.next();
 		int userID = Integer.parseInt(userIn);
-		int index = -1;
+		int index = memReg.getMemberIndex4Id(userID);
 
-		for (int i = 0; i < memReg.getMemberList().size(); i++) {
-			if (userID == memReg.getMemberList().get(i).getID()) {
-				index = i;
-			}
-		}
-		if (index < 0) {
+		if (index < 0) { //Member id does not exist
 			view.noUser();
 			startMenu();
 		} else {
@@ -170,8 +161,8 @@ public class Controller {
 	 * to the main menu
 	 */
 	private void caseShowVerbose() {
-	//	ArrayList<Object> verbose = memReg.verboseList();
-		view.verboseListView();
+		// ArrayList<Object> verbose = memReg.verboseList();
+		//view.verboseListView();
 		startMenu();
 	}
 
@@ -184,7 +175,7 @@ public class Controller {
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
-			createFile.fileHandler(memReg.getMemberList());
+			fileHandler.fileHandler(memReg.getMemberList());
 			// fileHandler(memReg.getMemberList()); // calls the filehandler and sends the
 			// members information to save it
 			System.exit(0);// closing the console application
@@ -239,12 +230,12 @@ public class Controller {
 		String typeOfBoat = userIn;
 		view.addBoatLength();
 		userIn = scan.next();
-		String lengthOfBoat = userIn;
+		int lengthOfBoat = Integer.parseInt(userIn);
 		view.correctBoatInfo(typeOfBoat, lengthOfBoat);
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
-			memReg.addBoatToMember(id, typeOfBoat, lengthOfBoat);
+			memReg.addBoatToMember(id, lengthOfBoat, typeOfBoat);
 			startMenu();
 		} else {
 			startMenu();
@@ -257,10 +248,9 @@ public class Controller {
 	 * information such as a type and a length, then adding the changes it to the
 	 * registry
 	 */
-	private void changeBoat(int index) {
+	private void changeBoat(int memberIndex) {
 		view.changeBoat();
-		String listOfBoats = memReg.boatFromMemberList(index);
-		view.listMembersBoats(listOfBoats);
+		view.listMembersBoats(memberIndex);
 		String userIn = scan.next();
 		view.boatSel(userIn);
 		String change = "Set new length and type for the boat ";
@@ -269,7 +259,7 @@ public class Controller {
 		userIn = scan.next();
 		int changeLength = Integer.parseInt(userIn);
 		userIn = scan.next();
-		String updated = memReg.changeBoatMember(index, boatSelected, changeLength, userIn);
+		boolean updated = memReg.changeBoatMember(memberIndex, boatSelected, changeLength, userIn);
 		view.boatUpdated(updated);
 	}
 
@@ -278,15 +268,13 @@ public class Controller {
 	 * first checking the id then the user has to choose one of the boats and press
 	 * delete
 	 */
-	private void deleteBoat(int index) {
-		String listOfBoats = memReg.boatFromMemberList(index);
-		view.listMembersBoats(listOfBoats);
+	private void deleteBoat(int memberIndex) {
+		view.listMembersBoats(memberIndex);
 		view.selectBoatToDelete();
 		String deleteBoat = userIn;
 		deleteBoat = scan.next();
 		int deleteBoatInt = Integer.parseInt(deleteBoat);
-		String deletedBoat = memReg.deleteBoatFromMember(index, deleteBoatInt);
-
+		boolean deletedBoat = memReg.deleteBoatFromMember(memberIndex, deleteBoatInt);
 		view.deletedBoat(deletedBoat);
 		startMenu();
 	}
