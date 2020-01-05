@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class MemberRegister {
-	// Declaring/Initiating the variables
 	private int id = 1040; // start at 1040 and not 1 so i cannot be so easily guessed
 	private ArrayList<Member> memList = new ArrayList<Member>();/
 
 	public MemberRegister() {
 		this.memList = new ArrayList<Member>();
-		// this.id = 0;
 	}
 
 	public void CreateMember(String name, String num) {
@@ -20,7 +18,7 @@ public class MemberRegister {
 
 	public void addMember(Member member) {
 		memList.add(member);
-		id++; //incrementing the Id so next member has a new ID
+		id++; // incrementing the Id so next member has a new ID
 	}
 
 	public void addMemberList(Member m, int idM) {

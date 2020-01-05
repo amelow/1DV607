@@ -199,8 +199,8 @@ public class View {
 		StringBuffer compactList = new StringBuffer();
 		while (membersList.hasNext()) {
 			Member member = membersList.next();
-			compactList.append("Name: " + member.getName());
 			compactList.append("Member Id: " + member.getID());
+			compactList.append("Name: " + member.getName());
 			compactList.append("Amount of Boats: " + member.getAmountOfBoats());
 			compactList.append("\n");
 
@@ -216,9 +216,9 @@ public class View {
 		String lineBreak = ("-----------------------------------------------------------------------\n");
 		while (membersList.hasNext()) {
 			Member member = membersList.next();
+			verboseList.append("Member Id: " + member.getID());
 			verboseList.append("Name: " + member.getName());
 			verboseList.append("Personal Number: " + member.getPersonNum());
-			verboseList.append("Member Id: " + member.getID());
 			verboseList.append("Amount of Boats: " + member.getAmountOfBoats());
 			verboseList.append("\n");
 			verboseList.append("Type of Boat: " + member.getBoatList());

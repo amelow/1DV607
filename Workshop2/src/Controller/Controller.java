@@ -8,12 +8,12 @@ import Model.FileHandler.CreateFile;
 import View.View;
 
 public class Controller {
-	private String userIn; // handles the user input
-	private long userLong;// handles the user input
-	private String checkYesNoAnswer; // checks the console input if it is (y/n)
-	private char checkYN; // checks the console input if it is (y/n)
-	private String personNumberAsString; // personal number
-	private Scanner scan = new Scanner(System.in); // scanner handles the console inputs
+	private String userIn;
+	private long userLong;
+	private String checkYesNoAnswer;
+	private char checkYN;
+	private String personNumberAsString;
+	private Scanner scan = new Scanner(System.in);
 	private MemberRegister memReg = new MemberRegister();
 	private View view = new View(memReg);
 	private CreateFile fileHandler = new CreateFile();
@@ -37,16 +37,16 @@ public class Controller {
 		userIn = scan.next();
 		switch (userIn) {
 		case ("1"):
-			caseAddMember();
+			caseShowVerbose();
 			break;
 		case ("2"):
-			caseChangeMember();
-			break;
-		case ("3"):
 			caseShowCompact();
 			break;
+		case ("3"):
+			caseAddMember();
+			break;
 		case ("4"):
-			caseShowVerbose();
+			caseChangeMember();
 			break;
 		case ("Q"):
 			caseQuitApp();
@@ -119,7 +119,7 @@ public class Controller {
 		int userID = Integer.parseInt(userIn);
 		int index = memReg.getMemberIndex4Id(userID);
 
-		if (index < 0) { //Member id does not exist
+		if (index < 0) { // Member id does not exist
 			view.noUser();
 			startMenu();
 		} else {
@@ -166,20 +166,18 @@ public class Controller {
 		startMenu();
 	}
 
-	
 	private void caseQuitApp() {
 		view.saveAndQuit();
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
 			fileHandler.fileHandler(memReg.getMemberList());
-			// fileHandler(memReg.getMemberList()); 
-			
+			// fileHandler(memReg.getMemberList());
+
 			System.exit(0);
 		}
 		startMenu();
 	}
-
 
 	private void changeName(int i) {
 		view.changName();
