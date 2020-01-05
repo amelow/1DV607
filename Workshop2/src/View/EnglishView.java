@@ -1,5 +1,5 @@
 package View;
 
-public class EnglishView {
+public class EnglishView implements ViewInterface{
 
 }
