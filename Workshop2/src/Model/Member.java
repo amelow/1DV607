@@ -56,13 +56,13 @@ public class Member {
 
 	}
 
-	public void deleteBoat(int removeBoat) { // Deleting the boat
-		boatList.remove(removeBoat);// removing it from the boatlist register
+	public void deleteBoat(int removeBoat) { 
+		boatList.remove(removeBoat);
 
 	}
 
 	public Iterator<Boat> getBoatList() {
-		return boatList.iterator();// returns the boat register list
+		return boatList.iterator();
 	}
 
 	public int getId() {
