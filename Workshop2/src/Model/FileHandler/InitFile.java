@@ -34,7 +34,7 @@ public class InitFile {
 						counter += 2;
 					}
 					counter = 0;
-					memReg.addMemberList(m, Integer.parseInt(arr.get(2))); // add the members
+					//memReg.addMemberList(m, Integer.parseInt(arr.get(2))); // add the members
 					arr.clear();
 				} else {
 					arr.add(line);

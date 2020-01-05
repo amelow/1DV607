@@ -63,4 +63,8 @@ public class Member {
 	public List<Boat> getBoatList() {
 		return new ArrayList<Boat>(boatList);// returns the boat register list
 	}
+
+	public int GetId() {
+		return memberId;
+	}
 }

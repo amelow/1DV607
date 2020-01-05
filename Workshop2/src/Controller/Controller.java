@@ -8,11 +8,6 @@ import Model.FileHandler.CreateFile;
 import Model.FileHandler.InitFile;
 import View.View;
 
-/*
-* The Controller class is the main class that handles the functionality of the application.
-*  It fetches the users input and saves it in a txt file.
-* If the user already has previously saved a file it loads the saved members info as well as the registered boats
-*/
 public class Controller {
 	private String userIn; // handles the user input
 	private long userLong;// handles the user input

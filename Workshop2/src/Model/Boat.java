@@ -8,19 +8,14 @@ public class Boat {
 	private BoatTypes type;
 
 	// Constructors for the BoatClass
-	public Boat() {
+//	public Boat() {
 
-	}
+//	}
 
 	public Boat(BoatTypes Type, double Length) {
 		this.type = Type;
 		this.length = Length;
 	}
-
-	/*
-	 * Getters and Setters for the boat information: The type of boat and the length
-	 * of the boat
-	 */
 
 	public void setLength(double Length) {
 		if (Length > 0) { // Minimum value of boat is 0
@@ -39,4 +34,5 @@ public class Boat {
 	public BoatTypes getType() {
 		return this.type;
 	}
+
 }

@@ -2,66 +2,51 @@ package Model;
 
 import java.util.ArrayList;
 
-/*
- * Member register handles all of the member-related actions,
- * for example CreateMember,AddMember,DeleteMember, GetMember etc
- */
 public class MemberRegister {
 	// Declaring/Initiating the variables
 	private int id = 1040; // start at 1040 and not 1 so i cannot be so easily guessed
 	private ArrayList<Member> memList = new ArrayList<Member>();// the memlist that saves the members
 
-	/*
-	 * Creating a member with a name and a personal number, then calling the add
-	 * member method
-	 */
+	public MemberRegister() {
+		this.memList = new ArrayList<Member>();
+		// this.id = 0;
+	}
+
 	public void CreateMember(String name, String num) {
 		Member member = new Member(name, num, id);
 		addMember(member);
 	}
 
-	/*
-	 * Method that adds the new member to the list with a unique Id. Id starts at
-	 * 1040
-	 */
 	public void addMember(Member member) {
 		memList.add(member);
 		id++;// incrementing the Id so next member has a new ID
 	}
 
-	public void addMemberList(Member m, int idM) {
-		memList.add(m);
-		id = idM;
-		id++;
+	/*
+	 * public void addMemberList(Member m, int idM) { memList.add(m); id = idM;
+	 * id++; }
+	 */
+	public void deleteMember(int id) {
+		memList.remove(id);// removes the member with the right Id
+
+	}
+
+	public Member GetMember(int a_id) {
+		for (Member m : memList) {
+			if (m.GetId() == a_id) {
+				return m;
+			}
+		}
+
+		return null;
 	}
 
 	/*
-	 * Method that handles the delete member functionality
+	 * public Member getMember(int id) { // get the member by the id int index = -1;
+	 * for (int i = 0; i < memList.size(); i++) { Member testmem = memList.get(i);
+	 * if (testmem.getID() == id) { index = i; } } if (index == -1) { return null; }
+	 * else { return memList.get(index); } }
 	 */
-	public void deleteMember(int number) {
-		memList.remove(number);// removes the member with the right Id
-
-	}
-
-	public long getID() { // returns the members id
-		return id;
-	}
-
-	public Member getMember(int id) { // get the member by the id
-		int index = -1;
-		for (int i = 0; i < memList.size(); i++) {
-			Member testmem = memList.get(i);
-			if (testmem.getID() == id) {
-				index = i;
-			}
-		}
-		if (index == -1) {
-			return null;
-		} else {
-			return memList.get(index);
-		}
-	}
-
 	public ArrayList<Member> getMemberList() { // returns the entire member registry list
 		return memList;
 	}
