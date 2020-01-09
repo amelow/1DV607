@@ -1,31 +1,36 @@
-package Controller;
+package controller;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Model.MemberRegister;
-import Model.FileHandler.CreateFile;
-import View.View;
+import model.FileHandler;
+import model.MemberRegister;
+import view.IView;
 
 public class Controller {
+
 	private String userIn;
 	private long userLong;
 	private String checkYesNoAnswer;
 	private char checkYN;
 	private String personNumberAsString;
-	private Scanner scan = new Scanner(System.in);
-	private MemberRegister memReg = new MemberRegister();
-	private View view = new View(memReg);
-	private CreateFile fileHandler = new CreateFile();
+	private Scanner scan;
+	private MemberRegister memReg;
+	private IView view;
+	private FileHandler fileHandler;
 
-	/*
-	 * Prints the viewer class welcome message, initializes a file and calls the
-	 * main menu method
-	 */
+	public Controller(MemberRegister m, IView v) {
+		this.scan = new Scanner(System.in);
+		this.memReg = m;
+		this.view = v;
+		this.fileHandler = new FileHandler();
+		welcomeMessage();
+		startMenu();
+	}
+
 	public void welcomeMessage() {
 		fileHandler.initFile(memReg);
 		view.welcomeMessage();
-		startMenu();
 	}
 
 	/*
@@ -33,27 +38,27 @@ public class Controller {
 	 * upon the option chosen. If wrong input it calls the main again
 	 */
 	public void startMenu() {
-		view.mainMenu();
-		userIn = scan.next();
-		switch (userIn) {
-		case ("1"):
-			caseShowVerbose();
-			break;
-		case ("2"):
-			caseShowCompact();
-			break;
-		case ("3"):
-			caseAddMember();
-			break;
-		case ("4"):
-			caseChangeMember();
-			break;
-		case ("Q"):
-			caseQuitApp();
-		default:
-			startMenu();
+		while (true) {
+			String cmd = view.mainMenu();
+			switch (cmd) {
+			case ("a"):
+				caseShowVerbose();
+				break;
+			case ("b"):
+				caseShowCompact();
+				break;
+			case ("c"):
+				caseAddMember();
+				break;
+			case ("d"):
+				caseChangeMember();
+				break;
+			case ("q"):
+				caseQuitApp();
+			default:
+				;
+			}
 		}
-
 	}
 
 	/*
@@ -79,18 +84,14 @@ public class Controller {
 			}
 		} else {
 			view.userExist();
-			startMenu();
 		}
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
 			memReg.CreateMember(createName, personNumberAsString);
 			view.memberSaved();
-			startMenu();
-		} else {
-			startMenu();
-
 		}
+
 	}
 
 	private String nameWithSpace() {
@@ -104,6 +105,7 @@ public class Controller {
 			temp = temp + " " + name.get(i);
 			temp = temp.replace("-1", "");
 		}
+
 		return temp;
 	}
 
@@ -116,81 +118,61 @@ public class Controller {
 		view.listMembers();
 		view.selectID();
 		userIn = scan.next();
-		int userID = Integer.parseInt(userIn);
-		int index = memReg.getMemberIndex4Id(userID);
+		int memberId = Integer.parseInt(userIn);
 
-		if (index < 0) { // Member id does not exist
+		if (!memReg.existsMemberIndex(memberId)) {
 			view.noUser();
-			startMenu();
 		} else {
-			view.changeMem();
-			userIn = scan.next();
-			switch (userIn) {
-			case ("1"):
-				addBoat(index);
-				startMenu();
+			String cmd = view.changeMember();
+			switch (cmd) {
+			case ("a"):
+				changeName(memberId);
 				break;
-			case ("2"):
-				deleteBoat(index);
+			case ("b"):
+				deleteMember(memberId);
 				break;
-			case ("3"):
-				changeBoat(index);
+			case ("c"):
+				addBoat(memberId);
 				break;
-			case ("4"):
-				changeName(index);
+			case ("d"):
+				deleteBoat(memberId);
 				break;
-			case ("5"):
-				deleteMember(index);
+			case ("e"):
+				changeBoat(memberId);
 				break;
 			}
 		}
-		caseChangeMember();
 	}
 
-	/*
-	 * Prints the compact list of the members information, then goes back to the
-	 * main menu
-	 */
 	private void caseShowCompact() {
 		view.compactListView();
-		startMenu();
 	}
 
-	/*
-	 * Prints the verbose list of the member and boats information, then goes back
-	 * to the main menu
-	 */
 	private void caseShowVerbose() {
-		// ArrayList<Object> verbose = memReg.verboseList();
 		view.verboseListView();
-		startMenu();
 	}
 
 	private void caseQuitApp() {
 		view.saveAndQuit();
 		checkYesNoAnswer = scan.next();
+
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
 			fileHandler.fileHandler(memReg.getMemberList());
-			// fileHandler(memReg.getMemberList());
-
 			System.exit(0);
 		}
-		startMenu();
 	}
 
-	private void changeName(int i) {
+	private void changeName(int memberId) {
 		view.changName();
 		String newName = nameWithSpace();
 		view.correctName(newName);
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'y' || checkYN == 'Y') {
-			memReg.changeName(i, newName);
+			memReg.changeName(memberId, newName);
 		} else {
 			view.noChanges();
-			// caseChangeMember();
-			startMenu();
 		}
 	}
 
@@ -198,41 +180,30 @@ public class Controller {
 	 * Checks if the user wants to delete a member, then saves the information in
 	 * the Member register
 	 */
-	private void deleteMember(int id) {
+	private void deleteMember(int memberId) {
 		view.deleteMember();
 		checkYesNoAnswer = scan.next();
+
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
 			view.memberDeleted();
-			memReg.deleteMember(id);
-			startMenu();
-		} else {
-			startMenu();
+			memReg.deleteMember(memberId);
 		}
-
 	}
 
 	/*
-	 * Method that handles the functionality of addig a boat with a type and a
+	 * Method that handles the functionality of adding a boat with a type and a
 	 * length, then adding it to the registry at the correct id
 	 */
-	private void addBoat(int id) {
-		view.typeOfBoat();
-		userIn = scan.next();
-		String typeOfBoat = userIn;
-		view.addBoatLength();
-		userIn = scan.next();
-		int lengthOfBoat = Integer.parseInt(userIn);
+	private void addBoat(int memberId) {
+		String typeOfBoat = view.typeOfBoat();
+		double lengthOfBoat = view.addBoatLength();
 		view.correctBoatInfo(typeOfBoat, lengthOfBoat);
 		checkYesNoAnswer = scan.next();
 		checkYN = checkYesNoAnswer.charAt(0);
 		if (checkYN == 'Y' || checkYN == 'y') {
-			memReg.addBoatToMember(id, lengthOfBoat, typeOfBoat);
-			startMenu();
-		} else {
-			startMenu();
+			memReg.addBoatToMember(memberId, lengthOfBoat, typeOfBoat);
 		}
-
 	}
 
 	/*
@@ -240,18 +211,17 @@ public class Controller {
 	 * information such as a type and a length, then adding the changes it to the
 	 * registry
 	 */
-	private void changeBoat(int memberIndex) {
+	private void changeBoat(int memberId) {
 		view.changeBoat();
-		view.listMembersBoats(memberIndex);
+		view.listMembersBoats(memberId);
 		String userIn = scan.next();
-		view.boatSel(userIn);
-		String change = "Set new length and type for the boat ";
-		view.changeBoatTL(change);
-		int boatSelected = Integer.parseInt(userIn);
+		int boatIndex = Integer.parseInt(userIn);
+		view.changeBoatTypeLength();
 		userIn = scan.next();
-		int changeLength = Integer.parseInt(userIn);
-		userIn = scan.next();
-		boolean updated = memReg.changeBoatMember(memberIndex, boatSelected, changeLength, userIn);
+		int lengthOfBoat = Integer.parseInt(userIn);
+		String boatType = scan.next();
+
+		boolean updated = memReg.changeBoatMember(memberId, boatIndex, lengthOfBoat, boatType);
 		view.boatUpdated(updated);
 	}
 
@@ -260,14 +230,14 @@ public class Controller {
 	 * first checking the id then the user has to choose one of the boats and press
 	 * delete
 	 */
-	private void deleteBoat(int memberIndex) {
-		view.listMembersBoats(memberIndex);
+	private void deleteBoat(int memberId) {
+		view.listMembersBoats(memberId);
 		view.selectBoatToDelete();
 		String deleteBoat = userIn;
 		deleteBoat = scan.next();
+
 		int deleteBoatInt = Integer.parseInt(deleteBoat);
-		boolean deletedBoat = memReg.deleteBoatFromMember(memberIndex, deleteBoatInt);
+		boolean deletedBoat = memReg.deleteBoatFromMember(memberId, deleteBoatInt);
 		view.deletedBoat(deletedBoat);
-		startMenu();
 	}
 }

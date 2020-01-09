@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,7 +8,6 @@ import java.util.List;
  * The member class, handles all of the information that a member needs to get added into the register
  */
 public class Member {
-	// Declaring and Initializing the variables
 	private String name;
 	private String personNum;
 	private int memberId;
@@ -50,8 +49,8 @@ public class Member {
 		return boatList.size();
 	}
 
-	public void addBoat(BoatTypes type, int length) {
-		Boat boat = new Boat(type, length);
+	public void addBoat(BoatTypes type, double lengthOfBoat) {
+		Boat boat = new Boat(type, lengthOfBoat);
 		boatList.add(boat);
 
 	}

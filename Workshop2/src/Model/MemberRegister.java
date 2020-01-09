@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -17,27 +17,26 @@ public class MemberRegister {
 	}
 
 	public void addMember(Member member) {
-		memList.add(member);
-		id++; // incrementing the Id so next member has a new ID
+		addMember(member, id);
 	}
 
-	public void addMemberList(Member m, int idM) {
-		memList.add(m);
-		id = idM;
+	public void addMember(Member member, int memberId) {
+		memList.add(member);
+		id = memberId;
 		id++;
 	}
 
-	public void deleteMember(int id) {
-		memList.remove(id);
+	public void deleteMember(int memberId) {
+		int memberIndex = getMemberIndex4Id(memberId);
+		memList.remove(memberIndex);
 	}
 
-	public Member getMember(int a_id) {
+	public Member getMember(int memberId) {
 		for (Member m : memList) {
-			if (m.getId() == a_id) {
+			if (m.getId() == memberId) {
 				return m;
 			}
 		}
-
 		return null;
 	}
 
@@ -50,18 +49,17 @@ public class MemberRegister {
 			if (personNumberAsString.equals(memList.get(i).getPersonNum())) {
 				return true;
 			}
-
 		}
 		return false;
 	}
 
-	public int getMemberIndex4Id(int memberId) {
+	public boolean existsMemberIndex(int memberId) {
 		for (int i = 0; i < memList.size(); i++) {
 			if (memberId == memList.get(i).getID()) {
-				return i;
+				return true;
 			}
 		}
-		return -1;
+		return false;
 	}
 
 	public boolean checkLengthOfPersonNum(int lengthOfPersonNum) {
@@ -71,11 +69,13 @@ public class MemberRegister {
 		return false;
 	}
 
-	public void changeName(int i, String newName) {
-		memList.get(i).setName(newName);
+	public void changeName(int memberId, String newName) {
+		int memberIndex = getMemberIndex4Id(memberId);
+		memList.get(memberIndex).setName(newName);
 	}
 
-	public boolean addBoatToMember(int memberIndex, int lengthOfBoat, String boatType) {
+	public boolean addBoatToMember(int memberId, double lengthOfBoat, String boatType) {
+		int memberIndex = getMemberIndex4Id(memberId);
 		try {
 			Member member = memList.get(memberIndex);
 			member.addBoat(BoatTypes.getBoatType(boatType), lengthOfBoat);
@@ -85,26 +85,35 @@ public class MemberRegister {
 		}
 	}
 
-	public boolean deleteBoatFromMember(int memberIndex, int boatIndex) {
+	public boolean deleteBoatFromMember(int memberId, int boatIndex) {
+		int memberIndex = getMemberIndex4Id(memberId);
 		try {
 			Member member = memList.get(memberIndex);
-			member.getBoatList().remove(boatIndex);
+			member.deleteBoat(boatIndex - 1);
 			return true;
 		} catch (IndexOutOfBoundsException e) {
 			return false;
 		}
 	}
 
-	public boolean changeBoatMember(int memberIndex, int boatIndex, int lengthOfBoat, String boatType) {
+	public boolean changeBoatMember(int memberId, int boatIndex, int lengthOfBoat, String boatType) {
+		int memberIndex = getMemberIndex4Id(memberId);
 		try {
 			Member member = memList.get(memberIndex);
-			Boat boat = member.getBoatList().get(boatIndex);
-			boat.setLength(lengthOfBoat);
-			boat.setType(BoatTypes.getBoatType(boatType));
+			member.deleteBoat(boatIndex - 1);
+			member.addBoat(BoatTypes.getBoatType(boatType), lengthOfBoat);
 			return true;
 		} catch (IndexOutOfBoundsException e) {
 			return false;
 		}
 	}
 
+	private int getMemberIndex4Id(int memberId) {
+		for (int i = 0; i < memList.size(); i++) {
+			if (memberId == memList.get(i).getID()) {
+				return i;
+			}
+		}
+		return -1;
+	}
 }

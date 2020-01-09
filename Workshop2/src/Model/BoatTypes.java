@@ -1,11 +1,7 @@
-package Model;
+package model;
 
 public enum BoatTypes {
-	Sailboat,
-	Motorsailer,
-	Kayak,
-	Canoe,
-	Other;
+	Sailboat, Motorsailer, Kayak, Canoe, Other;
 
 	/*
 	 * A static class that checks if the user chose a boattype and if not correct

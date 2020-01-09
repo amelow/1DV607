@@ -1,4 +1,4 @@
-package Model.FileHandler;
+package model;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -10,11 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import Model.BoatTypes;
-import Model.Member;
-import Model.MemberRegister;
-
-public class CreateFile {
+public class FileHandler {
 
 	public void fileHandler(Iterator<Member> membersList) {
 		File file = new File("YachtClubRegister.txt");
@@ -40,9 +36,11 @@ public class CreateFile {
 				writer.write(member.getID() + System.lineSeparator());
 				writer.write(member.getAmountOfBoats() + System.lineSeparator());
 				if (member.getAmountOfBoats() > 0) {
-					for (int j = 0; j < member.getAmountOfBoats(); j++) {
-						writer.write(member.getBoatList().get(j).getType().toString() + System.lineSeparator());
-						writer.write((int) member.getBoatList().get(j).getLength() + System.lineSeparator());
+					Iterator<Boat> boatsList= member.getBoatList();					
+					while (boatsList.hasNext()) {
+						Boat boat = boatsList.next();
+						writer.write(boat.getType().toString() + System.lineSeparator());
+						writer.write((int) boat.getLength() + System.lineSeparator());
 					}
 				}
 				writer.write("," + System.lineSeparator());
@@ -71,7 +69,7 @@ public class CreateFile {
 						counter += 2;
 					}
 					counter = 0;
-					memReg.addMemberList(m, Integer.parseInt(arr.get(2)));
+					memReg.addMember(m, Integer.parseInt(arr.get(2)));
 					arr.clear();
 				} else {
 					arr.add(line);

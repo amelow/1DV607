@@ -1,18 +1,17 @@
-package Model;
-
+package model;
 
 public class Boat {
 	private double length;
 	private BoatTypes type;
 
-	public Boat(BoatTypes Type, double Length) {
-		this.type = Type;
-		this.length = Length;
+	public Boat(BoatTypes type, double lengthOfBoat) {
+		this.type = type;
+		this.length = lengthOfBoat;
 	}
 
-	public void setLength(double Length) {
-		if (Length >= 0) {
-			this.length = Length;
+	public void setLength(int length) {
+		if (length >= 0) {
+			this.length = length;
 		}
 	}
 
@@ -20,8 +19,8 @@ public class Boat {
 		return this.length;
 	}
 
-	public void setType(BoatTypes Type) {
-		this.type = Type;
+	public void setType(BoatTypes type) {
+		this.type = type;
 	}
 
 	public BoatTypes getType() {
