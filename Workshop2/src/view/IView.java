@@ -55,4 +55,5 @@ public interface IView {
 	public void changeBoatTypeLength();
 
 	public void boatUpdated(boolean updated);
+	
 }

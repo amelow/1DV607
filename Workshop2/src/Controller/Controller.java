@@ -83,9 +83,9 @@ public class Controller {
 		} else {
 			view.userExist();
 		}
-			memReg.CreateMember(createName, personNumberAsString);
-			view.memberSaved();
-		}
+		memReg.CreateMember(createName, personNumberAsString);
+		view.memberSaved();
+	}
 
 	private String nameWithSpace() {
 		String temp = "";
@@ -146,25 +146,24 @@ public class Controller {
 	}
 
 	private void caseQuitApp() {
-			fileHandler.fileHandler(memReg.getMemberList());
-			System.exit(0);
-		}
+		fileHandler.fileHandler(memReg.getMemberList());
+		System.exit(0);
+	}
 
 	private void changeName(int memberId) {
 		view.changName();
 		String newName = nameWithSpace();
-			memReg.changeName(memberId, newName);
-		}
-
+		memReg.changeName(memberId, newName);
+	}
 
 	/*
 	 * Checks if the user wants to delete a member, then saves the information in
 	 * the Member register
 	 */
 	private void deleteMember(int memberId) {
-			view.memberDeleted();
-			memReg.deleteMember(memberId);
-		}
+		view.memberDeleted();
+		memReg.deleteMember(memberId);
+	}
 
 	/*
 	 * Method that handles the functionality of adding a boat with a type and a
@@ -174,9 +173,8 @@ public class Controller {
 		String typeOfBoat = view.typeOfBoat();
 		double lengthOfBoat = view.addBoatLength();
 		view.correctBoatInfo(typeOfBoat, lengthOfBoat);
-			memReg.addBoatToMember(memberId, lengthOfBoat, typeOfBoat);
-		}
-
+		memReg.addBoatToMember(memberId, lengthOfBoat, typeOfBoat);
+	}
 
 	/*
 	 * Method that handles the functionality of changing a already added boats
@@ -210,5 +208,10 @@ public class Controller {
 		int deleteBoatInt = Integer.parseInt(deleteBoat);
 		boolean deletedBoat = memReg.deleteBoatFromMember(memberId, deleteBoatInt);
 		view.deletedBoat(deletedBoat);
+	}
+
+	enum startMenuOptions {
+		showVerbose, showCompact, addMember, changeMember, quitApp;
+
 	}
 }

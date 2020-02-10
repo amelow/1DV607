@@ -19,6 +19,7 @@ public class EnglishView implements IView {
 		this.scan = new Scanner(System.in);
 		this.memberRegistry = memberRegistry;
 	}
+	
 
 	public void welcomeMessage() {
 		System.out.println(" ____________________");
