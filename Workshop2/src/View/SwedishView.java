@@ -76,18 +76,6 @@ public class SwedishView implements IView {
 	}
 
 	@Override
-	public void correctName(String name) {
-		String nameQ = "Är detta rätt? Ditt namn är: " + name + " , tryck (y/n)| y= ja,n=nej)";
-		System.out.println(nameQ);
-	}
-
-	@Override
-	public void correctPersonNum(long id) {
-		String idPer = "Är detta rätt? Ditt personnummer är: " + id + ", tryck (y/n)| y= ja,n=nej";
-		System.out.println(idPer);
-	}
-
-	@Override
 	public void correctBoatInfo(String typeOfBoat, double lengthOfBoat) {
 		System.out.println("Är detta korrekt? Båt med längd:" + lengthOfBoat + " tryck (y/n)| y= ja,n=nej");
 	}
@@ -102,12 +90,6 @@ public class SwedishView implements IView {
 	public void memberSaved() {
 		String saved = "---Medlemmen är nu sparad---";
 		System.out.println(saved + "\n");
-	}
-
-	@Override
-	public void deleteMember() {
-		System.out.println("Är du säker? Vill du ta bort medlemmen? tryck(y/n)| y= ja,n=nej");
-
 	}
 
 	@Override
@@ -247,12 +229,6 @@ public class SwedishView implements IView {
 	public void userExist() {
 		System.out.println("Personen med det personnumret finns redan - Tillbaka till startmenyn");
 	}
-
-	@Override
-	public void saveAndQuit() {
-		System.out.println("Är du säker? Vill du spara och stänga av programmet?(y/n)| y= ja,n=nej");
-	}
-
 	@Override
 	public void listMembersBoats(int memberId) {
 		Member member = memberRegistry.getMember(memberId);

@@ -11,8 +11,6 @@ public class Controller {
 
 	private String userIn;
 	private long userLong;
-	private String checkYesNoAnswer;
-	private char checkYN;
 	private String personNumberAsString;
 	private Scanner scan;
 	private MemberRegister memReg;
@@ -85,14 +83,9 @@ public class Controller {
 		} else {
 			view.userExist();
 		}
-		checkYesNoAnswer = scan.next();
-		checkYN = checkYesNoAnswer.charAt(0);
-		if (checkYN == 'Y' || checkYN == 'y') {
 			memReg.CreateMember(createName, personNumberAsString);
 			view.memberSaved();
 		}
-
-	}
 
 	private String nameWithSpace() {
 		String temp = "";
@@ -153,43 +146,25 @@ public class Controller {
 	}
 
 	private void caseQuitApp() {
-		view.saveAndQuit();
-		checkYesNoAnswer = scan.next();
-
-		checkYN = checkYesNoAnswer.charAt(0);
-		if (checkYN == 'Y' || checkYN == 'y') {
 			fileHandler.fileHandler(memReg.getMemberList());
 			System.exit(0);
 		}
-	}
 
 	private void changeName(int memberId) {
 		view.changName();
 		String newName = nameWithSpace();
-		view.correctName(newName);
-		checkYesNoAnswer = scan.next();
-		checkYN = checkYesNoAnswer.charAt(0);
-		if (checkYN == 'y' || checkYN == 'Y') {
 			memReg.changeName(memberId, newName);
-		} else {
-			view.noChanges();
 		}
-	}
+
 
 	/*
 	 * Checks if the user wants to delete a member, then saves the information in
 	 * the Member register
 	 */
 	private void deleteMember(int memberId) {
-		view.deleteMember();
-		checkYesNoAnswer = scan.next();
-
-		checkYN = checkYesNoAnswer.charAt(0);
-		if (checkYN == 'Y' || checkYN == 'y') {
 			view.memberDeleted();
 			memReg.deleteMember(memberId);
 		}
-	}
 
 	/*
 	 * Method that handles the functionality of adding a boat with a type and a
@@ -199,12 +174,9 @@ public class Controller {
 		String typeOfBoat = view.typeOfBoat();
 		double lengthOfBoat = view.addBoatLength();
 		view.correctBoatInfo(typeOfBoat, lengthOfBoat);
-		checkYesNoAnswer = scan.next();
-		checkYN = checkYesNoAnswer.charAt(0);
-		if (checkYN == 'Y' || checkYN == 'y') {
 			memReg.addBoatToMember(memberId, lengthOfBoat, typeOfBoat);
 		}
-	}
+
 
 	/*
 	 * Method that handles the functionality of changing a already added boats
@@ -220,7 +192,6 @@ public class Controller {
 		userIn = scan.next();
 		int lengthOfBoat = Integer.parseInt(userIn);
 		String boatType = scan.next();
-
 		boolean updated = memReg.changeBoatMember(memberId, boatIndex, lengthOfBoat, boatType);
 		view.boatUpdated(updated);
 	}

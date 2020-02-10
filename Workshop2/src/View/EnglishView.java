@@ -60,16 +60,6 @@ public class EnglishView implements IView {
 		System.out.println("Please enter your personal-number: (YYYYMMDD-XXXX)");
 	}
 
-	public void correctName(String str) {
-		String nameQ = "Is this correct? Your name is: " + str + " (y/n)";
-		System.out.println(nameQ);
-	}
-
-	public void correctPersonNum(long id) {
-		String idPer = "Is this correct? Your person number is: " + id + " (y/n)";
-		System.out.println(idPer);
-	}
-
 	public void correctBoatInfo(String typeOfBoat, double lengthOfBoat) {
 		System.out.println("Is " + typeOfBoat + " and length: " + lengthOfBoat + " feet correct? (y/n)");
 
@@ -85,9 +75,6 @@ public class EnglishView implements IView {
 		System.out.println(saved + "\n");
 	}
 
-	public void deleteMember() {
-		System.out.println("Are you sure? Do you want to delete the member? (y/n)");
-	}
 
 	public void memberDeleted() {
 		System.out.println("---The member gets deleted---");
@@ -174,9 +161,6 @@ public class EnglishView implements IView {
 		System.out.println("Person number exist - returns to start menu");
 	}
 
-	public void saveAndQuit() {
-		System.out.println("Are you sure? Do you want to save and exit the application? (y/n)");
-	}
 
 	public void listMembersBoats(int memberId) {
 		Member member = memberRegistry.getMember(memberId);
@@ -242,7 +226,7 @@ public class EnglishView implements IView {
 	}
 
 	private double meter2Feet(double boatLength) {
-		boatLength = boatLength * 3.2808;
+		//boatLength = boatLength * 3.2808;
 		return boatLength;
 
 	}

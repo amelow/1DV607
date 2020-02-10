@@ -11,18 +11,12 @@ public interface IView {
 	public void addPersonNum();
 
 	public void changName();
-
-	public void correctName(String str);
-
-	public void correctPersonNum(long id);
-
+	
 	public void correctBoatInfo(String typeOfBoat, double lengthOfBoat);
 
 	public void saveMember(String str, long id);
 
 	public void memberSaved();
-
-	public void deleteMember();
 
 	public void memberDeleted();
 
@@ -47,8 +41,6 @@ public interface IView {
 	public void wrongFormat();
 
 	public void userExist();
-
-	public void saveAndQuit();
 
 	public void listMembersBoats(int memberIndex);
 
