@@ -176,7 +176,7 @@ public class Controller {
 	private void addBoat(int memberId) {
 		String typeOfBoat = view.typeOfBoat();
 		double lengthOfBoat = view.addBoatLength();
-		view.correctBoatInfo(typeOfBoat, lengthOfBoat);
+		//view.correctBoatInfo(typeOfBoat, lengthOfBoat);
 		memReg.addBoatToMember(memberId, lengthOfBoat, typeOfBoat);
 	}
 
