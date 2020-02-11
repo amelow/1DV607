@@ -1,7 +1,9 @@
  Maja mus 
 199612114565
 1040
-1
+2
 Sailboat
 23
+Kayak
+2
 ,

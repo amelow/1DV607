@@ -37,8 +37,8 @@ public class Controller {
 	 * Main menu, giving the different options, reads the users input then calls
 	 * upon the option chosen. If wrong input it calls the main again
 	 */
-	
-	  	public void startMenu() {
+
+	public void startMenu() {
 		while (true) {
 			MainMenuOptions option = view.mainMenu();
 			switch (option) {
@@ -79,7 +79,6 @@ public class Controller {
 			int lengthOfPersonNum = personNumberAsString.length();
 			correctNum = memReg.checkLengthOfPersonNum(lengthOfPersonNum);
 			if (correctNum == true) {
-				//view.saveMember(createName, userLong);
 			} else if (correctNum == false) {
 				view.wrongFormat();
 			}
@@ -110,7 +109,7 @@ public class Controller {
 	 * information, adding a boat, deleting a boat, changing the boats information,
 	 * as well as deleting a member
 	 */
-	
+
 	private void changeMember() {
 		view.listMembers();
 		view.selectID();
@@ -176,7 +175,7 @@ public class Controller {
 	private void addBoat(int memberId) {
 		String typeOfBoat = view.typeOfBoat();
 		double lengthOfBoat = view.addBoatLength();
-		//view.correctBoatInfo(typeOfBoat, lengthOfBoat);
+		view.boatAdded();
 		memReg.addBoatToMember(memberId, lengthOfBoat, typeOfBoat);
 	}
 
@@ -208,7 +207,6 @@ public class Controller {
 		view.selectBoatToDelete();
 		String deleteBoat = userIn;
 		deleteBoat = scan.next();
-
 		int deleteBoatInt = Integer.parseInt(deleteBoat);
 		boolean deletedBoat = memReg.deleteBoatFromMember(memberId, deleteBoatInt);
 		view.deletedBoat(deletedBoat);
