@@ -14,8 +14,6 @@ public interface IView {
 	
 	public void correctBoatInfo(String typeOfBoat, double lengthOfBoat);
 
-	public void saveMember(String str, long id);
-
 	public void memberSaved();
 
 	public void memberDeleted();

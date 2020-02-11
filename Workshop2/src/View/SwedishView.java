@@ -62,7 +62,7 @@ public class SwedishView implements IView {
 
 	@Override
 	public void addName() {
-		System.out.println("Skriv in ditt namn (avsluta med att trycka enter och -1:)");
+		System.out.println("Skriv in ditt namn (avsluta med att trycka enter och -1 )");
 	}
 
 	@Override
@@ -78,12 +78,6 @@ public class SwedishView implements IView {
 	@Override
 	public void correctBoatInfo(String typeOfBoat, double lengthOfBoat) {
 		System.out.println("Är detta korrekt? Båt med längd:" + lengthOfBoat + " tryck (y/n)| y= ja,n=nej");
-	}
-
-	@Override
-	public void saveMember(String name, long id) {
-		String save = "Spara medlemmen  med personnumret " + id + "och namnet: " + name + "? tryck (y/n)| y= ja,n=nej";
-		System.out.println(save);
 	}
 
 	@Override

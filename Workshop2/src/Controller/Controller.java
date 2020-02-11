@@ -79,7 +79,7 @@ public class Controller {
 			int lengthOfPersonNum = personNumberAsString.length();
 			correctNum = memReg.checkLengthOfPersonNum(lengthOfPersonNum);
 			if (correctNum == true) {
-				view.saveMember(createName, userLong);
+				//view.saveMember(createName, userLong);
 			} else if (correctNum == false) {
 				view.wrongFormat();
 			}

@@ -2,7 +2,6 @@ package view;
 
 import java.util.Iterator;
 import java.util.Scanner;
-
 import model.Boat;
 import model.Member;
 import model.MemberRegister;
@@ -12,6 +11,164 @@ import model.MemberRegister;
  */
 public class EnglishView implements IView {
 
+	@Override
+	public void welcomeMessage() {
+	
+		
+	}
+
+	@Override
+	public MainMenuOptions mainMenu() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addName() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addPersonNum() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void changName() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void correctBoatInfo(String typeOfBoat, double lengthOfBoat) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void memberSaved() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void memberDeleted() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deletedBoat(boolean deletedBoat) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void changeBoat() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String typeOfBoat() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void selectID() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void selectBoatToDelete() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ChangeMemberOptions changeMember() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void listMembers() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void noChanges() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void noUser() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void wrongFormat() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void userExist() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void listMembersBoats(int memberIndex) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void compactListView() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void verboseListView() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public double addBoatLength() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void changeTheBoat(String whatToChange) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void changeBoatTypeLength() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void boatUpdated(boolean updated) {
+		// TODO Auto-generated method stub
+		
+	}
+}
+	/*
+
 	private MemberRegister memberRegistry;
 	private Scanner scan;
 
@@ -19,7 +176,6 @@ public class EnglishView implements IView {
 		this.scan = new Scanner(System.in);
 		this.memberRegistry = memberRegistry;
 	}
-	
 
 	public void welcomeMessage() {
 		System.out.println(" ____________________");
@@ -77,17 +233,10 @@ public class EnglishView implements IView {
 		System.out.println("Is " + typeOfBoat + " and length: " + lengthOfBoat + " feet correct? (y/n)");
 
 	}
-
-	public void saveMember(String str, long id) {
-		String save = "Do you want to save the member with name " + str + " and personal number " + id + "?(y/n)";
-		System.out.println(save);
-	}
-
 	public void memberSaved() {
 		String saved = "---The member is now saved---";
 		System.out.println(saved + "\n");
 	}
-
 
 	public void memberDeleted() {
 		System.out.println("---The member gets deleted---");
@@ -153,8 +302,6 @@ public class EnglishView implements IView {
 		return ChangeMemberOptions.others;
 	}
 
-	
-
 	public void listMembers() {
 		StringBuffer listOfMembers = new StringBuffer();
 		Iterator<Member> membersList = memberRegistry.getMemberList();
@@ -186,7 +333,6 @@ public class EnglishView implements IView {
 	public void userExist() {
 		System.out.println("Person number exist - returns to start menu");
 	}
-
 
 	public void listMembersBoats(int memberId) {
 		Member member = memberRegistry.getMember(memberId);
@@ -252,7 +398,7 @@ public class EnglishView implements IView {
 	}
 
 	private double meter2Feet(double boatLength) {
-		//boatLength = boatLength * 3.2808;
+		// boatLength = boatLength * 3.2808;
 		return boatLength;
 
 	}
@@ -272,5 +418,5 @@ public class EnglishView implements IView {
 		else
 			System.out.println("Boat is NOT updated");
 	}
-	
-}
+
+}*/
