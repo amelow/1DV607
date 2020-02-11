@@ -161,7 +161,7 @@ public class SwedishView implements IView {
 	}
 
 	@Override
-	public MainMenuOptions changeMember() {
+	public ChangeMemberOptions changeMember() {
 		String choose = "Vad vill du göra?";
 		String alt1 = "För att lägga till en båt, tryck(1)";
 		String alt2 = "För att ta bort en båt, tryck(2)";
@@ -179,17 +179,17 @@ public class SwedishView implements IView {
 		String userIn = scan.next();
 		switch (userIn) {
 		case ("5"):
-			return "b";
+			return ChangeMemberOptions.deleteMember;
 		case ("4"):
-			return "a";
+			return ChangeMemberOptions.changeName;
 		case ("3"):
-			return "e";
+			return ChangeMemberOptions.changeBoat;
 		case ("2"):
-			return "d";
+			return ChangeMemberOptions.deleteBoat;
 		case ("1"):
-			return "c";
+			return ChangeMemberOptions.addBoat;
 		}
-		return userIn;
+		return ChangeMemberOptions.others;
 	}
 
 	@Override
