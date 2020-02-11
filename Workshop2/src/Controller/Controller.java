@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import model.FileHandler;
 import model.MemberRegister;
+import view.ChangeMemberOptions;
 import view.IView;
 import view.MainMenuOptions;
 
@@ -110,29 +111,6 @@ public class Controller {
 	 * as well as deleting a member
 	 */
 	
-	/*
-	 * 	  	public void startMenu() {
-		while (true) {
-			MainMenuOptions cmd = view.mainMenu();
-			switch (cmd) {
-			case showVerbose:
-				caseShowVerbose();
-				break;
-			case showCompact:
-				caseShowCompact();
-				break;
-			case addMember:
-				caseAddMember();
-				break;
-			case changeMember:
-				caseChangeMember();
-				break;
-			case quitApp:
-				caseQuitApp();
-			default:
-				;
-			}
-	 */
 	private void caseChangeMember() {
 		view.listMembers();
 		view.selectID();
@@ -141,21 +119,21 @@ public class Controller {
 		if (!memReg.existsMemberIndex(memberId)) {
 			view.noUser();
 		} else {
-			String option = view.changeMember();
+			ChangeMemberOptions option = view.changeMember();
 			switch (option) {
-			case ("a"):
+			case changeName:
 				changeName(memberId);
 				break;
-			case ("b"):
+			case deleteMember:
 				deleteMember(memberId);
 				break;
-			case ("c"):
+			case addBoat:
 				addBoat(memberId);
 				break;
-			case ("d"):
+			case deleteBoat:
 				deleteBoat(memberId);
 				break;
-			case ("e"):
+			case changeBoat:
 				changeBoat(memberId);
 			default:
 				;

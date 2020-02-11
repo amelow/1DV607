@@ -150,6 +150,7 @@ public class EnglishView implements IView {
 		case ("e"):
 			return ChangeMemberOptions.changeBoat;
 		}
+		return ChangeMemberOptions.others;
 	}
 
 	

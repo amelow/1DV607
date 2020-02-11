@@ -1,5 +1,5 @@
 package view;
 
 public enum ChangeMemberOptions {
-	changeName,deleteMember,addBoat,deleteBoat, changeBoat;
+	changeName,deleteMember,addBoat,deleteBoat, changeBoat,others;
 }
