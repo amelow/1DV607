@@ -39,8 +39,8 @@ public class Controller {
 	
 	  	public void startMenu() {
 		while (true) {
-			MainMenuOptions cmd = view.mainMenu();
-			switch (cmd) {
+			MainMenuOptions option = view.mainMenu();
+			switch (option) {
 			case showVerbose:
 				caseShowVerbose();
 				break;
@@ -109,17 +109,40 @@ public class Controller {
 	 * information, adding a boat, deleting a boat, changing the boats information,
 	 * as well as deleting a member
 	 */
+	
+	/*
+	 * 	  	public void startMenu() {
+		while (true) {
+			MainMenuOptions cmd = view.mainMenu();
+			switch (cmd) {
+			case showVerbose:
+				caseShowVerbose();
+				break;
+			case showCompact:
+				caseShowCompact();
+				break;
+			case addMember:
+				caseAddMember();
+				break;
+			case changeMember:
+				caseChangeMember();
+				break;
+			case quitApp:
+				caseQuitApp();
+			default:
+				;
+			}
+	 */
 	private void caseChangeMember() {
 		view.listMembers();
 		view.selectID();
 		userIn = scan.next();
 		int memberId = Integer.parseInt(userIn);
-
 		if (!memReg.existsMemberIndex(memberId)) {
 			view.noUser();
 		} else {
-			String cmd = view.changeMember();
-			switch (cmd) {
+			String option = view.changeMember();
+			switch (option) {
 			case ("a"):
 				changeName(memberId);
 				break;
