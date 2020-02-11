@@ -28,7 +28,7 @@ public class SwedishView implements IView {
 	}
 
 	@Override
-	public String mainMenu() {
+	public MainMenuOptions mainMenu() {
 		String choose = "Vad vill du göra?";
 		String alt1 = "För att spara och stänga av, tryck (1)";
 		String alt2 = "För att ändra en medlems information, tryck (2)";
@@ -46,17 +46,17 @@ public class SwedishView implements IView {
 		String userIn = scan.next();
 		switch (userIn) {
 		case ("5"):
-			return "a";
+			return MainMenuOptions.showVerbose;
 		case ("4"):
-			return "b";
+			return MainMenuOptions.showCompact;
 		case ("3"):
-			return "c";
+			return MainMenuOptions.addMember;
 		case ("2"):
-			return "d";
+			return MainMenuOptions.changeMember;
 		case ("1"):
-			return "q";
+			return MainMenuOptions.quitApp;
 		}
-		return userIn;
+		return MainMenuOptions.others;
 
 	}
 
@@ -161,7 +161,7 @@ public class SwedishView implements IView {
 	}
 
 	@Override
-	public String changeMember() {
+	public MainMenuOptions changeMember() {
 		String choose = "Vad vill du göra?";
 		String alt1 = "För att lägga till en båt, tryck(1)";
 		String alt2 = "För att ta bort en båt, tryck(2)";
@@ -229,6 +229,7 @@ public class SwedishView implements IView {
 	public void userExist() {
 		System.out.println("Personen med det personnumret finns redan - Tillbaka till startmenyn");
 	}
+
 	@Override
 	public void listMembersBoats(int memberId) {
 		Member member = memberRegistry.getMember(memberId);
@@ -302,7 +303,7 @@ public class SwedishView implements IView {
 	@Override
 	public void changeBoatTypeLength() {
 		System.out.println(
-				"Skriv in en ny längd och båttyp: (Segelbåt, Motorbåt, Kajak, Kanot och Annan) tryck Enter och sedan Längden (i meter)");
+				"Skriv in en ny längd och båttyp: (Segelbåt, Motorbåt, Kajak, Kanot och Annan) tryck enter och sedan Längden (i meter)");
 
 	}
 

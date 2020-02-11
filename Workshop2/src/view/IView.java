@@ -4,7 +4,7 @@ public interface IView {
 
 	public void welcomeMessage();
 
-	public String mainMenu();
+	public MainMenuOptions mainMenu();
 
 	public void addName();
 
@@ -30,7 +30,7 @@ public interface IView {
 
 	public void selectBoatToDelete();
 
-	public String changeMember();
+	public ChangeMemberOptions changeMember();
 
 	public void listMembers();
 

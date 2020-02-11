@@ -29,7 +29,7 @@ public class EnglishView implements IView {
 		System.out.println();
 	}
 
-	public String mainMenu() {
+	public MainMenuOptions mainMenu() {
 		String choose = "What do you want to do?";
 		String alt1 = "To show the verboselist, enter(a)";
 		String alt2 = "To show the compactlist, enter(b)";
@@ -44,7 +44,19 @@ public class EnglishView implements IView {
 		System.out.println(alt4);
 		System.out.println(alt5);
 		String userIn = scan.next();
-		return userIn;
+		switch (userIn) {
+		case ("a"):
+			return MainMenuOptions.showVerbose;
+		case ("b"):
+			return MainMenuOptions.showCompact;
+		case ("c"):
+			return MainMenuOptions.addMember;
+		case ("d"):
+			return MainMenuOptions.changeMember;
+		case ("q"):
+			return MainMenuOptions.quitApp;
+		}
+		return MainMenuOptions.others;
 	}
 
 	public void addName() {
@@ -111,7 +123,7 @@ public class EnglishView implements IView {
 
 	}
 
-	public String changeMember() {
+	public ChangeMemberOptions changeMember() {
 		String choose = "What do you want to do?";
 		String alt1 = "To change your name, enter(a)";
 		String alt2 = "To delete a member, enter(b)";
@@ -126,9 +138,21 @@ public class EnglishView implements IView {
 		System.out.println(alt4);
 		System.out.println(alt5);
 		String userIn = scan.next();
-
-		return userIn;
+		switch (userIn) {
+		case ("a"):
+			return ChangeMemberOptions.changeName;
+		case ("b"):
+			return ChangeMemberOptions.deleteMember;
+		case ("c"):
+			return ChangeMemberOptions.addBoat;
+		case ("d"):
+			return ChangeMemberOptions.deleteBoat;
+		case ("e"):
+			return ChangeMemberOptions.changeBoat;
+		}
 	}
+
+	
 
 	public void listMembers() {
 		StringBuffer listOfMembers = new StringBuffer();
@@ -247,4 +271,5 @@ public class EnglishView implements IView {
 		else
 			System.out.println("Boat is NOT updated");
 	}
+	
 }

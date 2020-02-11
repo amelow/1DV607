@@ -6,6 +6,7 @@ import java.util.Scanner;
 import model.FileHandler;
 import model.MemberRegister;
 import view.IView;
+import view.MainMenuOptions;
 
 public class Controller {
 
@@ -35,23 +36,24 @@ public class Controller {
 	 * Main menu, giving the different options, reads the users input then calls
 	 * upon the option chosen. If wrong input it calls the main again
 	 */
-	public void startMenu() {
+	
+	  	public void startMenu() {
 		while (true) {
-			String cmd = view.mainMenu();
+			MainMenuOptions cmd = view.mainMenu();
 			switch (cmd) {
-			case ("a"):
+			case showVerbose:
 				caseShowVerbose();
 				break;
-			case ("b"):
+			case showCompact:
 				caseShowCompact();
 				break;
-			case ("c"):
+			case addMember:
 				caseAddMember();
 				break;
-			case ("d"):
+			case changeMember:
 				caseChangeMember();
 				break;
-			case ("q"):
+			case quitApp:
 				caseQuitApp();
 			default:
 				;
@@ -132,7 +134,8 @@ public class Controller {
 				break;
 			case ("e"):
 				changeBoat(memberId);
-				break;
+			default:
+				;
 			}
 		}
 	}
@@ -208,10 +211,5 @@ public class Controller {
 		int deleteBoatInt = Integer.parseInt(deleteBoat);
 		boolean deletedBoat = memReg.deleteBoatFromMember(memberId, deleteBoatInt);
 		view.deletedBoat(deletedBoat);
-	}
-
-	enum startMenuOptions {
-		showVerbose, showCompact, addMember, changeMember, quitApp;
-
 	}
 }
