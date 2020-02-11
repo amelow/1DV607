@@ -43,19 +43,19 @@ public class Controller {
 			MainMenuOptions option = view.mainMenu();
 			switch (option) {
 			case showVerbose:
-				caseShowVerbose();
+				showVerbose();
 				break;
 			case showCompact:
-				caseShowCompact();
+				showCompact();
 				break;
 			case addMember:
-				caseAddMember();
+				addMember();
 				break;
 			case changeMember:
-				caseChangeMember();
+				changeMember();
 				break;
 			case quitApp:
-				caseQuitApp();
+				quitApp();
 			default:
 				;
 			}
@@ -66,7 +66,7 @@ public class Controller {
 	 * Add member method that handles the member info such as Name and Personal
 	 * Number. If correct it adds it to the member registry
 	 */
-	public void caseAddMember() {
+	public void addMember() {
 		view.addName();
 		String createName = nameWithSpace();
 		view.addPersonNum();
@@ -111,7 +111,7 @@ public class Controller {
 	 * as well as deleting a member
 	 */
 	
-	private void caseChangeMember() {
+	private void changeMember() {
 		view.listMembers();
 		view.selectID();
 		userIn = scan.next();
@@ -141,15 +141,15 @@ public class Controller {
 		}
 	}
 
-	private void caseShowCompact() {
+	private void showCompact() {
 		view.compactListView();
 	}
 
-	private void caseShowVerbose() {
+	private void showVerbose() {
 		view.verboseListView();
 	}
 
-	private void caseQuitApp() {
+	private void quitApp() {
 		fileHandler.fileHandler(memReg.getMemberList());
 		System.exit(0);
 	}
@@ -199,7 +199,7 @@ public class Controller {
 	}
 
 	/*
-	 * Method that handles the functionality of deleting a already added boat, by
+	 * Method that handles the functionality of deleting an already added boat, by
 	 * first checking the id then the user has to choose one of the boats and press
 	 * delete
 	 */
