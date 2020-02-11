@@ -34,11 +34,11 @@ public interface IView {
 
 	public void boatUpdated(boolean updated);
 
-	// public void correctBoatInfo(String typeOfBoat, double lengthOfBoat);
-
 	public void memberSaved();
 
 	public void memberDeleted();
+
+	public void boatAdded();
 
 	public String typeOfBoat();
 

@@ -251,11 +251,6 @@ public class SwedishView implements IView {
 			System.out.println("Båten är INTE uppdaterad");
 	}
 
-	/*
-	 * @Override public void correctBoatInfo(String typeOfBoat, double lengthOfBoat)
-	 * { System.out.println("Är detta korrekt? Båt med längd:" + lengthOfBoat +
-	 * " tryck (y/n)| y= ja,n=nej"); }
-	 */
 	@Override
 	public void memberSaved() {
 		String saved = "---Medlemmen är nu sparad---";
@@ -265,6 +260,11 @@ public class SwedishView implements IView {
 	@Override
 	public void memberDeleted() {
 		System.out.println("---Medlemmen har raderats---");
+		System.out.println("\n");
+	}
+	@Override
+	public void boatAdded() {
+		System.out.println("---Båten har lagts till---");
 		System.out.println("\n");
 	}
 

@@ -240,6 +240,11 @@ public class EnglishView implements IView {
 		System.out.println("\n");
 		
 	}
+	@Override
+	public void boatAdded() {
+		System.out.println("---Boat is now added---");
+		System.out.println("\n");
+	}
 
 	@Override
 	public String typeOfBoat() {
