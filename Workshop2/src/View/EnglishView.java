@@ -10,21 +10,67 @@ import model.MemberRegister;
  * The view class handles most of the printouts the user gets in the console
  */
 public class EnglishView implements IView {
-
-	@Override
-	public void welcomeMessage() {
+	private MemberRegister memberRegistry;
+	private Scanner scan;
 	
-		
+	public EnglishView(MemberRegister memberRegistry) {
+		this.scan = new Scanner(System.in);
+		this.memberRegistry = memberRegistry;
 	}
 
 	@Override
+	public void welcomeMessage() {
+		System.out.println(" ____________________");
+		System.out.println("|                    |");
+		System.out.println("|  Hi and Welcome!   |");
+		System.out.println("|____________________|");
+		System.out.println();
+	}
+	
+
+	@Override
 	public MainMenuOptions mainMenu() {
+		return null;
+	}
+
+	@Override
+	public ChangeMemberOptions changeMember() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
+	public void listMembers() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void listMembersBoats(int memberIndex) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void compactListView() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void verboseListView() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
 	public void addName() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void changeName() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -36,13 +82,37 @@ public class EnglishView implements IView {
 	}
 
 	@Override
-	public void changName() {
+	public double addBoatLength() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void deletedBoat(boolean deletedBoat) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void correctBoatInfo(String typeOfBoat, double lengthOfBoat) {
+	public void changeBoat() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void changeTheBoat(String whatToChange) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void changeBoatTypeLength() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void boatUpdated(boolean updated) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -55,18 +125,6 @@ public class EnglishView implements IView {
 
 	@Override
 	public void memberDeleted() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deletedBoat(boolean deletedBoat) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void changeBoat() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -85,18 +143,6 @@ public class EnglishView implements IView {
 
 	@Override
 	public void selectBoatToDelete() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public ChangeMemberOptions changeMember() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void listMembers() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -124,58 +170,11 @@ public class EnglishView implements IView {
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public void listMembersBoats(int memberIndex) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void compactListView() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void verboseListView() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public double addBoatLength() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void changeTheBoat(String whatToChange) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void changeBoatTypeLength() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void boatUpdated(boolean updated) {
-		// TODO Auto-generated method stub
-		
-	}
 }
 	/*
 
-	private MemberRegister memberRegistry;
-	private Scanner scan;
 
-	public EnglishView(MemberRegister memberRegistry) {
-		this.scan = new Scanner(System.in);
-		this.memberRegistry = memberRegistry;
-	}
+	
 
 	public void welcomeMessage() {
 		System.out.println(" ____________________");

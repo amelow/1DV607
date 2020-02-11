@@ -61,100 +61,6 @@ public class SwedishView implements IView {
 	}
 
 	@Override
-	public void addName() {
-		System.out.println("Skriv in ditt namn (avsluta med att trycka enter och -1 )");
-	}
-
-	@Override
-	public void changName() {
-		System.out.println("Skriv in ditt nya namn (avsluta med att trycka enter och -1)");
-	}
-
-	@Override
-	public void addPersonNum() {
-		System.out.println("Skriv in ditt personnummer (YYYMMDD-XXXX)");
-	}
-
-	@Override
-	public void correctBoatInfo(String typeOfBoat, double lengthOfBoat) {
-		System.out.println("Är detta korrekt? Båt med längd:" + lengthOfBoat + " tryck (y/n)| y= ja,n=nej");
-	}
-
-	@Override
-	public void memberSaved() {
-		String saved = "---Medlemmen är nu sparad---";
-		System.out.println(saved + "\n");
-	}
-
-	@Override
-	public void memberDeleted() {
-		System.out.println("---Medlemmen har raderats---");
-		System.out.println("\n");
-	}
-
-	@Override
-	public void deletedBoat(boolean deletedBoat) {
-		if (deletedBoat)
-			System.out.println("Båten är borttagen");
-		else
-			System.out.println("Båten är INTE borttagen");
-	}
-
-	@Override
-	public void changeBoat() {
-		System.out.println("Vilken båt vill du ändra på?(Skriv in siffran framför båtarna i listan för att välja)");
-	}
-
-	@Override
-	public String typeOfBoat() {
-		System.out.println("Vilken typ av båt? Välj mellan: Segelbåt, Motorbåt, Kajak, Kanot och Annan");
-		String userIn = scan.next();
-		return bat2boat(userIn);
-	}
-
-	private String bat2boat(String b) {
-		switch (b) {
-		case ("Segelbåt"):
-			return "Sailboat";
-		case ("Motorbåt"):
-			return "Motorsailer";
-		case ("Kajak"):
-			return "Kayak";
-		case ("Kanot"):
-			return "Canoe";
-		default:
-			return "Other";
-		}
-	}
-
-	private String boat2bat(BoatTypes boatTypes) {
-		String b = "" + boatTypes;
-		switch (b) {
-		case ("Sailboat"):
-			return "Segelbåt";
-		case ("Motorsailer"):
-			return "Motorbåt";
-		case ("Kayak"):
-			return "Kajak";
-		case ("Canoe"):
-			return "Kanot";
-		default:
-			return "Annan";
-		}
-	}
-
-	@Override
-	public void selectID() {
-		String chooseID = "Välj medlemmens id nummer för att ändra hens information";
-		System.out.println(chooseID);
-	}
-
-	@Override
-	public void selectBoatToDelete() {
-		System.out.println("Vilken båt vill du ta bort?(Skriv in siffran framför båtarna i listan för att välja)");
-	}
-
-	@Override
 	public ChangeMemberOptions changeMember() {
 		String choose = "Vad vill du göra?";
 		String alt1 = "För att lägga till en båt, tryck(1)";
@@ -199,29 +105,6 @@ public class SwedishView implements IView {
 			listOfMembers.append("\n");
 		}
 		System.out.println(listOfMembers.toString());
-	}
-
-	@Override
-	public void noChanges() {
-		String noChange = "Inga ändringar gjorda";
-		System.out.println(noChange);
-	}
-
-	@Override
-	public void noUser() {
-		String noUser = "Ingen medlem med det id numret, välj igen";
-		System.out.println(noUser);
-	}
-
-	@Override
-	public void wrongFormat() {
-		System.out.println(
-				"Fel format! Personnumret ska vara på följande sätt: YYYYMMDD-XXXX(tryck någon tangent för att komma tillbaka till menyn)");
-	}
-
-	@Override
-	public void userExist() {
-		System.out.println("Personen med det personnumret finns redan - Tillbaka till startmenyn");
 	}
 
 	@Override
@@ -281,11 +164,62 @@ public class SwedishView implements IView {
 		System.out.println(verboseList.toString());
 	}
 
+	private String bat2boat(String b) {
+		switch (b) {
+		case ("Segelbåt"):
+			return "Sailboat";
+		case ("Motorbåt"):
+			return "Motorsailer";
+		case ("Kajak"):
+			return "Kayak";
+		case ("Kanot"):
+			return "Canoe";
+		default:
+			return "Other";
+		}
+	}
+
+	private String boat2bat(BoatTypes boatTypes) {
+		String b = "" + boatTypes;
+		switch (b) {
+		case ("Sailboat"):
+			return "Segelbåt";
+		case ("Motorsailer"):
+			return "Motorbåt";
+		case ("Kayak"):
+			return "Kajak";
+		case ("Canoe"):
+			return "Kanot";
+		default:
+			return "Annan";
+		}
+	}
+
+	@Override
+	public void addName() {
+		System.out.println("Skriv in ditt namn (avsluta med att trycka enter och -1 )");
+	}
+
+	@Override
+	public void changeName() {
+		System.out.println("Skriv in ditt nya namn (avsluta med att trycka enter och -1)");
+	}
+
+	@Override
+	public void addPersonNum() {
+		System.out.println("Skriv in ditt personnummer (YYYMMDD-XXXX)");
+	}
+
 	@Override
 	public double addBoatLength() {
 		System.out.println("Längd av båten?(Ange i meter)");
 		double userIn = scan.nextDouble();
 		return userIn;
+	}
+
+	@Override
+	public void changeBoat() {
+		System.out.println("Vilken båt vill du ändra på?(Skriv in siffran framför båtarna i listan för att välja)");
 	}
 
 	@Override
@@ -302,6 +236,14 @@ public class SwedishView implements IView {
 	}
 
 	@Override
+	public void deletedBoat(boolean deletedBoat) {
+		if (deletedBoat)
+			System.out.println("Båten är borttagen");
+		else
+			System.out.println("Båten är INTE borttagen");
+	}
+
+	@Override
 	public void boatUpdated(boolean updated) {
 		if (updated)
 			System.out.println("Båten är uppdaterad");
@@ -309,4 +251,61 @@ public class SwedishView implements IView {
 			System.out.println("Båten är INTE uppdaterad");
 	}
 
+	/*
+	 * @Override public void correctBoatInfo(String typeOfBoat, double lengthOfBoat)
+	 * { System.out.println("Är detta korrekt? Båt med längd:" + lengthOfBoat +
+	 * " tryck (y/n)| y= ja,n=nej"); }
+	 */
+	@Override
+	public void memberSaved() {
+		String saved = "---Medlemmen är nu sparad---";
+		System.out.println(saved + "\n");
+	}
+
+	@Override
+	public void memberDeleted() {
+		System.out.println("---Medlemmen har raderats---");
+		System.out.println("\n");
+	}
+
+	@Override
+	public String typeOfBoat() {
+		System.out.println("Vilken typ av båt? Välj mellan: Segelbåt, Motorbåt, Kajak, Kanot och Annan");
+		String userIn = scan.next();
+		return bat2boat(userIn);
+	}
+
+	@Override
+	public void selectID() {
+		String chooseID = "Välj medlemmens id nummer för att ändra hens information";
+		System.out.println(chooseID);
+	}
+
+	@Override
+	public void selectBoatToDelete() {
+		System.out.println("Vilken båt vill du ta bort?(Skriv in siffran framför båtarna i listan för att välja)");
+	}
+
+	@Override
+	public void noChanges() {
+		String noChange = "Inga ändringar gjorda";
+		System.out.println(noChange);
+	}
+
+	@Override
+	public void noUser() {
+		String noUser = "Ingen medlem med det id numret, välj igen";
+		System.out.println(noUser);
+	}
+
+	@Override
+	public void wrongFormat() {
+		System.out.println(
+				"Fel format! Personnumret ska vara på följande sätt: YYYYMMDD-XXXX(tryck någon tangent för att komma tillbaka till menyn)");
+	}
+
+	@Override
+	public void userExist() {
+		System.out.println("Personen med det personnumret finns redan - Tillbaka till startmenyn");
+	}
 }

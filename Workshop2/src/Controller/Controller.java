@@ -155,7 +155,7 @@ public class Controller {
 	}
 
 	private void changeName(int memberId) {
-		view.changName();
+		view.changeName();
 		String newName = nameWithSpace();
 		memReg.changeName(memberId, newName);
 	}
