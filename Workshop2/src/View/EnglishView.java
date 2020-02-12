@@ -158,6 +158,7 @@ public class EnglishView implements IView {
 				Boat boat = boatsList.next();
 				verboseList.append(i++);
 				verboseList.append("\t Type of Boat: " + boat.getType() + " | ");
+				//verboseList.append("\t Length of Boat: " + boat.getLength() + " ft");
 				verboseList.append("\t Length of Boat: " + meter2Feet(boat.getLength()) + " ft");
 				verboseList.append("\n");
 			}
@@ -291,9 +292,10 @@ public class EnglishView implements IView {
 		System.out.println("Person number exist - returns to start menu");
 		
 	}
-	private double meter2Feet(double boatLength) {
+	public double meter2Feet(double boatLength) {
+		double test = Boat.feetToMeters(boatLength);
 		// boatLength = boatLength * 3.2808;
-		return boatLength;
+		return test;
 	}
 }
 	

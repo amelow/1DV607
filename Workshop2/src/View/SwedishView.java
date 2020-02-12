@@ -301,7 +301,7 @@ public class SwedishView implements IView {
 	@Override
 	public void wrongFormat() {
 		System.out.println(
-				"Fel format! Personnumret ska vara på följande sätt: YYYYMMDD-XXXX(tryck någon tangent för att komma tillbaka till menyn)");
+				"Fel format! Personnumret ska vara på följande sätt: YYYYMMDD-XXXX (tryck någon tangent för att komma tillbaka till menyn)");
 	}
 
 	@Override
