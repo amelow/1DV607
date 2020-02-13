@@ -275,10 +275,11 @@ public class SwedishView implements IView {
 	}
 
 	@Override
-	public String typeOfBoat() {
+	public BoatTypes getBoatType() {
 		System.out.println("Vilken typ av båt? Välj mellan: Segelbåt, Motorbåt, Kajak, Kanot och Annan");
 		String userIn = scan.next();
-		return bat2boat(userIn);
+		BoatTypes boatType = null; //bat2boat(userIn);
+		return boatType;
 	}
 
 	@Override
