@@ -115,7 +115,7 @@ public class Controller {
 	private void changeMember() {
 		view.listMembers();
 		int memberId = view.selectID();
-		
+
 		if (!memReg.existsMemberIndex(memberId)) {
 			view.noUser();
 		} else {

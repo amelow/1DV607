@@ -293,9 +293,11 @@ public class SwedishView implements IView {
 	}
 
 	@Override
-	public void selectID() {
+	public int selectID() {
 		String chooseID = "Välj medlemmens id nummer för att ändra hens information";
 		System.out.println(chooseID);
+		int userIn = scan.nextInt();
+		return userIn;
 	}
 
 	@Override
