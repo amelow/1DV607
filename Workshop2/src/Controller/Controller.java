@@ -74,18 +74,19 @@ public class Controller {
 		boolean doesExist = false;
 		boolean correctNum = false;
 		doesExist = memReg.checkIfPersonNumExists(personNumberAsString);
-		if (doesExist == false) {
-			int lengthOfPersonNum = personNumberAsString.length();
-			correctNum = memReg.checkLengthOfPersonNum(lengthOfPersonNum);
-			if (correctNum == true) {
-			} else if (correctNum == false) {
-				view.wrongFormat();
-			}
-		} else {
+		if (doesExist == true) {
 			view.userExist();
+			startMenu();
 		}
-		memReg.CreateMember(createName, personNumberAsString);
-		view.memberSaved();
+		int lengthOfPersonNum = personNumberAsString.length();
+		correctNum = memReg.checkLengthOfPersonNum(lengthOfPersonNum);
+		// if (correctNum == true) {
+		if (correctNum == false) {
+			view.wrongFormat();
+		} else {
+			memReg.CreateMember(createName, personNumberAsString);
+			view.memberSaved();
+		}
 	}
 
 	private String nameWithSpace() {

@@ -6,6 +6,6 @@ Kayak
 10.3632
 Canoe
 20.2692
-Other
-33.0
+Motorsailer
+13.411200000000001
 ,
