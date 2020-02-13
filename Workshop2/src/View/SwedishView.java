@@ -221,8 +221,10 @@ public class SwedishView implements IView {
 	}
 
 	@Override
-	public void changeBoat() {
+	public int changeBoat() {
 		System.out.println("Vilken båt vill du ändra på?(Skriv in siffran framför båtarna i listan för att välja)");
+		int userIn = scan.nextInt();
+		return userIn;
 	}
 
 	@Override
