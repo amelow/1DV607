@@ -207,8 +207,10 @@ public class SwedishView implements IView {
 	}
 
 	@Override
-	public void addPersonNum() {
+	public long addPersonNum() {
 		System.out.println("Skriv in ditt personnummer (YYYMMDD-XXXX)");
+		long userIn = scan.nextLong();
+		return userIn;
 	}
 
 	@Override
