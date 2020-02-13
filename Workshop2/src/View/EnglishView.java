@@ -118,7 +118,7 @@ public class EnglishView implements IView {
 			Boat boat = boats.next();
 			listOfBoats.append(i++);
 			listOfBoats.append(" " + boat.getType());
-			listOfBoats.append(" " + boat.getLength());
+			listOfBoats.append(" " + boat.getLength().getLengthInFeet());
 			listOfBoats.append("\n");
 		}
 		System.out.println(listOfBoats.toString());
@@ -206,8 +206,10 @@ public class EnglishView implements IView {
 	}
 
 	@Override
-	public void changeBoat() {
+	public int changeBoat() {
 		System.out.println("Which boat should be changed? Select the number infront of the boat type");
+		int userIn = scan.nextInt();
+		return userIn;
 
 	}
 

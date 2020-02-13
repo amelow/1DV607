@@ -118,7 +118,7 @@ public class SwedishView implements IView {
 			Boat boat = boats.next();
 			listOfBoats.append(i++);
 			listOfBoats.append(" " + boat2bat(boat.getType()));
-			listOfBoats.append(" " + boat.getLength());
+			listOfBoats.append(" " + boat.getLength().getLengthInMeters());
 			listOfBoats.append("\n");
 		}
 		System.out.println(listOfBoats.toString());
@@ -156,7 +156,6 @@ public class SwedishView implements IView {
 			while (boatsList.hasNext()) {
 				Boat boat = boatsList.next();
 				verboseList.append(i++);
-				//verboseList.append("\t Båtens längd: " + boat.getLength() + " meter");
 				verboseList.append("\t Båttyp: " + boat2bat(boat.getType()));
 				verboseList.append("\t Båtens längd: " + boat.getLength().getLengthInMeters());
 				verboseList.append("\n");

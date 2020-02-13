@@ -115,7 +115,6 @@ public class Controller {
 	private void changeMember() {
 		view.listMembers();
 		int memberId = view.selectID();
-
 		if (!memReg.existsMemberIndex(memberId)) {
 			view.noUser();
 		} else {
@@ -186,10 +185,8 @@ public class Controller {
 	 * registry
 	 */
 	private void changeBoat(int memberId) {
-		view.changeBoat();
 		view.listMembersBoats(memberId);
-		String userIn = scan.next();
-		int boatIndex = Integer.parseInt(userIn);
+		int boatIndex =view.changeBoat();
 		BoatTypes boatType = view.changeBoatType();
 		BoatLength boatLength = view.changeBoatLength();
 		boolean updated = memReg.changeBoatMember(memberId, boatIndex, boatLength, boatType);

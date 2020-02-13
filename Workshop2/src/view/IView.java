@@ -29,7 +29,7 @@ public interface IView {
 
 	public void deletedBoat(boolean deletedBoat);
 
-	public void changeBoat();
+	public int changeBoat();
 
 	public void changeTheBoat(String whatToChange);
 
