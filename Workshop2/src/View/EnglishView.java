@@ -2,7 +2,10 @@ package view;
 
 import java.util.Iterator;
 import java.util.Scanner;
+
 import model.Boat;
+import model.BoatLength;
+import model.BoatTypes;
 import model.Member;
 import model.MemberRegister;
 
@@ -12,7 +15,7 @@ import model.MemberRegister;
 public class EnglishView implements IView {
 	private MemberRegister memberRegistry;
 	private Scanner scan;
-	
+
 	public EnglishView(MemberRegister memberRegistry) {
 		this.scan = new Scanner(System.in);
 		this.memberRegistry = memberRegistry;
@@ -26,7 +29,6 @@ public class EnglishView implements IView {
 		System.out.println("|____________________|");
 		System.out.println();
 	}
-	
 
 	@Override
 	public MainMenuOptions mainMenu() {
@@ -103,7 +105,7 @@ public class EnglishView implements IView {
 			listOfMembers.append("\n");
 		}
 		System.out.println(listOfMembers.toString());
-		
+
 	}
 
 	@Override
@@ -120,7 +122,7 @@ public class EnglishView implements IView {
 			listOfBoats.append("\n");
 		}
 		System.out.println(listOfBoats.toString());
-		
+
 	}
 
 	@Override
@@ -137,7 +139,7 @@ public class EnglishView implements IView {
 		}
 
 		System.out.println(compactList.toString());
-		
+
 	}
 
 	@Override
@@ -158,39 +160,41 @@ public class EnglishView implements IView {
 				Boat boat = boatsList.next();
 				verboseList.append(i++);
 				verboseList.append("\t Type of Boat: " + boat.getType() + " | ");
-				//verboseList.append("\t Length of Boat: " + boat.getLength() + " ft");
-				verboseList.append("\t Length of Boat: " + meter2Feet(boat.getLength()) + " ft");
+				// verboseList.append("\t Length of Boat: " + boat.getLength() + " ft");
+				verboseList.append("\t Length of Boat: " + boat.getLength().getLengthInFeet() + " ft");
 				verboseList.append("\n");
 			}
 			verboseList.append("\n");
 		}
 		System.out.println(verboseList.toString());
-		
+
 	}
 
 	@Override
 	public void addName() {
 		System.out.println("Please enter your name (end with enter and -1: )");
-		
+
 	}
 
 	@Override
 	public void changeName() {
 		System.out.println("Please enter your new name (end with enter and -1: )");
-		
+
 	}
 
 	@Override
 	public void addPersonNum() {
 		System.out.println("Please enter your personal-number: (YYYYMMDD-XXXX)");
-		
+
 	}
 
 	@Override
-	public double addBoatLength() {
+	public BoatLength getBoatLength() {
 		System.out.println("Length of boat? (In feet)");
 		double userIn = scan.nextDouble();
-		return userIn;
+		BoatLength boatLength = new BoatLength();
+		boatLength.setLengthInFeet(userIn);
+		return boatLength;
 	}
 
 	@Override
@@ -199,25 +203,26 @@ public class EnglishView implements IView {
 			System.out.println("Boat is deleted");
 		else
 			System.out.println("Boat is NOT deleted");
-		
+
 	}
 
 	@Override
 	public void changeBoat() {
 		System.out.println("Which boat should be changed? Select the number infront of the boat type");
-		
+
 	}
 
 	@Override
 	public void changeTheBoat(String whatToChange) {
 		System.out.println(whatToChange);
-		
+
 	}
 
 	@Override
-	public void changeBoatTypeLength() {
-		System.out.println("Set new type and length for the boat ");
-		
+	public BoatTypes changeBoatType() {
+		System.out.println("Set new type of the boat ");
+		String userIn = scan.next();
+		return BoatTypes.getBoatType(userIn);
 	}
 
 	@Override
@@ -232,15 +237,16 @@ public class EnglishView implements IView {
 	public void memberSaved() {
 		String saved = "---The member is now saved---";
 		System.out.println(saved + "\n");
-		
+
 	}
 
 	@Override
 	public void memberDeleted() {
 		System.out.println("---The member gets deleted---");
 		System.out.println("\n");
-		
+
 	}
+
 	@Override
 	public void boatAdded() {
 		System.out.println("---Boat is now added---");
@@ -248,54 +254,57 @@ public class EnglishView implements IView {
 	}
 
 	@Override
-	public String typeOfBoat() {
+	public BoatTypes getBoatType() {
 		System.out.println("Type of boat? Choose between: Sailboat, Motorsailer, Kayak, Canoe and Other");
 		String userIn = scan.next();
-		return userIn;
+		return BoatTypes.getBoatType(userIn);
 	}
 
 	@Override
 	public void selectID() {
 		String chooseID = "Select the member ID of the member that should be changed";
 		System.out.println(chooseID);
-		
+
 	}
 
 	@Override
 	public void selectBoatToDelete() {
 		System.out.println("Which boat do you want to delete? Select the number in front of boat type");
-		
+
 	}
 
 	@Override
 	public void noChanges() {
 		String no = "No changes made, prints the list of members again";
 		System.out.println(no);
-		
+
 	}
 
 	@Override
 	public void noUser() {
 		String noUser = "No user with that MemID, select again";
 		System.out.println(noUser);
-		
+
 	}
 
 	@Override
 	public void wrongFormat() {
 		System.out.println("Wrong format!It should be like: YYYYMMDDXXXX");
-		
+
 	}
 
 	@Override
 	public void userExist() {
 		System.out.println("Person number exist - returns to start menu");
-		
+
 	}
-	public double meter2Feet(double boatLength) {
-		double test = Boat.feetToMeters(boatLength);
-		// boatLength = boatLength * 3.2808;
-		return test;
+
+	@Override
+	public BoatLength changeBoatLength() {
+		System.out.println("Set new length of the boat (in feet)");
+		double userIn = scan.nextDouble();
+		BoatLength boatLength = new BoatLength();
+		boatLength.setLengthInFeet(userIn);
+		return boatLength;
 	}
 }
-	

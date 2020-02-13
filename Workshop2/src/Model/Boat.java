@@ -1,21 +1,21 @@
 package model;
 
 public class Boat {
-	private double length;
+	private BoatLength length;
 	private BoatTypes type;
 
-	public Boat(BoatTypes type, double lengthOfBoat) {
+	public Boat(BoatTypes type, BoatLength lengthOfBoat) {
 		this.type = type;
 		this.length = lengthOfBoat;
 	}
 
-	public void setLength(int length) {
-		if (length >= 0) {
+	public void setLength(BoatLength length) {
+		if (length.getLengthInMeters() >= 0) {
 			this.length = length;
 		}
 	}
 
-	public double getLength() {
+	public BoatLength getLength() {
 		return this.length;
 	}
 
@@ -25,17 +25,6 @@ public class Boat {
 
 	public BoatTypes getType() {
 		return this.type;
-	}
-
-	public static double feetToMeters(double feet) {
-		double meters = (feet * 0.3048);
-		return meters;
-
-	}
-
-	public static double metersToFeet(double meters) {
-		double feet = (meters / 0.3048);
-		return feet;
 	}
 
 }

@@ -74,11 +74,11 @@ public class MemberRegister {
 		memList.get(memberIndex).setName(newName);
 	}
 
-	public boolean addBoatToMember(int memberId, double lengthOfBoat, String boatType) {
+	public boolean addBoatToMember(int memberId, BoatLength boatLength, BoatTypes boatType) {
 		int memberIndex = getMemberIndex4Id(memberId);
 		try {
 			Member member = memList.get(memberIndex);
-			member.addBoat(BoatTypes.getBoatType(boatType), lengthOfBoat);
+			member.addBoat(boatType, boatLength);
 			return true;
 		} catch (IndexOutOfBoundsException e) {
 			return false;
@@ -96,12 +96,12 @@ public class MemberRegister {
 		}
 	}
 
-	public boolean changeBoatMember(int memberId, int boatIndex, int lengthOfBoat, String boatType) {
+	public boolean changeBoatMember(int memberId, int boatIndex, BoatLength boatLength, BoatTypes boatType) {
 		int memberIndex = getMemberIndex4Id(memberId);
 		try {
 			Member member = memList.get(memberIndex);
 			member.deleteBoat(boatIndex - 1);
-			member.addBoat(BoatTypes.getBoatType(boatType), lengthOfBoat);
+			member.addBoat(boatType, boatLength);
 			return true;
 		} catch (IndexOutOfBoundsException e) {
 			return false;

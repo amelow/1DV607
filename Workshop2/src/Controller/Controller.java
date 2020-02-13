@@ -3,6 +3,8 @@ package controller;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import model.BoatLength;
+import model.BoatTypes;
 import model.FileHandler;
 import model.MemberRegister;
 import view.ChangeMemberOptions;
@@ -173,10 +175,10 @@ public class Controller {
 	 * length, then adding it to the registry at the correct id
 	 */
 	private void addBoat(int memberId) {
-		String typeOfBoat = view.typeOfBoat();
-		double lengthOfBoat = view.addBoatLength();
+		BoatTypes boatType = view.getBoatType();
+		BoatLength boatLength = view.getBoatLength();
 		view.boatAdded();
-		memReg.addBoatToMember(memberId, lengthOfBoat, typeOfBoat);
+		memReg.addBoatToMember(memberId, boatLength, boatType);
 	}
 
 	/*
@@ -189,11 +191,9 @@ public class Controller {
 		view.listMembersBoats(memberId);
 		String userIn = scan.next();
 		int boatIndex = Integer.parseInt(userIn);
-		view.changeBoatTypeLength();
-		userIn = scan.next();
-		int lengthOfBoat = Integer.parseInt(userIn);
-		String boatType = scan.next();
-		boolean updated = memReg.changeBoatMember(memberId, boatIndex, lengthOfBoat, boatType);
+		BoatTypes boatType = view.changeBoatType();
+		BoatLength boatLength = view.changeBoatLength();
+		boolean updated = memReg.changeBoatMember(memberId, boatIndex, boatLength, boatType);
 		view.boatUpdated(updated);
 	}
 

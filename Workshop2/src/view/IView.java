@@ -1,5 +1,8 @@
 package view;
 
+import model.BoatLength;
+import model.BoatTypes;
+
 public interface IView {
 
 	public void welcomeMessage();
@@ -22,7 +25,7 @@ public interface IView {
 
 	public void addPersonNum();
 
-	public double addBoatLength();
+	public BoatLength getBoatLength();
 
 	public void deletedBoat(boolean deletedBoat);
 
@@ -30,7 +33,9 @@ public interface IView {
 
 	public void changeTheBoat(String whatToChange);
 
-	public void changeBoatTypeLength();
+	public BoatTypes changeBoatType();
+
+	public BoatLength changeBoatLength();
 
 	public void boatUpdated(boolean updated);
 
@@ -40,7 +45,7 @@ public interface IView {
 
 	public void boatAdded();
 
-	public String typeOfBoat();
+	public BoatTypes getBoatType();
 
 	public void selectID();
 

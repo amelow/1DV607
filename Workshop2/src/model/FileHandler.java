@@ -36,11 +36,11 @@ public class FileHandler {
 				writer.write(member.getID() + System.lineSeparator());
 				writer.write(member.getAmountOfBoats() + System.lineSeparator());
 				if (member.getAmountOfBoats() > 0) {
-					Iterator<Boat> boatsList= member.getBoatList();					
+					Iterator<Boat> boatsList = member.getBoatList();
 					while (boatsList.hasNext()) {
 						Boat boat = boatsList.next();
 						writer.write(boat.getType().toString() + System.lineSeparator());
-						writer.write((int) boat.getLength() + System.lineSeparator());
+						writer.write((double) boat.getLength().getLengthInMeters() + System.lineSeparator());
 					}
 				}
 				writer.write("," + System.lineSeparator());
@@ -64,8 +64,11 @@ public class FileHandler {
 
 					Member m = new Member(arr.get(0), arr.get(1), Integer.parseInt(arr.get(2)));
 					for (int i = 0; i < Integer.parseInt(arr.get(3)); i++) {
-						m.addBoat(BoatTypes.getBoatType(arr.get(4 + (counter))),
-								Integer.parseInt(arr.get(5 + (counter))));
+						BoatTypes boatType = BoatTypes.getBoatType(arr.get(4 + (counter)));
+						double length = Double.parseDouble(arr.get(5 + (counter)));
+						BoatLength boatLength = new BoatLength();
+						boatLength.setLengthInMeters(length);
+						m.addBoat(boatType, boatLength);
 						counter += 2;
 					}
 					counter = 0;

@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 import model.Boat;
+import model.BoatLength;
 import model.BoatTypes;
 import model.Member;
 import model.MemberRegister;
@@ -211,10 +212,12 @@ public class SwedishView implements IView {
 	}
 
 	@Override
-	public double addBoatLength() {
+	public BoatLength getBoatLength() {
 		System.out.println("Längd av båten?(Ange i meter)");
 		double userIn = scan.nextDouble();
-		return userIn;
+		BoatLength boatLength = new BoatLength();
+		boatLength.setLengthInMeters(userIn);
+		return boatLength;
 	}
 
 	@Override
@@ -229,9 +232,11 @@ public class SwedishView implements IView {
 	}
 
 	@Override
-	public void changeBoatTypeLength() {
+	public BoatTypes changeBoatType() {
 		System.out.println(
-				"Skriv in en ny längd och båttyp: (Segelbåt, Motorbåt, Kajak, Kanot och Annan) tryck enter och sedan Längden (i meter)");
+				"Skriv in en ny båttyp: (Segelbåt, Motorbåt, Kajak, Kanot och Annan) tryck enter och sedan Längden (i meter)");
+		String userIn = scan.next();
+		return BoatTypes.getBoatType(userIn);
 
 	}
 
@@ -262,6 +267,7 @@ public class SwedishView implements IView {
 		System.out.println("---Medlemmen har raderats---");
 		System.out.println("\n");
 	}
+
 	@Override
 	public void boatAdded() {
 		System.out.println("---Båten har lagts till---");

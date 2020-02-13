@@ -49,7 +49,7 @@ public class Member {
 		return boatList.size();
 	}
 
-	public void addBoat(BoatTypes type, double lengthOfBoat) {
+	public void addBoat(BoatTypes type, BoatLength lengthOfBoat) {
 		Boat boat = new Boat(type, lengthOfBoat);
 		boatList.add(boat);
 
