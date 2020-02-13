@@ -182,8 +182,10 @@ public class EnglishView implements IView {
 	}
 
 	@Override
-	public void addPersonNum() {
+	public long addPersonNum() {
 		System.out.println("Please enter your personal-number: (YYYYMMDD-XXXX)");
+		long userIn = scan.nextLong();
+		return userIn;
 
 	}
 

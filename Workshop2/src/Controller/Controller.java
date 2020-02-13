@@ -71,8 +71,7 @@ public class Controller {
 	public void addMember() {
 		view.addName();
 		String createName = nameWithSpace();
-		view.addPersonNum();
-		userLong = scan.nextLong();
+		long userLong = view.addPersonNum();
 		personNumberAsString = String.valueOf(userLong);
 		boolean doesExist = false;
 		boolean correctNum = false;
@@ -186,7 +185,7 @@ public class Controller {
 	 */
 	private void changeBoat(int memberId) {
 		view.listMembersBoats(memberId);
-		int boatIndex =view.changeBoat();
+		int boatIndex = view.changeBoat();
 		BoatTypes boatType = view.changeBoatType();
 		BoatLength boatLength = view.changeBoatLength();
 		boolean updated = memReg.changeBoatMember(memberId, boatIndex, boatLength, boatType);

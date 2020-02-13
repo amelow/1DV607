@@ -23,7 +23,7 @@ public interface IView {
 
 	public void changeName();
 
-	public void addPersonNum();
+	public long addPersonNum();
 
 	public BoatLength getBoatLength();
 

@@ -302,8 +302,10 @@ public class SwedishView implements IView {
 	}
 
 	@Override
-	public void selectBoatToDelete() {
+	public int selectBoatToDelete() {
 		System.out.println("Vilken båt vill du ta bort?(Skriv in siffran framför båtarna i listan för att välja)");
+		int userIn = scan.nextInt();
+		return userIn;
 	}
 
 	@Override
