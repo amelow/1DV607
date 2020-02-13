@@ -135,7 +135,6 @@ public class EnglishView implements IView {
 			compactList.append("Name: " + member.getName() + " | ");
 			compactList.append("Amount of Boats: " + member.getAmountOfBoats() + " | ");
 			compactList.append("\n");
-
 		}
 
 		System.out.println(compactList.toString());
@@ -172,13 +171,11 @@ public class EnglishView implements IView {
 	@Override
 	public void addName() {
 		System.out.println("Please enter your name (end with enter and -1: )");
-
 	}
 
 	@Override
 	public void changeName() {
 		System.out.println("Please enter your new name (end with enter and -1: )");
-
 	}
 
 	@Override

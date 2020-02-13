@@ -13,8 +13,6 @@ import view.MainMenuOptions;
 
 public class Controller {
 
-	private String userIn;
-	private long userLong;
 	private String personNumberAsString;
 	private Scanner scan;
 	private MemberRegister memReg;
