@@ -271,8 +271,10 @@ public class EnglishView implements IView {
 	}
 
 	@Override
-	public void selectBoatToDelete() {
-		System.out.println("Which boat do you want to delete? Select the number in front of boat type");
+	public int selectBoatToDelete() {
+		System.out.println("Which boat do you want to delete? Select the number in front of the boat ");
+		int userIn = scan.nextInt();
+		return userIn;
 
 	}
 

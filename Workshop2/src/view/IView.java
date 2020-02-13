@@ -49,7 +49,7 @@ public interface IView {
 
 	public int selectID();
 
-	public void selectBoatToDelete();
+	public int selectBoatToDelete();
 
 	public void noChanges();
 

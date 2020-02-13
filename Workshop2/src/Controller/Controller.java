@@ -200,10 +200,7 @@ public class Controller {
 	 */
 	private void deleteBoat(int memberId) {
 		view.listMembersBoats(memberId);
-		view.selectBoatToDelete();
-		String deleteBoat = userIn;
-		deleteBoat = scan.next();
-		int deleteBoatInt = Integer.parseInt(deleteBoat);
+		int deleteBoatInt = view.selectBoatToDelete();
 		boolean deletedBoat = memReg.deleteBoatFromMember(memberId, deleteBoatInt);
 		view.deletedBoat(deletedBoat);
 	}
