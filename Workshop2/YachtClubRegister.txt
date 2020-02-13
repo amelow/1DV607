@@ -1,9 +1,11 @@
  bla 
 111111111111
 1040
-2
+3
 Motorsailer
 19.812
 Other
 23.0
+Kayak
+10.3632
 ,

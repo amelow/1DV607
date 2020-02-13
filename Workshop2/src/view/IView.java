@@ -47,7 +47,7 @@ public interface IView {
 
 	public BoatTypes getBoatType();
 
-	public void selectID();
+	public int selectID();
 
 	public void selectBoatToDelete();
 

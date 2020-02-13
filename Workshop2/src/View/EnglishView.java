@@ -260,9 +260,11 @@ public class EnglishView implements IView {
 	}
 
 	@Override
-	public void selectID() {
+	public int selectID() {
 		String chooseID = "Select the member ID of the member that should be changed";
 		System.out.println(chooseID);
+		int userIn = scan.nextInt();
+		return userIn;
 
 	}
 
