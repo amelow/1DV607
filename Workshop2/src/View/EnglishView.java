@@ -160,7 +160,6 @@ public class EnglishView implements IView {
 				Boat boat = boatsList.next();
 				verboseList.append(i++);
 				verboseList.append("\t Type of Boat: " + boat.getType() + " | ");
-				// verboseList.append("\t Length of Boat: " + boat.getLength() + " ft");
 				verboseList.append("\t Length of Boat: " + boat.getLength().getLengthInFeet() + " ft");
 				verboseList.append("\n");
 			}

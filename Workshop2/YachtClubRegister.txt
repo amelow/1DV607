@@ -1,11 +1,9 @@
- Maja mus 
-199612114565
+ bla 
+111111111111
 1040
-3
-Sailboat
-23
-Kayak
 2
-Canoe
-3
+Motorsailer
+19.812
+Other
+23.0
 ,

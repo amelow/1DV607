@@ -156,8 +156,9 @@ public class SwedishView implements IView {
 			while (boatsList.hasNext()) {
 				Boat boat = boatsList.next();
 				verboseList.append(i++);
-				verboseList.append("\t Båtens längd: " + boat.getLength() + " meter");
+				//verboseList.append("\t Båtens längd: " + boat.getLength() + " meter");
 				verboseList.append("\t Båttyp: " + boat2bat(boat.getType()));
+				verboseList.append("\t Båtens längd: " + boat.getLength().getLengthInMeters());
 				verboseList.append("\n");
 			}
 			verboseList.append("\n");
@@ -165,18 +166,18 @@ public class SwedishView implements IView {
 		System.out.println(verboseList.toString());
 	}
 
-	private String bat2boat(String b) {
+	private BoatTypes bat2boat(String b) {
 		switch (b) {
 		case ("Segelbåt"):
-			return "Sailboat";
+			return BoatTypes.Sailboat;
 		case ("Motorbåt"):
-			return "Motorsailer";
+			return BoatTypes.Motorsailer;
 		case ("Kajak"):
-			return "Kayak";
+			return BoatTypes.Kayak;
 		case ("Kanot"):
-			return "Canoe";
+			return BoatTypes.Canoe;
 		default:
-			return "Other";
+			return BoatTypes.Other;
 		}
 	}
 
@@ -245,7 +246,7 @@ public class SwedishView implements IView {
 		System.out.println("Skriv in en ny längd i meter:");
 		double userIn = scan.nextDouble();
 		BoatLength boatLength = new BoatLength();
-		boatLength.setLengthInFeet(userIn);
+		boatLength.setLengthInMeters(userIn);
 		return boatLength;
 	}
 
@@ -287,7 +288,7 @@ public class SwedishView implements IView {
 	public BoatTypes getBoatType() {
 		System.out.println("Vilken typ av båt? Välj mellan: Segelbåt, Motorbåt, Kajak, Kanot och Annan");
 		String userIn = scan.next();
-		BoatTypes boatType = null; // bat2boat(userIn);
+		BoatTypes boatType = bat2boat(userIn);
 		return boatType;
 	}
 
