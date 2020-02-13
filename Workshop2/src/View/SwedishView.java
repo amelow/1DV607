@@ -241,6 +241,15 @@ public class SwedishView implements IView {
 	}
 
 	@Override
+	public BoatLength changeBoatLength() {
+		System.out.println("Skriv in en ny längd i meter:");
+		double userIn = scan.nextDouble();
+		BoatLength boatLength = new BoatLength();
+		boatLength.setLengthInFeet(userIn);
+		return boatLength;
+	}
+
+	@Override
 	public void deletedBoat(boolean deletedBoat) {
 		if (deletedBoat)
 			System.out.println("Båten är borttagen");
@@ -278,7 +287,7 @@ public class SwedishView implements IView {
 	public BoatTypes getBoatType() {
 		System.out.println("Vilken typ av båt? Välj mellan: Segelbåt, Motorbåt, Kajak, Kanot och Annan");
 		String userIn = scan.next();
-		BoatTypes boatType = null; //bat2boat(userIn);
+		BoatTypes boatType = null; // bat2boat(userIn);
 		return boatType;
 	}
 
