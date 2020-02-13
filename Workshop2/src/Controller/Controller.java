@@ -80,7 +80,6 @@ public class Controller {
 		}
 		int lengthOfPersonNum = personNumberAsString.length();
 		correctNum = memReg.checkLengthOfPersonNum(lengthOfPersonNum);
-		// if (correctNum == true) {
 		if (correctNum == false) {
 			view.wrongFormat();
 		} else {
