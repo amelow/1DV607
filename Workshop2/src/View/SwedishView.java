@@ -157,7 +157,7 @@ public class SwedishView implements IView {
 				Boat boat = boatsList.next();
 				verboseList.append(i++);
 				verboseList.append("\t Båttyp: " + boat2bat(boat.getType()));
-				verboseList.append("\t Båtens längd: " + boat.getLength().getLengthInMeters());
+				verboseList.append("\t Båtens längd: " + boat.getLength().getLengthInMeters()+" m");
 				verboseList.append("\n");
 			}
 			verboseList.append("\n");
@@ -238,7 +238,7 @@ public class SwedishView implements IView {
 	@Override
 	public BoatTypes changeBoatType() {
 		System.out.println(
-				"Skriv in en ny båttyp: (Segelbåt, Motorbåt, Kajak, Kanot och Annan) tryck enter och sedan Längden (i meter)");
+				"Skriv in en ny båttyp: (Segelbåt, Motorbåt, Kajak, Kanot och Annan)");
 		String userIn = scan.next();
 		return BoatTypes.getBoatType(userIn);
 
